@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootNode" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+   <children>
+      <Pane layoutX="15.0" layoutY="14.0" prefHeight="574.0" prefWidth="777.0" style="-fx-background-color: F5F1F8; -fx-background-radius: 5;">
+         <children>
+            <Pane prefHeight="574.0" prefWidth="158.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+               <children>
+                  <Label layoutX="9.0" layoutY="29.0" text="APEX AUTO RENTAL" textFill="#0e5e5a">
+                     <font>
+                        <Font name="Corbel Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="60.0" layoutY="100.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Dashboard" textFill="#05a8a0">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="59.0" layoutY="134.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="40.0" style="-fx-background-color: white;" text="Cars" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="57.0" layoutY="167.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white;" text="Customer" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="48.0" layoutY="197.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white;" text="Driver" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="53.0" layoutY="234.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white;" text="Booking" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="53.0" layoutY="270.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white;" text="Payment" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="56.0" layoutY="305.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white;" text="Employee" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="46.0" layoutY="337.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white;" text="Salary" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="49.0" layoutY="368.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white;" text="Reports" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="18.0" fitWidth="12.0" layoutX="49.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/dashboard.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="45.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-car-24.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="45.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-customer-24.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="18.0" fitWidth="22.0" layoutX="45.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-driver-67 (1).png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="44.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-booking-30.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="44.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-payment-24.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="43.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-employee-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="43.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-salary-30.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="43.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8-report-24.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="48.0" layoutY="538.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white;" text="Log Out" textFill="#726e6e">
+                     <font>
+                        <Font name="Corbel" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="46.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/exit.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="166.0" layoutY="12.0" prefHeight="295.0" prefWidth="308.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+               <children>
+                  <Text layoutX="5.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Most Booked Cars" />
+                  <PieChart fx:id="piechart" layoutY="20.0" prefHeight="275.0" prefWidth="308.0" stylesheets="@../pieChartColour/style.css" />
+               </children>
+            </Pane>
+            <Pane layoutX="168.0" layoutY="319.0" prefHeight="245.0" prefWidth="602.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+               <children>
+                  <BarChart fx:id="barChart" layoutX="10.0" layoutY="46.0" prefHeight="191.0" prefWidth="582.0" stylesheets="@../barChartColour/style.css">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <Text layoutX="21.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ratings" />
+               </children></Pane>
+            <DatePicker layoutX="589.0" layoutY="12.0" prefHeight="18.0" prefWidth="174.0" promptText="Date" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

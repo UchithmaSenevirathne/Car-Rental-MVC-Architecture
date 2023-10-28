@@ -25,4 +25,15 @@ public class RegisterFormController {
         stage.setTitle("Login Form");
         stage.setScene(scene);
     }
+
+    @FXML
+    void btnSignUpOnAction(ActionEvent event) throws IOException {
+
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Dashboard Form");
+        stage.setScene(scene);
+    }
 }
