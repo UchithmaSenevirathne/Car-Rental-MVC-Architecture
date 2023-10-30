@@ -130,12 +130,12 @@
             <Pane layoutX="166.0" layoutY="12.0" prefHeight="295.0" prefWidth="308.0" style="-fx-background-color: white; -fx-background-radius: 5;">
                <children>
                   <Text layoutX="5.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Most Booked Cars" />
-                  <PieChart fx:id="piechart" layoutY="20.0" prefHeight="275.0" prefWidth="308.0" stylesheets="@../pieChartColour/style.css" />
+                  <PieChart fx:id="piechart" layoutY="20.0" prefHeight="275.0" prefWidth="308.0" stylesheets="@../Style/pieChartStyle.css" />
                </children>
             </Pane>
             <Pane layoutX="168.0" layoutY="319.0" prefHeight="245.0" prefWidth="602.0" style="-fx-background-color: white; -fx-background-radius: 5;">
                <children>
-                  <BarChart fx:id="barChart" layoutX="10.0" layoutY="46.0" prefHeight="191.0" prefWidth="582.0" stylesheets="@../barChartColour/style.css">
+                  <BarChart fx:id="barChart" layoutX="10.0" layoutY="46.0" prefHeight="191.0" prefWidth="582.0" stylesheets="@../Style/barChartStyle.css">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>

@@ -80,5 +80,6 @@ public class DashboardFormController implements Initializable {
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setTitle("Customer Manage Form");
         stage.setScene(scene);
+        stage.centerOnScreen();
     }
 }
