@@ -1,18 +1,25 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.tm.CustomerTm;
+import lk.ijse.model.CustomerModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class CustomerManageFormController {
 
@@ -51,7 +58,29 @@ public class CustomerManageFormController {
     }
 
     private void loadAllCustomers(){
+        var model = new CustomerModel();
 
+        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+
+        try{
+            List<CustomerDto> dtoList = model.getAllCustomers();
+
+            for(CustomerDto dto : dtoList){
+                obList.add(
+                        new CustomerTm(
+                                dto.getId(),
+                                dto.getName(),
+                                dto.getAddress(),
+                                dto.getEmail(),
+                                dto.getContact()
+                        )
+                );
+            }
+            tableView.setItems(obList);
+
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     // @FXML

@@ -18,14 +18,14 @@
                   <Font name="Corbel Bold" size="13.0" />
                </font>
             </Label>
-            <TableView layoutX="24.0" layoutY="163.0" prefHeight="322.0" prefWidth="735.0">
+            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="322.0" prefWidth="735.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="130.0" text="Name" />
-                  <TableColumn prefWidth="128.0" text="Address" />
-                  <TableColumn prefWidth="228.0" text="E-mail" />
-                  <TableColumn prefWidth="94.0" text="Contact" />
-                  <TableColumn prefWidth="79.0" text="EDIT" />
+                <TableColumn fx:id="colId" prefWidth="65.0" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="104.0" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="110.0" text="Address" />
+                  <TableColumn fx:id="colEmail" prefWidth="203.0" text="E-mail" />
+                  <TableColumn fx:id="colContact" prefWidth="129.0" text="Contact" />
+                  <TableColumn prefWidth="123.0" text="EDIT" />
               </columns>
             </TableView>
             <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCusOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
@@ -33,13 +33,8 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <Button layoutX="110.0" layoutY="126.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      UPDATE" textFill="#115d76">
-               <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Button>
-            <TextField layoutX="199.0" layoutY="126.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
-            <Button layoutX="391.0" layoutY="126.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      SEARCH" textFill="#115d76">
+            <TextField layoutX="113.0" layoutY="126.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
+            <Button layoutX="306.0" layoutY="126.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      SEARCH" textFill="#115d76">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>

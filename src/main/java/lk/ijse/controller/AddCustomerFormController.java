@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import lk.ijse.dto.CustomerDto;
 import lk.ijse.model.CustomerModel;
 
-public class AddCustomerFormController {
+public class AddCustomerFormController{
 
     @FXML
     private AnchorPane rootNode;
