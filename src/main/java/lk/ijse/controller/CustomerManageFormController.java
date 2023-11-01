@@ -44,6 +44,8 @@ public class CustomerManageFormController {
     @FXML
     private TableView<CustomerTm> tableView;
 
+    private final ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+
     public void initialize(){
         setCellValueFactory();
         loadAllCustomers();
@@ -57,10 +59,10 @@ public class CustomerManageFormController {
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
     }
 
-    private void loadAllCustomers(){
+    public void loadAllCustomers(){
         var model = new CustomerModel();
 
-        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+        //ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
 
         try{
             List<CustomerDto> dtoList = model.getAllCustomers();

@@ -1,5 +1,7 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -7,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.CustomerDto;
+import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
 
 public class AddCustomerFormController{
@@ -30,6 +33,8 @@ public class AddCustomerFormController{
     private TextField txtcusName;
 
     Stage stage;
+
+    //private final ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
 
     @FXML
     void btnCancelCusOnAction(ActionEvent event) {
@@ -58,6 +63,7 @@ public class AddCustomerFormController{
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
     }
 
     private void clearFields() {
