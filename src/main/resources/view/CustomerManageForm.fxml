@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="590.0" prefWidth="949.0" style="-fx-background-color: #115d76;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerManageFormController">
+<AnchorPane fx:id="rootNode" prefHeight="590.0" prefWidth="949.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerManageFormController">
    <children>
       <Pane layoutX="149.0" layoutY="20.0" prefHeight="549.0" prefWidth="781.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
          <children>
-            <Label layoutX="37.0" layoutY="42.0" text="CUSTOMERS" textFill="#115d76">
+            <Label layoutX="37.0" layoutY="42.0" text="CUSTOMERS" textFill="#0a4051">
                <font>
                   <Font name="Corbel Bold" size="13.0" />
                </font>
@@ -51,6 +51,12 @@
                   <Image url="@../image/search-interface-symbol.png" />
                </image>
             </ImageView>
+            <Button layoutX="692.0" layoutY="501.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="   Back" textFill="WHITE" />
+            <Button layoutX="112.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       UPDATE" textFill="#115d76">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Label layoutX="10.0" layoutY="55.0" text="APEX" textFill="WHITE">
@@ -63,47 +69,47 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="139.0" style="-fx-background-color: #115d76;" text="                     Dashboard" textFill="#e9c90e">
+      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="                     Dashboard" textFill="#e9c90e">
          <font>
             <Font name="Corbel Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #115d76;" text="           Customer" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #115d76;" text="   Driver" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="331.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #115d76;" text="          Employee" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="331.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="          Employee" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #115d76;" text="Car" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="Car" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="261.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #115d76;" text="       Booking" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="261.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="       Booking" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #115d76;" text="        Payment" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="        Payment" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="363.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #115d76;" text="   Salary" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="363.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Salary" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="409.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #115d76;" text="     Report" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="409.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Report" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>

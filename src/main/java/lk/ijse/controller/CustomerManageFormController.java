@@ -109,7 +109,7 @@ public class CustomerManageFormController {
 
     @FXML
     void btnUPDATEOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/AddCustomerForm.fxml"));
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/UpdateCustomerForm.fxml"));
 
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();

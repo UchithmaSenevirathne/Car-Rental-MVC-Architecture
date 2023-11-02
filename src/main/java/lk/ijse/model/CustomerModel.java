@@ -51,4 +51,43 @@ public class CustomerModel {
         }
         return dtoList;
     }
+
+    public CustomerDto searchCustomerToUpdate(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM customer WHERE id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, id);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        CustomerDto dto = null;
+
+        if(resultSet.next()) {
+            String cus_id = resultSet.getString(1);
+            String cus_name = resultSet.getString(2);
+            String cus_address = resultSet.getString(3);
+            String cus_email = resultSet.getString(4);
+            String cus_contact = resultSet.getString(5);
+
+            dto = new CustomerDto(cus_id, cus_name, cus_address, cus_email, cus_contact);
+        }
+
+        return dto;
+    }
+
+    public boolean updateCustomer(CustomerDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE customer SET name = ?, address = ?, email = ?, contact = ?  WHERE id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, dto.getName());
+        pstm.setString(2, dto.getAddress());
+        pstm.setString(3, dto.getEmail());
+        pstm.setString(4, dto.getContact());
+        pstm.setString(5, dto.getId());
+
+        return pstm.executeUpdate() > 0;
+    }
 }
