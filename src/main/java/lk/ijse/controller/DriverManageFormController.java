@@ -107,14 +107,21 @@ public class DriverManageFormController {
         Scene scene = new Scene(rootNode);
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
 
-        stage.setScene(new Scene(rootNode));
+        stage.setScene(scene); // stage.setScene(new Scene(rootNode));
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
     }
 
     @FXML
-    void btnDELETEOnAction(ActionEvent event) {
+    void btnDELETEOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DeleteDriverForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Delete Driver Form");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
@@ -137,6 +144,7 @@ public class DriverManageFormController {
         stage.setTitle("Customer Manage Form");
         stage.setScene(scene);
         stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
@@ -145,8 +153,15 @@ public class DriverManageFormController {
     }
 
     @FXML
-    void btnUPDATEOnAction(ActionEvent event) {
+    void btnUPDATEOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/UpdateDriverForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Update Driver Form");
+        stage.centerOnScreen();
+        stage.show();
     }
 
 }

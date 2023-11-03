@@ -138,7 +138,7 @@ public class CustomerManageFormController {
         Scene scene = new Scene(rootNode);
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
 
-        stage.setScene(new Scene(rootNode));
+        stage.setScene(scene); //stage.setScene(new Scene(rootNode));
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
     }

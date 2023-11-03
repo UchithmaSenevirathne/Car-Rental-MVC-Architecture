@@ -1,5 +1,6 @@
 package lk.ijse.model;
 
+import javafx.fxml.FXMLLoader;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.DriverDto;
 
@@ -52,5 +53,57 @@ public class DriverModel {
             dtoList.add(dto);
         }
         return dtoList;
+    }
+
+    public boolean updateDriver(DriverDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE driver SET name = ?, address = ?, email = ?, contact = ?, licenseNo = ? WHERE id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, dto.getName());
+        pstm.setString(2, dto.getAddress());
+        pstm.setString(3, dto.getEmail());
+        pstm.setString(4, dto.getContact());
+        pstm.setString(5, dto.getLicenseNo());
+        pstm.setString(6, dto.getId());
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public DriverDto searchDriver(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM driver WHERE id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, id);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        DriverDto dto = null;
+
+        if (resultSet.next()) {
+            String dr_id = resultSet.getString(1);
+            String dr_name = resultSet.getString(2);
+            String dr_address = resultSet.getString(3);
+            String dr_email = resultSet.getString(4);
+            String dr_contact = resultSet.getString(5);
+            String dr_licenseNo = resultSet.getString(6);
+
+            dto = new DriverDto(dr_id, dr_name, dr_address, dr_email, dr_contact, dr_licenseNo);
+        }
+        return dto;
+    }
+
+    public boolean deleteDriver(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "DELETE FROM driver WHERE id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, id);
+
+        return pstm.executeUpdate() > 0;
     }
 }
