@@ -24,6 +24,7 @@ public class RegisterFormController {
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setTitle("Login Form");
         stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
@@ -35,5 +36,6 @@ public class RegisterFormController {
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setTitle("Dashboard Form");
         stage.setScene(scene);
+        stage.centerOnScreen();
     }
 }

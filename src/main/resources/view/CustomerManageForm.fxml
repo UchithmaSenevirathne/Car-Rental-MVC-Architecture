@@ -36,7 +36,7 @@
                </font>
             </Button>
             <TextField layoutX="475.0" layoutY="38.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
-            <Button layoutX="669.0" layoutY="38.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      SEARCH" textFill="#115d76">
+            <Button layoutX="669.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      SEARCH" textFill="#115d76">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
@@ -51,12 +51,27 @@
                   <Image url="@../image/search-interface-symbol.png" />
                </image>
             </ImageView>
-            <Button layoutX="692.0" layoutY="501.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="   Back" textFill="WHITE" />
+            <Button layoutX="692.0" layoutY="501.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="   Back" textFill="WHITE" />
             <Button layoutX="112.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       UPDATE" textFill="#115d76">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
+            <Button layoutX="202.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="     DELETE" textFill="#115d76">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="118.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/update.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="208.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/delete.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Label layoutX="10.0" layoutY="55.0" text="APEX" textFill="WHITE">
@@ -69,17 +84,17 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="                     Dashboard" textFill="#e9c90e">
-         <font>
-            <Font name="Corbel Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="              Dashboard" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="#e9c90e">
+         <font>
+            <Font name="Corbel Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
@@ -117,12 +132,12 @@
       <Pane layoutX="5.0" layoutY="397.0" opacity="0.19" prefHeight="3.0" prefWidth="139.0" style="-fx-background-color: f5f1f8;" />
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/dashboard%20(1).png" />
+            <Image url="@../image/dashboard.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="22.0" fitWidth="16.0" layoutX="37.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/customer.png" />
+            <Image url="@../image/customer (1).png" />
          </image>
       </ImageView>
       <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="36.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
@@ -143,6 +158,26 @@
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="52.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/ApexIcon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/booking.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="16.0" layoutX="36.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/payment.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/salary.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/report.png" />
          </image>
       </ImageView>
    </children>

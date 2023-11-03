@@ -19,18 +19,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardFormController implements Initializable {
+public class DashboardFormController {
 
-    @FXML
+   /* @FXML
     private PieChart piechart;
 
     @FXML
-    private BarChart<?, ?> barChart;
+    private BarChart<?, ?> barChart;*/
 
     @FXML
     private AnchorPane rootNode;
 
-    @Override
+  /*  @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
@@ -69,7 +69,7 @@ public class DashboardFormController implements Initializable {
         series2.getData().add(new XYChart.Data("5 Star", 4034));
 
         barChart.getData().addAll(series1,series2);
-    }
+    }*/
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) throws IOException {
@@ -82,4 +82,48 @@ public class DashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
     }
+
+    @FXML
+    void btnDriverOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverManageForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Driver Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnEmployeeOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnPaymentOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnReportOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnSalaryOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnBookingOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnCarOnAction(ActionEvent event) {
+
+    }
+
 }
+
+

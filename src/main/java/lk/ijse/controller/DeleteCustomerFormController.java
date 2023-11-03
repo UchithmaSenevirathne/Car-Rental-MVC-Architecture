@@ -3,15 +3,15 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.CustomerDto;
+import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
 
-import java.sql.SQLException;
-
-public class UpdateCustomerFormController {
+public class DeleteCustomerFormController {
 
     @FXML
     private AnchorPane rootNode;
@@ -31,6 +31,9 @@ public class UpdateCustomerFormController {
     @FXML
     private TextField txtcusName;
 
+    @FXML
+    private TableView<CustomerTm> tableView;
+
     Stage stage;
 
     @FXML
@@ -40,25 +43,20 @@ public class UpdateCustomerFormController {
     }
 
     @FXML
-    void btnUpdateCusOnAction(ActionEvent event) {
+    void btnDeleteCusOnAction(ActionEvent event) {
         String id = txtcusId.getText();
-        String name = txtcusName.getText();
-        String address = txtcusAddress.getText();
-        String email = txtcusEmail.getText();
-        String contact = txtcusContact.getText();
-
-        var dto = new CustomerDto(id, name, address, email, contact);
-
+        
         var model = new CustomerModel();
 
         try {
-            boolean isUpdated = model.updateCustomer(dto);
-            //System.out.println(isUpdated);
-            if(isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+            boolean isDeleted = model.deleteCustomer(id);
+
+            if (isDeleted) {
+                //tableView.refresh();
+                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
                 clearFields();
             }
-        } catch (SQLException e) {
+        }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
@@ -77,21 +75,21 @@ public class UpdateCustomerFormController {
 
         var model = new CustomerModel();
 
-        try {
-            CustomerDto dto = model.searchCustomer(id);
+        try{
+            CustomerDto dto  = model.searchCustomer(id);
 
-            if(dto != null){
-                fillFields(dto);
+            if (dto != null) {
+                fillfields(dto);
             }else{
                 new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
             }
-        } catch (SQLException e) {
+
+        }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
-
-    private void fillFields(CustomerDto dto) {
+    private void fillfields(CustomerDto dto) {
         txtcusId.setText(dto.getId());
         txtcusName.setText(dto.getName());
         txtcusAddress.setText(dto.getAddress());

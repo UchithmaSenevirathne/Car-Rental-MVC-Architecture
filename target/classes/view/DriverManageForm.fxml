@@ -11,26 +11,28 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="590.0" prefWidth="949.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerManageFormController">
+<AnchorPane fx:id="rootNode" prefHeight="590.0" prefWidth="949.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DriverManageFormController">
    <children>
       <Pane layoutX="149.0" layoutY="20.0" prefHeight="549.0" prefWidth="781.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
          <children>
-            <Label layoutX="37.0" layoutY="42.0" text="CUSTOMERS" textFill="#0a4051">
+            <Label layoutX="37.0" layoutY="42.0" text="DRIVERS" textFill="#0a4051">
                <font>
                   <Font name="Corbel Bold" size="13.0" />
                </font>
             </Label>
             <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="322.0" prefWidth="735.0">
               <columns>
-                <TableColumn fx:id="colId" prefWidth="65.0" text="ID" />
-                <TableColumn fx:id="colName" prefWidth="104.0" text="Name" />
-                  <TableColumn fx:id="colAddress" prefWidth="110.0" text="Address" />
-                  <TableColumn fx:id="colEmail" prefWidth="203.0" text="E-mail" />
-                  <TableColumn fx:id="colContact" prefWidth="129.0" text="Contact" />
-                  <TableColumn prefWidth="123.0" text="EDIT" />
+                <TableColumn fx:id="colId" prefWidth="62.0" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="81.0" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="97.0" text="Address" />
+                  <TableColumn fx:id="colEmail" prefWidth="151.0" text="E-mail" />
+                  <TableColumn fx:id="colContact" prefWidth="112.0" text="Contact" />
+                  <TableColumn fx:id="colLicenseNo" prefWidth="89.0" text="License No" />
+                  <TableColumn fx:id="colAvailablity" prefWidth="70.0" text="Availability" />
+                  <TableColumn prefWidth="72.0" text="EDIT" />
               </columns>
             </TableView>
-            <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCusOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
+            <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDDrOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
@@ -89,14 +91,14 @@
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="#e9c90e">
-         <font>
-            <Font name="Corbel Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="#e9c90e">
+         <font>
+            <Font name="Corbel Bold" size="12.0" />
          </font>
       </Button>
       <Button layoutX="-8.0" layoutY="331.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="          Employee" textFill="WHITE">
@@ -137,12 +139,12 @@
       </ImageView>
       <ImageView fitHeight="22.0" fitWidth="16.0" layoutX="37.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/customer (1).png" />
+            <Image url="@../image/customer.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="36.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/car-steering-wheel.png" />
+            <Image url="@../image/car-steering-wheel (1).png" />
          </image>
       </ImageView>
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="34.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">

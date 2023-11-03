@@ -59,7 +59,7 @@ public class CustomerManageFormController {
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
     }
 
-    public void loadAllCustomers(){
+    private void loadAllCustomers(){
         var model = new CustomerModel();
 
         //ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
@@ -85,15 +85,27 @@ public class CustomerManageFormController {
         }
     }
 
-    // @FXML
-   /* void btnDashboardOnAction(ActionEvent event) throws IOException {
+     @FXML
+    void btnDashboardOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
 
         Scene scene = new Scene(rootNode);
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setTitle("Dashboard Form");
         stage.setScene(scene);
-    }*/
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnDriverOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverManageForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Driver Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
 
     @FXML
     void btnADDCusOnAction(ActionEvent event) throws IOException {
@@ -102,7 +114,7 @@ public class CustomerManageFormController {
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("Customer Form");
+        stage.setTitle("Add Customer Form");
         stage.centerOnScreen();
         stage.show();
     }
@@ -114,8 +126,37 @@ public class CustomerManageFormController {
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("Customer Form");
+        stage.setTitle("Update Customer Form");
         stage.centerOnScreen();
         stage.show();
+    }
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+
+        stage.setScene(new Scene(rootNode));
+        stage.setTitle("Dashboard Form");
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnDELETEOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DeleteCustomerForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Delete Customer Form");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    @FXML
+    void btnSEARCHOnAction(ActionEvent event) {
+
     }
 }

@@ -2,6 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.CustomerDto;
+import lk.ijse.dto.DriverDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,7 +53,7 @@ public class CustomerModel {
         return dtoList;
     }
 
-    public CustomerDto searchCustomerToUpdate(String id) throws SQLException {
+    public CustomerDto searchCustomer(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM customer WHERE id = ?";
@@ -90,4 +91,17 @@ public class CustomerModel {
 
         return pstm.executeUpdate() > 0;
     }
+
+    public boolean deleteCustomer(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "DELETE FROM customer WHERE id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, id);
+
+        return pstm.executeUpdate() > 0;
+    }
+
+
 }
