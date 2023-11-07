@@ -2,6 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.CarDto;
+import lk.ijse.dto.CustomerDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,5 +44,39 @@ public class CarModel {
             dtoList.add(dto);
         }
         return dtoList;
+    }
+
+    public boolean updateCar(CarDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE customer SET brand = ? WHERE carNo = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, dto.getBrand());
+        pstm.setString(2, dto.getCarNo());
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public CarDto searchCar(String carNo) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM car WHERE carNo = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, carNo);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        CarDto dto = null;
+
+        if(resultSet.next()) {
+            String car_number = resultSet.getString(1);
+            String car_brand = resultSet.getString(2);
+
+            dto = new CarDto(car_number, car_brand);
+        }
+
+        return dto;
     }
 }
