@@ -49,7 +49,7 @@ public class CarModel {
     public boolean updateCar(CarDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE customer SET brand = ? WHERE carNo = ?";
+        String sql = "UPDATE car SET brand = ? WHERE carNo = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getBrand());
@@ -78,5 +78,16 @@ public class CarModel {
         }
 
         return dto;
+    }
+
+    public boolean deleteCar(String carNo) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "DELETE FROM car WHERE carNo = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, carNo);
+
+        return pstm.executeUpdate() > 0;
     }
 }

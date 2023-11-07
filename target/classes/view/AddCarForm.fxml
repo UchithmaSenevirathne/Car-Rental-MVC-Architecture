@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="287.0" prefWidth="334.0" style="-fx-background-color: #115d76;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DeleteCarFormController">
+<AnchorPane fx:id="rootNode" prefHeight="287.0" prefWidth="334.0" style="-fx-background-color: #115d76;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddCarFormController">
    <children>
-      <TextField fx:id="txtCarNo" layoutX="148.0" layoutY="52.0" onAction="#txtCarNoOnAction" prefHeight="25.0" prefWidth="173.0" promptText="Car No" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtCarNo" layoutX="148.0" layoutY="52.0" prefHeight="25.0" prefWidth="173.0" promptText="Car No" style="-fx-background-radius: 5;" />
       <TextField fx:id="txtCarBrand" layoutX="148.0" layoutY="130.0" prefHeight="25.0" prefWidth="173.0" promptText="Brand" style="-fx-background-radius: 5;" />
       <Label layoutX="28.0" layoutY="56.0" text="Car Number     :" textFill="WHITE">
          <font>
@@ -18,12 +18,12 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button layoutX="192.0" layoutY="205.0" mnemonicParsing="false" onAction="#btnDeleteCarOnAction" prefHeight="25.0" prefWidth="53.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Delete" textFill="#115d76">
+      <Button layoutX="190.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnSaveCarOnAction" prefHeight="25.0" prefWidth="52.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Save" textFill="#115d76">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="267.0" layoutY="205.0" mnemonicParsing="false" onAction="#btnCancelCarOnAction" style="-fx-background-radius: 10;" text="Cancel" textFill="#115d76">
+      <Button layoutX="267.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnCancelCarOnAction" style="-fx-background-radius: 10;" text="Cancel" textFill="#115d76">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

@@ -120,8 +120,7 @@ SELECT * FROM payment;
 
 CREATE TABLE car(
         carNo VARCHAR(5) PRIMARY KEY,
-        brand VARCHAR(20) NOT NULL,
-        availability VARCHAR(10) NOT NULL
+        brand VARCHAR(20) NOT NULL
 );
 
 DESC car;

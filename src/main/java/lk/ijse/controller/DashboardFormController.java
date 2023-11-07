@@ -120,8 +120,14 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnCarOnAction(ActionEvent event) {
+    void btnCarOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CarManageForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Car Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
 }
