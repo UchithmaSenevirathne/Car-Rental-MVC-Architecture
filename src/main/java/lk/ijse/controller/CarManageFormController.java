@@ -66,8 +66,15 @@ public class CarManageFormController {
     }
 
     @FXML
-    void btnDELETEOnAction(ActionEvent event) {
+    void btnDELETEOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DeleteCarForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Delete Car Form");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
