@@ -4,6 +4,8 @@ public class CarDto {
     private String carNo;
     private String brand;
 
+    public CarDto(){}
+    
     public CarDto(String carNo, String brand) {
         this.carNo = carNo;
         this.brand = brand;

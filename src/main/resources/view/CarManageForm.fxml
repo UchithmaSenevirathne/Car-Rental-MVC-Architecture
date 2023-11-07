@@ -22,11 +22,10 @@
             </Label>
             <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="322.0" prefWidth="735.0">
               <columns>
-                <TableColumn fx:id="colCarNo" prefWidth="154.0" text="Car Number" />
-                <TableColumn fx:id="colBrand" prefWidth="165.0" text="Brand" />
-                  <TableColumn fx:id="colColour" prefWidth="163.0" text="Colour" />
-                  <TableColumn prefWidth="160.0" text="Availability" />
-                  <TableColumn prefWidth="92.0" text="EDIT" />
+                <TableColumn fx:id="colCarNo" prefWidth="162.0" text="Car Number" />
+                <TableColumn fx:id="colBrand" prefWidth="247.0" text="Brand" />
+                  <TableColumn prefWidth="197.0" text="Availability" />
+                  <TableColumn prefWidth="128.0" text="EDIT" />
               </columns>
             </TableView>
             <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCarOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">

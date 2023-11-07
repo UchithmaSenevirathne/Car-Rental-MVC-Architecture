@@ -1,5 +1,7 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,10 +9,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.CarDto;
+import lk.ijse.dto.tm.CarTm;
+import lk.ijse.dto.tm.CustomerTm;
+import lk.ijse.model.CarModel;
 
 import java.io.IOException;
+import java.util.List;
 
 public class CarManageFormController {
 
@@ -21,14 +29,42 @@ public class CarManageFormController {
     private TableColumn<?, ?> colCarNo;
 
     @FXML
-    private TableColumn<?, ?> colColour;
-
-    @FXML
     private AnchorPane rootNode;
 
     @FXML
-    private TableView<?> tableView;
+    private TableView<CarTm> tableView;
 
+    private final ObservableList<CarTm> obList = FXCollections.observableArrayList();
+
+    public void initialize(){
+        setCellValueFactory();
+        loadAllCars();
+    }
+
+    private void setCellValueFactory(){
+        colCarNo.setCellValueFactory(new PropertyValueFactory<>("carNo"));
+        colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+    }
+
+    private void loadAllCars(){
+        var model = new CarModel();
+
+        try {
+            List<CarDto> dtoList = model.getAllCars();
+
+            for (CarDto dto : dtoList){
+                obList.add(
+                        new CarTm(
+                                dto.getCarNo(),
+                                dto.getBrand()
+                        )
+                );
+            }
+            tableView.setItems(obList);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
     @FXML
     void btnADDCarOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/AddCarForm.fxml"));
