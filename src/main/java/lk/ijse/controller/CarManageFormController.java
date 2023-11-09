@@ -14,7 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.CarDto;
 import lk.ijse.dto.tm.CarTm;
-import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CarModel;
 
 import java.io.IOException;
@@ -67,7 +66,7 @@ public class CarManageFormController {
     }
     @FXML
     void btnADDCarOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/AddCarForm.fxml"));
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CarForm.fxml"));
 
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();

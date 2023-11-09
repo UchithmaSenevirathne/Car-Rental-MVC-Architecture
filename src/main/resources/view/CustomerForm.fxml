@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="476.0" prefWidth="429.0" style="-fx-background-color: #115d76;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddCustomerFormController">
+<AnchorPane fx:id="rootNode" prefHeight="476.0" prefWidth="429.0" style="-fx-background-color: #115d76;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
    <children>
       <TextField fx:id="txtcusId" layoutX="148.0" layoutY="42.0" prefHeight="25.0" prefWidth="247.0" promptText="ID" style="-fx-background-radius: 5;" />
       <TextField fx:id="txtcusName" layoutX="148.0" layoutY="88.0" prefHeight="25.0" prefWidth="247.0" promptText="Name" style="-fx-background-radius: 5;" />

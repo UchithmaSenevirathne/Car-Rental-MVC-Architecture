@@ -12,7 +12,7 @@ import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
 
-public class AddCustomerFormController{
+public class CustomerFormController {
 
     @FXML
     private AnchorPane rootNode;
@@ -44,6 +44,8 @@ public class AddCustomerFormController{
 
     @FXML
     void btnSaveCusOnAction(ActionEvent event) {
+
+
         String id = txtcusId.getText();
         String name = txtcusName.getText();
         String address = txtcusAddress.getText();
@@ -53,6 +55,11 @@ public class AddCustomerFormController{
         var dto = new CustomerDto(id, name, address, email, contact);
 
         var model = new CustomerModel();
+
+//        if (btnID.getText().equals("UPDATE")){
+//            boolean isUpdate=model.updateCustomer(dto)
+//              return;
+//        }
 
         try {
             boolean isSaved = model.saveCustomer(dto);

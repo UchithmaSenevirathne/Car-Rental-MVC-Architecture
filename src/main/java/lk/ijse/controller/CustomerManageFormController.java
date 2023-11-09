@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,7 +17,6 @@ import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 public class CustomerManageFormController {
@@ -40,6 +38,9 @@ public class CustomerManageFormController {
 
     @FXML
     private TableColumn<CustomerTm, String> colName;
+
+    //@FXML
+   // private TableColumn<CustomerTm, String> colUserName;
 
     @FXML
     private TableView<CustomerTm> tableView;
@@ -109,7 +110,7 @@ public class CustomerManageFormController {
 
     @FXML
     void btnADDCusOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/AddCustomerForm.fxml"));
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CustomerForm.fxml"));
 
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();

@@ -8,7 +8,8 @@ USE apexAutoRental;
 
 CREATE TABLE user(
         userName VARCHAR(20) PRIMARY KEY,
-        password VARCHAR(20) NOT NULL
+        password VARCHAR(20) NOT NULL,
+        role VARCHAR(20) NOT NULL
 );
 
 DESC user;
@@ -20,9 +21,7 @@ CREATE TABLE customer(
         name VARCHAR(20) NOT NULL,
         address TEXT NOT NULL,
         email VARCHAR(20) NOT NULL,
-        contact VARCHAR(11) NOT NULL,
-        userName varchar(20),
-        constraint foreign key (userName) references user(userName)
+        contact VARCHAR(11) NOT NULL
 );
 
 DESC customer;

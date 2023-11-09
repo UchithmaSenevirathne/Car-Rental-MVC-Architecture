@@ -6,10 +6,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.DriverDto;
+import lk.ijse.dto.UserDTO;
 import lk.ijse.model.DriverModel;
 
-public class DeleteDriverFormController {
+import java.sql.SQLException;
+
+public class DriverFormController {
     @FXML
     private AnchorPane rootNode;
 
@@ -32,22 +36,40 @@ public class DeleteDriverFormController {
     private TextField txtDrName;
 
     @FXML
+    private TextField txtUserName;
+
+    @FXML
+    private TextField txtPassword;
+
+    Stage stage;
+
+    @FXML
     void btnCancelDrOnAction(ActionEvent event) {
-        Stage stage = (Stage) rootNode.getScene().getWindow();
+        stage = (Stage) rootNode.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    void btnDeleteDrOnAction(ActionEvent event) {
+    void btnSaveDrOnAction(ActionEvent event) throws SQLException {
         String id = txtDrId.getText();
+        String name = txtDrName.getText();
+        String address = txtDrAddress.getText();
+        String email = txtDrEmail.getText();
+        String contact = txtDrContact.getText();
+        String licenseNo = txtDrLicenseNo.getText();
+        String userName = txtUserName.getText();
+        String pwd = txtPassword.getText();
+
+        var driverDto = new DriverDto(id, name, address, email, contact, licenseNo, userName);
+        var userDto = new UserDTO(userName, pwd, "DRI");
 
         var model = new DriverModel();
 
         try {
-            boolean isDeleted = model.deleteDriver(id);
+            boolean isSaved = model.saveDriver(driverDto, userDto);
 
-            if(isDeleted){
-                new Alert(Alert.AlertType.CONFIRMATION, "driver deleted!").show();
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "driver saved!").show();
                 clearFields();
             }
         }catch (Exception e){
@@ -62,33 +84,5 @@ public class DeleteDriverFormController {
         txtDrEmail.setText("");
         txtDrContact.setText("");
         txtDrLicenseNo.setText("");
-    }
-
-    @FXML
-    void txtIdOnAction(ActionEvent event) {
-        String id = txtDrId.getText();
-
-        var model = new DriverModel();
-
-        try {
-            DriverDto dto = model.searchDriver(id);
-
-            if(dto != null){
-                fillFields(dto);
-            }else{
-                new Alert(Alert.AlertType.INFORMATION, "driver not found!").show();
-            }
-        }catch (Exception e){
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-    }
-
-    private void fillFields(DriverDto dto) {
-        txtDrId.setText(dto.getId());
-        txtDrName.setText(dto.getName());
-        txtDrAddress.setText(dto.getAddress());
-        txtDrEmail.setText(dto.getEmail());
-        txtDrContact.setText(dto.getContact());
-        txtDrLicenseNo.setText(dto.getLicenseNo());
     }
 }

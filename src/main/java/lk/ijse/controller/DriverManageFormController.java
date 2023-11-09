@@ -12,10 +12,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.DriverDto;
 import lk.ijse.dto.tm.DriverTm;
-import lk.ijse.model.CustomerModel;
 import lk.ijse.model.DriverModel;
 
 import java.io.IOException;
@@ -90,7 +88,7 @@ public class DriverManageFormController {
     }
     @FXML
     void btnADDDrOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/AddDriverForm.fxml"));
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverForm.fxml"));
 
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();

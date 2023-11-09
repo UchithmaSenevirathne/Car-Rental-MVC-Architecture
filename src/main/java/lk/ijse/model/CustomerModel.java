@@ -3,6 +3,7 @@ package lk.ijse.model;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.DriverDto;
+import lk.ijse.dto.UserDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -56,7 +57,7 @@ public class CustomerModel {
     public CustomerDto searchCustomer(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM customer WHERE id = ?";
+        String sql = "SELECT * FROM customer WHERE cusId = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1, id);
 
@@ -80,7 +81,7 @@ public class CustomerModel {
     public boolean updateCustomer(CustomerDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE customer SET name = ?, address = ?, email = ?, contact = ?  WHERE id = ?";
+        String sql = "UPDATE customer SET name = ?, address = ?, email = ?, contact = ?  WHERE cusId = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getName());
@@ -95,7 +96,7 @@ public class CustomerModel {
     public boolean deleteCustomer(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "DELETE FROM customer WHERE id = ?";
+        String sql = "DELETE FROM customer WHERE cusId = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, id);

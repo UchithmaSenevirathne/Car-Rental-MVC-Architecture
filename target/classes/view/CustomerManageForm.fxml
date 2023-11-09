@@ -25,9 +25,10 @@
                 <TableColumn fx:id="colId" prefWidth="65.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="104.0" text="Name" />
                   <TableColumn fx:id="colAddress" prefWidth="110.0" text="Address" />
-                  <TableColumn fx:id="colEmail" prefWidth="203.0" text="E-mail" />
-                  <TableColumn fx:id="colContact" prefWidth="129.0" text="Contact" />
-                  <TableColumn prefWidth="123.0" text="EDIT" />
+                  <TableColumn fx:id="colEmail" prefWidth="137.0" text="E-mail" />
+                  <TableColumn fx:id="colContact" prefWidth="108.0" text="Contact" />
+                  <TableColumn fx:id="colUserName" prefWidth="111.0" text="UserName" />
+                  <TableColumn prefWidth="99.0" text="EDIT" />
               </columns>
             </TableView>
             <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCusOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
