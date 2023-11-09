@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,6 +19,7 @@ import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class CustomerManageFormController {
@@ -39,8 +42,11 @@ public class CustomerManageFormController {
     @FXML
     private TableColumn<CustomerTm, String> colName;
 
-    //@FXML
-   // private TableColumn<CustomerTm, String> colUserName;
+    @FXML
+    private TableColumn<?, ?> colDelete;
+
+    @FXML
+    private TableColumn<?, ?> colUpdate;
 
     @FXML
     private TableView<CustomerTm> tableView;
@@ -58,9 +64,13 @@ public class CustomerManageFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        colUpdate.setCellValueFactory(new PropertyValueFactory<>("updateButton"));
+        colDelete.setCellValueFactory(new PropertyValueFactory<>("deleteButton"));
     }
 
     private void loadAllCustomers(){
+        obList.clear();
+
         var model = new CustomerModel();
 
         //ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
@@ -69,13 +79,20 @@ public class CustomerManageFormController {
             List<CustomerDto> dtoList = model.getAllCustomers();
 
             for(CustomerDto dto : dtoList){
+                Button updateButton = new Button("Update");
+                Button deleteButton = new Button("Delete");
+
+                updateButton.setOnAction(evnt -> openCustomerPopup(dto));
+                deleteButton.setOnAction(evnt -> deleteCustomer(dto.getId()));
                 obList.add(
                         new CustomerTm(
                                 dto.getId(),
                                 dto.getName(),
                                 dto.getAddress(),
                                 dto.getEmail(),
-                                dto.getContact()
+                                dto.getContact(),
+                                updateButton,
+                                deleteButton
                         )
                 );
             }
@@ -83,6 +100,50 @@ public class CustomerManageFormController {
 
         }catch (Exception e){
             throw new RuntimeException(e);
+        }
+    }
+
+    private void openCustomerPopup(CustomerDto customerDto){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CustomerForm.fxml"));
+
+            Parent rootNode = loader.load();
+
+            CustomerFormController customerFormController = loader.getController();
+
+            customerFormController.btnSaveCustomer.setText("UPDATE");
+
+            customerFormController.setCustomerData(
+                    customerDto.getId(),
+                    customerDto.getName(),
+                    customerDto.getAddress(),
+                    customerDto.getEmail(),
+                    customerDto.getContact()
+            );
+
+            Scene scene = new Scene(rootNode);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Add Customer Form");
+            stage.centerOnScreen();
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteCustomer(String id){
+        var model = new CustomerModel();
+
+        try {
+            boolean b = model.deleteCustomer(id);
+
+            if(b){
+                loadAllCustomers();
+                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+            }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 

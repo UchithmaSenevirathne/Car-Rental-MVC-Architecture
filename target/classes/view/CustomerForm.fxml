@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="476.0" prefWidth="429.0" style="-fx-background-color: #115d76;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddCustomerFormController">
+<AnchorPane fx:id="rootNode" prefHeight="476.0" prefWidth="429.0" style="-fx-background-color: #115d76;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
    <children>
       <TextField fx:id="txtcusId" layoutX="148.0" layoutY="42.0" prefHeight="25.0" prefWidth="247.0" promptText="ID" style="-fx-background-radius: 5;" />
       <TextField fx:id="txtcusName" layoutX="148.0" layoutY="88.0" prefHeight="25.0" prefWidth="247.0" promptText="Name" style="-fx-background-radius: 5;" />
@@ -33,27 +33,15 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button layoutX="268.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnSaveCusOnAction" prefHeight="25.0" prefWidth="52.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Save" textFill="#115d76">
+      <Button fx:id="btnSaveCustomer" layoutX="241.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnSaveCusOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Save" textFill="#115d76">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="343.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnCancelCusOnAction" style="-fx-background-radius: 10;" text="Cancel" textFill="#115d76">
+      <Button layoutX="321.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnCancelCusOnAction" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 10;" text="Cancel" textFill="#115d76">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="txtUserName" layoutX="148.0" layoutY="273.0" prefHeight="25.0" prefWidth="247.0" promptText="userName" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtPassword" layoutX="148.0" layoutY="321.0" prefHeight="25.0" prefWidth="247.0" promptText="password" style="-fx-background-radius: 5;" />
-      <Label layoutX="28.0" layoutY="275.0" text="UserName             :" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="29.0" layoutY="324.0" text="Password              :" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

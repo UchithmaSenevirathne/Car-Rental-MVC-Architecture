@@ -35,6 +35,7 @@ public class CarManageFormController {
 
     private final ObservableList<CarTm> obList = FXCollections.observableArrayList();
 
+
     public void initialize(){
         setCellValueFactory();
         loadAllCars();

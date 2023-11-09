@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -32,6 +33,9 @@ public class CustomerFormController {
     @FXML
     private TextField txtcusName;
 
+    @FXML
+    public Button btnSaveCustomer;
+
     Stage stage;
 
     //private final ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
@@ -44,8 +48,6 @@ public class CustomerFormController {
 
     @FXML
     void btnSaveCusOnAction(ActionEvent event) {
-
-
         String id = txtcusId.getText();
         String name = txtcusName.getText();
         String address = txtcusAddress.getText();
@@ -79,5 +81,13 @@ public class CustomerFormController {
         txtcusAddress.setText("");
         txtcusEmail.setText("");
         txtcusContact.setText("");
+    }
+
+    public void setCustomerData(String id, String name, String address, String email, String contact){
+        txtcusId.setText(id);
+        txtcusName.setText(name);
+        txtcusAddress.setText(address);
+        txtcusEmail.setText(email);
+        txtcusContact.setText(contact);
     }
 }
