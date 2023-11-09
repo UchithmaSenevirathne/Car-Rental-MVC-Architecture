@@ -111,7 +111,7 @@ public class CustomerManageFormController {
 
             CustomerFormController customerFormController = loader.getController();
 
-            customerFormController.btnSaveCustomer.setText("UPDATE");
+            customerFormController.btnCusFormBtn.setText("UPDATE");
 
             customerFormController.setCustomerData(
                     customerDto.getId(),

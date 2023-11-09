@@ -34,11 +34,11 @@ public class CustomerFormController {
     private TextField txtcusName;
 
     @FXML
-    public Button btnSaveCustomer;
+    public Button btnCusFormBtn;
 
     Stage stage;
 
-    //private final ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+    private final ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
 
     @FXML
     void btnCancelCusOnAction(ActionEvent event) {
@@ -64,10 +64,18 @@ public class CustomerFormController {
 //        }
 
         try {
-            boolean isSaved = model.saveCustomer(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
-                clearFields();
+            if(btnCusFormBtn.getText().equals("UPDATE")){
+                boolean isUpdated = model.updateCustomer(dto);
+                if(isUpdated){
+                    new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+                    clearFields();
+                }
+            }else if(btnCusFormBtn.getText().equals("Save")) {
+                boolean isSaved = model.saveCustomer(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+                    clearFields();
+                }
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
