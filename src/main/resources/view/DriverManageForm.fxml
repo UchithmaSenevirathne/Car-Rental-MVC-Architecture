@@ -23,15 +23,15 @@
             <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="386.0" prefWidth="837.0">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="62.0" text="ID" />
-                <TableColumn fx:id="colName" text="Name" />
-                  <TableColumn fx:id="colAddress" prefWidth="100.0" text="Address" />
-                  <TableColumn fx:id="colEmail" prefWidth="135.0" text="E-mail" />
-                  <TableColumn fx:id="colContact" prefWidth="96.0" text="Contact" />
-                  <TableColumn fx:id="colLicenseNo" prefWidth="77.0" text="License No" />
-                  <TableColumn fx:id="colUserName" prefWidth="89.0" text="UserName" />
-                  <TableColumn fx:id="colAvailablity" prefWidth="78.0" text="Availability" />
-                  <TableColumn fx:id="colUpdate" prefWidth="61.0" text="UPDATE" />
-                  <TableColumn fx:id="colDelete" prefWidth="58.0" text="DELETE" />
+                <TableColumn fx:id="colName" prefWidth="65.0" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="89.0" text="Address" />
+                  <TableColumn fx:id="colEmail" prefWidth="124.0" text="E-mail" />
+                  <TableColumn fx:id="colContact" prefWidth="101.0" text="Contact" />
+                  <TableColumn fx:id="colLicenseNo" prefWidth="83.0" text="License No" />
+                  <TableColumn fx:id="colUserName" prefWidth="82.0" text="UserName" />
+                  <TableColumn fx:id="colAvailablity" prefWidth="68.0" text="Availability" />
+                  <TableColumn fx:id="colUpdate" prefWidth="81.0" text="UPDATE" />
+                  <TableColumn fx:id="colDelete" prefWidth="81.0" text="DELETE" />
               </columns>
             </TableView>
             <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDDrOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
@@ -39,7 +39,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <TextField layoutX="584.0" layoutY="38.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
+            <TextField fx:id="txtSearchDr" layoutX="584.0" layoutY="38.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
             <Button layoutX="779.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      SEARCH" textFill="#115d76">
                <font>
                   <Font name="System Bold" size="11.0" />
@@ -55,25 +55,10 @@
                   <Image url="@../image/search-interface-symbol.png" />
                </image>
             </ImageView>
-            <Button layoutX="794.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="   Back" textFill="WHITE" />
-            <Button layoutX="112.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       UPDATE" textFill="#115d76">
-               <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Button>
-            <Button layoutX="202.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="     DELETE" textFill="#115d76">
-               <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="118.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="794.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="     Back" textFill="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="804.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/update.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="208.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/delete.png" />
+                  <Image url="@../image/previous.png" />
                </image>
             </ImageView>
          </children>
@@ -103,37 +88,32 @@
             <Font name="Corbel Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="331.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="          Employee" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="Car" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="Car" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="261.0" mnemonicParsing="false" onAction="#btnBookingOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="       Booking" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="261.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="       Booking" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="        Payment" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="        Payment" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="329.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Salary" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="363.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Salary" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="391.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Report" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="409.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Report" textFill="WHITE">
-         <font>
-            <Font name="Corbel" size="12.0" />
-         </font>
-      </Button>
-      <Pane layoutX="5.0" layoutY="397.0" opacity="0.19" prefHeight="3.0" prefWidth="139.0" style="-fx-background-color: f5f1f8;" />
+      <Pane layoutX="5.0" layoutY="372.0" opacity="0.19" prefHeight="3.0" prefWidth="139.0" style="-fx-background-color: f5f1f8;" />
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/dashboard.png" />
@@ -154,11 +134,6 @@
             <Image url="@../image/car.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/employee.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="52.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/ApexIcon.png" />
@@ -174,14 +149,24 @@
             <Image url="@../image/payment.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/salary.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/report.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Logout" textFill="WHITE">
+         <font>
+            <Font name="Corbel" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="611.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/logout.png" />
          </image>
       </ImageView>
    </children>

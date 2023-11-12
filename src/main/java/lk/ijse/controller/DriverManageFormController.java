@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -60,6 +57,9 @@ public class DriverManageFormController {
 
     @FXML
     private AnchorPane rootNode;
+
+    @FXML
+    private TextField txtSearchDr;
 
     @FXML
     private TableView<DriverTm> tableView;
@@ -188,18 +188,6 @@ public class DriverManageFormController {
     }
 
     @FXML
-    void btnDELETEOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DeleteDriverForm.fxml"));
-
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Delete Driver Form");
-        stage.centerOnScreen();
-        stage.show();
-    }
-
-    @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
 
@@ -222,7 +210,7 @@ public class DriverManageFormController {
         stage.show();
     }
 
-  /*  @FXML
+    @FXML
     void btnSEARCHOnAction(ActionEvent event) {
         FilteredList<DriverTm> filteredData = new FilteredList<>(obList, b -> true);
 
@@ -238,34 +226,75 @@ public class DriverManageFormController {
                     return true;
                 }else if(DriverTm.getName().toLowerCase().indexOf(searchKeyword) > -1){
                     return true;
-                }else if(DriverTm.getAdgetdress().toLowerCase().indexOf(searchKeyword) > -1){
+                }else if(DriverTm.getAddress().toLowerCase().indexOf(searchKeyword) > -1){
                     return true;
-                }else if(CustomerTm.getEmail().toLowerCase().indexOf(searchKeyword) > -1){
+                }else if(DriverTm.getEmail().toLowerCase().indexOf(searchKeyword) > -1){
                     return true;
-                }else if(CustomerTm.getContact().toLowerCase().indexOf(searchKeyword) > -1){
+                }else if(DriverTm.getContact().toLowerCase().indexOf(searchKeyword) > -1){
                     return true;
                 }else
                     return false;
             });
         });
 
-        SortedList<CustomerTm> sortedData = new SortedList<>(filteredData);
+        SortedList<DriverTm> sortedData = new SortedList<>(filteredData);
 
         sortedData.comparatorProperty().bind(tableView.comparatorProperty());
 
         tableView.setItems(sortedData);
-    }*/
-
-    @FXML
-    void btnUPDATEOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/UpdateDriverForm.fxml"));
-
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Update Driver Form");
-        stage.centerOnScreen();
-        stage.show();
     }
 
+    @FXML
+    void btnBookingOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/BookingForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Booking Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnCarOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CarManageForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Cars Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnLogoutOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Login Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnPaymentOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/PaymentForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Payment Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnReportOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnSalaryOnAction(ActionEvent event) {
+
+    }
 }

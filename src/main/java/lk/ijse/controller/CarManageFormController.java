@@ -2,20 +2,20 @@ package lk.ijse.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.CarDto;
 import lk.ijse.dto.tm.CarTm;
+import lk.ijse.dto.tm.DriverTm;
 import lk.ijse.model.CarModel;
 import lk.ijse.model.CustomerModel;
 
@@ -37,12 +37,17 @@ public class CarManageFormController {
     @FXML
     private TableColumn<?, ?> colUpdate;
 
+    @FXML
+    private TableColumn<?, ?> colAvailability;
 
     @FXML
     private AnchorPane rootNode;
 
     @FXML
     private TableView<CarTm> tableView;
+
+    @FXML
+    private TextField txtSearchCar;
 
     private final ObservableList<CarTm> obList = FXCollections.observableArrayList();
 
@@ -167,18 +172,6 @@ public class CarManageFormController {
     }
 
     @FXML
-    void btnDELETEOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DeleteCarForm.fxml"));
-
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Delete Car Form");
-        stage.centerOnScreen();
-        stage.show();
-    }
-
-    @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
 
@@ -202,18 +195,72 @@ public class CarManageFormController {
 
     @FXML
     void btnSEARCHOnAction(ActionEvent event) {
+        FilteredList<CarTm> filteredData = new FilteredList<>(obList, b -> true);
+
+        txtSearchCar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(CarTm -> {
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+                String searchKeyword = newValue.toLowerCase();
+
+                if(CarTm.getCarNo().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(CarTm.getBrand().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else
+                    return false;
+            });
+        });
+
+        SortedList<CarTm> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+
+        tableView.setItems(sortedData);
+    }
+
+    @FXML
+    void btnBookingOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/BookingForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Booking Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnLogoutOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Login Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnPaymentOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/PaymentForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Payment Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnReportOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void btnUPDATEOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/UpdateCarForm.fxml"));
+    void btnSalaryOnAction(ActionEvent event) {
 
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Update Car Form");
-        stage.centerOnScreen();
-        stage.show();
     }
 }
