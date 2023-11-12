@@ -7,16 +7,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.DriverDto;
+import lk.ijse.dto.UserDTO;
 import lk.ijse.dto.tm.DriverTm;
+import lk.ijse.model.CustomerModel;
 import lk.ijse.model.DriverModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class DriverManageFormController {
@@ -42,6 +47,15 @@ public class DriverManageFormController {
     private TableColumn<?, ?> colName;
 
     @FXML
+    private TableColumn<?, ?> colUpdate;
+
+    @FXML
+    private TableColumn<?, ?> colDelete;
+
+    @FXML
+    private TableColumn<?, ?> colUserName;
+
+    @FXML
     private AnchorPane rootNode;
 
     @FXML
@@ -61,15 +75,25 @@ public class DriverManageFormController {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colLicenseNo.setCellValueFactory(new PropertyValueFactory<>("licenseNo"));
+        colUserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+        colUpdate.setCellValueFactory(new PropertyValueFactory<>("UpdateButton"));
+        colDelete.setCellValueFactory(new PropertyValueFactory<>("DeleteButton"));
     }
 
     private void loadAllDrivers(){
+        obList.clear();
+
         var model = new DriverModel();
 
         try {
             List<DriverDto> dtoList = model.getAllDrivers();
 
             for(DriverDto dto : dtoList){
+                Button updateButton = new Button("Update");
+                Button deleteButton = new Button("Delete");
+
+                updateButton.setOnAction(event -> openDriverPopup(dto));
+                deleteButton.setOnAction(event -> deleteDriver(dto.getId()));
                 obList.add(
                         new DriverTm(
                                 dto.getId(),
@@ -77,13 +101,63 @@ public class DriverManageFormController {
                                 dto.getAddress(),
                                 dto.getEmail(),
                                 dto.getContact(),
-                                dto.getLicenseNo()
+                                dto.getLicenseNo(),
+                                dto.getUserName(),
+                                updateButton,
+                                deleteButton
                         )
                 );
             }
             tableView.setItems(obList);
+
         }catch (Exception e){
             throw new RuntimeException(e);
+        }
+    }
+
+    private void deleteDriver(String id) {
+        var model = new DriverModel();
+
+        try {
+            boolean b = model.deleteDriver(id);
+
+            if(b){
+                loadAllDrivers();
+                new Alert(Alert.AlertType.CONFIRMATION, "driver deleted!").show();
+            }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private void openDriverPopup(DriverDto driverDto){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverForm.fxml"));
+
+            Parent rootNode = loader.load();
+
+            DriverFormController driverFormController = loader.getController();
+
+            driverFormController.btnDrFormBtn.setText("UPDATE");
+
+            driverFormController.setDriverData(
+                    driverDto.getId(),
+                    driverDto.getName(),
+                    driverDto.getAddress(),
+                    driverDto.getEmail(),
+                    driverDto.getContact(),
+                    driverDto.getLicenseNo(),
+                    driverDto.getUserName()
+            );
+            Scene scene = new Scene(rootNode);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Update Driver Form");
+            stage.centerOnScreen();
+            stage.show();
+
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
     @FXML

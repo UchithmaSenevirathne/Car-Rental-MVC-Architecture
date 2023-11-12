@@ -95,11 +95,6 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnEmployeeOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btnPaymentOnAction(ActionEvent event) {
 
     }
@@ -130,6 +125,16 @@ public class DashboardFormController {
         stage.centerOnScreen();
     }
 
+    @FXML
+    void btnLogoutOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Login Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
 }
 
 

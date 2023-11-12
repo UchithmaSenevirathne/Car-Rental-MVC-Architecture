@@ -43,19 +43,6 @@ DESC driver;
 
 SELECT * FROM driver;
 
-CREATE TABLE worker(
-        wId VARCHAR(5) PRIMARY KEY,
-        name VARCHAR(20) NOT NULL,
-        address TEXT NOT NULL,
-        contact VARCHAR(11) NOT NULL,
-        userName varchar(20),
-        constraint foreign key (userName) references user(userName)
-);
-
-DESC worker;
-
-SELECT * FROM worker;
-
 CREATE TABLE driverSalary(
         drSalId VARCHAR(5) PRIMARY KEY,
         amount DOUBLE (6,2) NOT NULL,
@@ -67,18 +54,6 @@ CREATE TABLE driverSalary(
 DESC driverSalary;
 
 SELECT * FROM driverSalary;
-
-CREATE TABLE workerSalary(
-        wSalId VARCHAR(5) PRIMARY KEY,
-        amount DOUBLE (6,2) NOT NULL,
-        month VARCHAR(20) NOT NULL,
-        wId varchar(5),
-        constraint foreign key (wId) references worker(wId)
-);
-
-DESC workerSalary;
-
-SELECT * FROM workerSalary;
 
 CREATE TABLE booking(
         bId VARCHAR(5) PRIMARY KEY,

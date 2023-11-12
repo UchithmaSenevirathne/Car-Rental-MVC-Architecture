@@ -82,8 +82,8 @@ public class CustomerManageFormController {
                 Button updateButton = new Button("Update");
                 Button deleteButton = new Button("Delete");
 
-                updateButton.setOnAction(evnt -> openCustomerPopup(dto));
-                deleteButton.setOnAction(evnt -> deleteCustomer(dto.getId()));
+                updateButton.setOnAction(event -> openCustomerPopup(dto));
+                deleteButton.setOnAction(event -> deleteCustomer(dto.getId()));
                 obList.add(
                         new CustomerTm(
                                 dto.getId(),
@@ -124,7 +124,7 @@ public class CustomerManageFormController {
             Scene scene = new Scene(rootNode);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Add Customer Form");
+            stage.setTitle("Update Customer Form");
             stage.centerOnScreen();
             stage.show();
         }catch (IOException e){
@@ -182,18 +182,6 @@ public class CustomerManageFormController {
     }
 
     @FXML
-    void btnUPDATEOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/UpdateCustomerForm.fxml"));
-
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Update Customer Form");
-        stage.centerOnScreen();
-        stage.show();
-    }
-
-    @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
 
@@ -206,19 +194,19 @@ public class CustomerManageFormController {
     }
 
     @FXML
-    void btnDELETEOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DeleteCustomerForm.fxml"));
-
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Delete Customer Form");
-        stage.centerOnScreen();
-        stage.show();
-    }
-
-    @FXML
     void btnSEARCHOnAction(ActionEvent event) {
 
     }
+
+    @FXML
+    void btnLogoutOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Login Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
 }

@@ -1,5 +1,6 @@
 package lk.ijse.dto.tm;
 
+import javafx.scene.control.Button;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class CarTm {
-    String carNo;
-    String brand;
+    private String carNo;
+    private String brand;
+    private Button updateButton;
+    private Button deleteButton;
 }

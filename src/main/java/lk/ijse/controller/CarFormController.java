@@ -22,7 +22,7 @@ public class CarFormController {
     private TextField txtCarNo;
 
     @FXML
-    private Button btnCarForm;
+    public Button btnCarForm;
 
     @FXML
     private Label lblCarForm;
@@ -45,11 +45,19 @@ public class CarFormController {
         var model = new CarModel();
 
         try{
-            boolean isSaved = model.saveCar(dto);
+            if(btnCarForm.getText().equals("UPDATE")){
+                boolean isUpdated = model.updateCar(dto);
+                if(isUpdated){
+                    new Alert(Alert.AlertType.CONFIRMATION, "car updated!!").show();
+                    clearFields();
+                }
+            }else if(btnCarForm.getText().equals("Save")) {
+                boolean isSaved = model.saveCar(dto);
 
-            if(isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION, "car saved!").show();
-                clearFields();
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "car saved!").show();
+                    clearFields();
+                }
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -61,4 +69,8 @@ public class CarFormController {
         txtCarBrand.setText("");
     }
 
+    public void setCarData(String carNo, String brand) {
+        txtCarNo.setText(carNo);
+        txtCarBrand.setText(brand);
+    }
 }

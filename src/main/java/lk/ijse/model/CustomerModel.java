@@ -14,6 +14,31 @@ import java.util.List;
 
 public class CustomerModel {
 
+    /*public static String generateNextCusId() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT cusId FROM customer ORDER BY cusId DESC LIMIT 1";
+        ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+
+        String currentCusId = null;
+
+        if (resultSet.next()) {
+            currentCusId = resultSet.getString(1);
+            return splitCusId(currentCusId);
+        }
+        return splitCusId(null);
+    }
+
+    private static String splitCusId(String currentCusId) {
+        if (currentCusId != null) {
+            String[] split = currentCusId.split("C");
+            int id = Integer.parseInt(split[1]);
+            id++;
+            return "O00" + id;
+        }
+        return "O001";
+    }*/
+
     public boolean saveCustomer(CustomerDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 

@@ -67,20 +67,32 @@ public class DriverModel {
         return dtoList;
     }
 
-    public boolean updateDriver(DriverDto dto) throws SQLException {
+    public boolean updateDriver(DriverDto driverDto, UserDTO userDTO) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE driver SET name = ?, address = ?, email = ?, contact = ?, licenseNo = ? WHERE id = ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        String sql1 = "UPDATE user SET password = ?, role = ? WHERE userName = ?";
+        PreparedStatement pstm1 = connection.prepareStatement(sql1);
 
-        pstm.setString(1, dto.getName());
-        pstm.setString(2, dto.getAddress());
-        pstm.setString(3, dto.getEmail());
-        pstm.setString(4, dto.getContact());
-        pstm.setString(5, dto.getLicenseNo());
-        pstm.setString(6, dto.getId());
+        pstm1.setString(1, userDTO.getPassword());
+        pstm1.setString(2, userDTO.getRole());
+        pstm1.setString(3, userDTO.getUserName());
 
-        return pstm.executeUpdate() > 0;
+        if(pstm1.executeUpdate() > 0) {
+            String sql2 = "UPDATE driver SET name = ?, address = ?, email = ?, contact = ?, licenseNo = ?, userName = ? WHERE id = ?";
+            PreparedStatement pstm2 = connection.prepareStatement(sql2);
+
+            pstm2.setString(1, driverDto.getName());
+            pstm2.setString(2, driverDto.getAddress());
+            pstm2.setString(3, driverDto.getEmail());
+            pstm2.setString(4, driverDto.getContact());
+            pstm2.setString(5, driverDto.getLicenseNo());
+            pstm2.setString(6, driverDto.getUserName());
+            pstm2.setString(7, driverDto.getId());
+
+            return pstm2.executeUpdate() > 0;
+        }
+
+        return false;
     }
 
     public DriverDto searchDriver(String id) throws SQLException {

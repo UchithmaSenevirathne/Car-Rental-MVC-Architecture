@@ -33,7 +33,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button layoutX="189.0" layoutY="352.0" mnemonicParsing="false" onAction="#btnSaveDrOnAction" prefHeight="25.0" prefWidth="52.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Save" textFill="#115d76">
+      <Button fx:id="btnDrFormBtn" layoutX="189.0" layoutY="352.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="52.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Save" textFill="#115d76">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

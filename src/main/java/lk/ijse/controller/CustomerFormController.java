@@ -28,7 +28,7 @@ public class CustomerFormController {
     private TextField txtcusEmail;
 
     @FXML
-    private TextField txtcusId;
+    public TextField txtcusId;
 
     @FXML
     private TextField txtcusName;

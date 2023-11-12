@@ -3,6 +3,7 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -39,7 +40,10 @@ public class DriverFormController {
     private TextField txtUserName;
 
     @FXML
-    private TextField txtPassword;
+    public TextField txtPassword;
+
+    @FXML
+    public Button btnDrFormBtn;
 
     Stage stage;
 
@@ -50,7 +54,7 @@ public class DriverFormController {
     }
 
     @FXML
-    void btnSaveDrOnAction(ActionEvent event) throws SQLException {
+    void btnSaveOnAction(ActionEvent event) throws SQLException {
         String id = txtDrId.getText();
         String name = txtDrName.getText();
         String address = txtDrAddress.getText();
@@ -66,11 +70,19 @@ public class DriverFormController {
         var model = new DriverModel();
 
         try {
-            boolean isSaved = model.saveDriver(driverDto, userDto);
+            if(btnDrFormBtn.getText().equals("UPDATE")) {
+                boolean isUpdate = model.updateDriver(driverDto, userDto);
+                if (isUpdate) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "driver updated!!").show();
+                    clearFields();
+                }
+            }else if(btnDrFormBtn.getText().equals("Save")) {
+                boolean isSaved = model.saveDriver(driverDto, userDto);
 
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "driver saved!").show();
-                clearFields();
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "driver saved!").show();
+                    clearFields();
+                }
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -84,5 +96,18 @@ public class DriverFormController {
         txtDrEmail.setText("");
         txtDrContact.setText("");
         txtDrLicenseNo.setText("");
+        txtUserName.setText("");
+        txtPassword.setText("");
+    }
+
+
+    public void setDriverData(String id, String name, String address, String email, String contact, String licenseNo, String userName) {
+        txtDrId.setText(id);
+        txtDrName.setText(name);
+        txtDrAddress.setText(address);
+        txtDrEmail.setText(email);
+        txtDrContact.setText(contact);
+        txtDrLicenseNo.setText(licenseNo);
+        txtUserName.setText(userName);
     }
 }
