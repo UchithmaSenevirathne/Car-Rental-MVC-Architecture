@@ -194,7 +194,7 @@ public class CarManageFormController {
     }
 
     @FXML
-    void btnSEARCHOnAction(ActionEvent event) {
+    void txtSEARCHOnAction(ActionEvent event) {
         FilteredList<CarTm> filteredData = new FilteredList<>(obList, b -> true);
 
         txtSearchCar.textProperty().addListener((observable, oldValue, newValue) -> {

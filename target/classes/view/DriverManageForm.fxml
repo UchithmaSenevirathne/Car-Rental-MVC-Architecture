@@ -39,20 +39,10 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <TextField fx:id="txtSearchDr" layoutX="584.0" layoutY="38.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
-            <Button layoutX="779.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      SEARCH" textFill="#115d76">
-               <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Button>
+            <TextField fx:id="txtSearchDr" layoutX="669.0" layoutY="38.0" onAction="#txtSearchOnAction" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
             <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="45.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/add.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="16.0" fitWidth="22.0" layoutX="785.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/search-interface-symbol.png" />
                </image>
             </ImageView>
             <Button layoutX="794.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="     Back" textFill="WHITE" />

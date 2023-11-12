@@ -198,7 +198,7 @@ public class CustomerManageFormController {
     }
 
     @FXML
-    void btnSEARCHOnAction(ActionEvent event) {
+    void txtSEARCHOnAction(ActionEvent event) {
         FilteredList<CustomerTm> filteredData = new FilteredList<>(obList, b -> true);
 
         txtSearchCus.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -242,4 +242,46 @@ public class CustomerManageFormController {
         stage.centerOnScreen();
     }
 
+    @FXML
+    void btnBookingOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/BookingForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Booking Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnCarOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CarManageForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Cars Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnPaymentOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/PaymentForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Payment Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnReportOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnSalaryOnAction(ActionEvent event) {
+
+    }
 }

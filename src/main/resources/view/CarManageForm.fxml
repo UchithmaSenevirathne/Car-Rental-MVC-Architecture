@@ -11,22 +11,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="590.0" prefWidth="949.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CarManageFormController">
+<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CarManageFormController">
    <children>
-      <Pane layoutX="149.0" layoutY="20.0" prefHeight="549.0" prefWidth="781.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
+      <Pane layoutX="149.0" layoutY="20.0" prefHeight="611.0" prefWidth="881.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
          <children>
             <Label layoutX="37.0" layoutY="42.0" text="CARS" textFill="#0a4051">
                <font>
                   <Font name="Corbel Bold" size="13.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="322.0" prefWidth="735.0">
+            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="387.0" prefWidth="829.0">
               <columns>
                 <TableColumn fx:id="colCarNo" prefWidth="114.0" text="Car Number" />
-                <TableColumn fx:id="colBrand" prefWidth="185.0" text="Brand" />
-                  <TableColumn fx:id="colAvailability" prefWidth="250.0" text="Availability" />
-                  <TableColumn fx:id="colUpdate" prefWidth="98.0" text="UPDATE" />
-                  <TableColumn fx:id="colDelete" prefWidth="87.0" text="DELETE" />
+                <TableColumn fx:id="colBrand" prefWidth="199.0" text="Brand" />
+                  <TableColumn fx:id="colAvailability" prefWidth="251.0" text="Availability" />
+                  <TableColumn fx:id="colUpdate" prefWidth="134.0" text="UPDATE" />
+                  <TableColumn fx:id="colDelete" prefWidth="130.0" text="DELETE" />
               </columns>
             </TableView>
             <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCarOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
@@ -34,24 +34,17 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <TextField fx:id="txtSearchCar" layoutX="475.0" layoutY="38.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
-            <Button layoutX="669.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      SEARCH" textFill="#115d76">
+            <TextField fx:id="txtSearchCar" layoutX="661.0" layoutY="38.0" onAction="#txtSEARCHOnAction" prefHeight="25.0" prefWidth="192.0" promptText="Search">
                <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Button>
+                  <Font size="11.0" />
+               </font></TextField>
             <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="45.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/add.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="16.0" fitWidth="22.0" layoutX="679.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/search-interface-symbol.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="692.0" layoutY="501.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="     Back" textFill="WHITE" />
-            <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="702.0" layoutY="506.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="786.0" layoutY="561.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="     Back" textFill="WHITE" />
+            <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="792.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/previous.png" />
                </image>
@@ -154,12 +147,12 @@
             <Image url="@../image/report.png" />
          </image>
       </ImageView>
-      <Button layoutX="-8.0" layoutY="547.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Logout" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="609.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Logout" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="612.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/logout.png" />
          </image>

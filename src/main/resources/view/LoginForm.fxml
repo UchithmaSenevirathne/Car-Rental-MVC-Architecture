@@ -31,14 +31,9 @@
             </Label>
             <TextField layoutX="297.0" layoutY="130.0" prefHeight="25.0" prefWidth="225.0" promptText="UserName" />
             <TextField layoutX="297.0" layoutY="188.0" prefHeight="25.0" prefWidth="225.0" promptText="Password" />
-            <Button layoutX="297.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="25.0" prefWidth="128.0" style="-fx-border-color: #0a4051; -fx-border-radius: 5; -fx-background-color: white;" text="SIGN IN" textFill="#0a4051">
+            <Button layoutX="297.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="225.0" style="-fx-border-color: #0a4051; -fx-border-radius: 5; -fx-background-color: white;" text="SIGN IN" textFill="#0a4051">
                <font>
                   <Font name="System Bold" size="11.0" />
-               </font>
-            </Button>
-            <Button layoutX="439.0" layoutY="280.0" mnemonicParsing="false" onAction="#btnSignUpLoginPgOnAction" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: white;" text="Sign up">
-               <font>
-                  <Font size="11.0" />
                </font>
             </Button>
             <Label layoutX="448.0" layoutY="213.0" opacity="0.56" text="Forget password?">

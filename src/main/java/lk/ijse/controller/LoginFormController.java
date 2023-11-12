@@ -15,7 +15,7 @@ public class LoginFormController {
     @FXML
     private AnchorPane rootNode;
 
-    @FXML
+    /*@FXML
     void btnSignUpLoginPgOnAction(ActionEvent event) throws IOException {
 
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/RegisterForm.fxml"));
@@ -25,7 +25,7 @@ public class LoginFormController {
         stage.setTitle("Register Form");
         stage.setScene(scene);
         stage.centerOnScreen();
-    }
+    }*/
 
     @FXML
     void btnSignInOnAction(ActionEvent event) throws IOException {

@@ -211,7 +211,7 @@ public class DriverManageFormController {
     }
 
     @FXML
-    void btnSEARCHOnAction(ActionEvent event) {
+    void txtSearchOnAction(ActionEvent event) {
         FilteredList<DriverTm> filteredData = new FilteredList<>(obList, b -> true);
 
         txtSearchDr.textProperty().addListener((observable, oldValue, newValue) -> {
