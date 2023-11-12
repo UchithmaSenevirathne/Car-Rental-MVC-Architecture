@@ -36,7 +36,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <TextField layoutX="585.0" layoutY="38.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
+            <TextField fx:id="txtSearchCus" layoutX="585.0" layoutY="38.0" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
             <Button layoutX="780.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="      SEARCH" textFill="#115d76">
                <font>
                   <Font name="System Bold" size="11.0" />

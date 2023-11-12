@@ -2,6 +2,8 @@ package lk.ijse.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.DriverDto;
 import lk.ijse.dto.UserDTO;
+import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.dto.tm.DriverTm;
 import lk.ijse.model.CustomerModel;
 import lk.ijse.model.DriverModel;
@@ -219,10 +222,39 @@ public class DriverManageFormController {
         stage.show();
     }
 
-    @FXML
+  /*  @FXML
     void btnSEARCHOnAction(ActionEvent event) {
+        FilteredList<DriverTm> filteredData = new FilteredList<>(obList, b -> true);
 
-    }
+        txtSearchDr.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(DriverTm -> {
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+                String searchKeyword = newValue.toLowerCase();
+
+                if(DriverTm.getId().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(DriverTm.getName().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(DriverTm.getAdgetdress().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(CustomerTm.getEmail().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(CustomerTm.getContact().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else
+                    return false;
+            });
+        });
+
+        SortedList<CustomerTm> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+
+        tableView.setItems(sortedData);
+    }*/
 
     @FXML
     void btnUPDATEOnAction(ActionEvent event) throws IOException {

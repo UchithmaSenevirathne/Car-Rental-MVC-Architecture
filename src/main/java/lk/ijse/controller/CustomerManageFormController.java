@@ -2,15 +2,14 @@ package lk.ijse.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -21,6 +20,7 @@ import lk.ijse.model.CustomerModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Locale;
 
 public class CustomerManageFormController {
 
@@ -50,6 +50,10 @@ public class CustomerManageFormController {
 
     @FXML
     private TableView<CustomerTm> tableView;
+
+    @FXML
+    private TextField txtSearchCus;
+
 
     private final ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
 
@@ -195,7 +199,36 @@ public class CustomerManageFormController {
 
     @FXML
     void btnSEARCHOnAction(ActionEvent event) {
+        FilteredList<CustomerTm> filteredData = new FilteredList<>(obList, b -> true);
 
+        txtSearchCus.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(CustomerTm -> {
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+                String searchKeyword = newValue.toLowerCase();
+
+                if(CustomerTm.getId().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(CustomerTm.getName().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(CustomerTm.getAddress().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(CustomerTm.getEmail().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(CustomerTm.getContact().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else
+                    return false;
+            });
+        });
+
+        SortedList<CustomerTm> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+
+        tableView.setItems(sortedData);
     }
 
     @FXML
