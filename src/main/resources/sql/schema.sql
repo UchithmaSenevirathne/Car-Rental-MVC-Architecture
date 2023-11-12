@@ -36,7 +36,8 @@ CREATE TABLE driver(
         contact VARCHAR(11) NOT NULL,
         licenseNo VARCHAR(20) NOT NULL,
         userName varchar(20),
-        constraint foreign key (userName) references user(userName)
+        constraint foreign key (userName) references user(userName),
+        availability VARCHAR(10)
 );
 
 DESC driver;
@@ -94,7 +95,12 @@ SELECT * FROM payment;
 
 CREATE TABLE car(
         carNo VARCHAR(5) PRIMARY KEY,
-        brand VARCHAR(20) NOT NULL
+        brand VARCHAR(20) NOT NULL,
+        availability VARCHAR(10),
+        currentMilage DOUBLE(6,2),
+        kmOneDay DOUBLE(6,2),
+        priceOneDay DOUBLE(8,2),
+        priceExtraKm DOUBLE(6,2)
 );
 
 DESC car;

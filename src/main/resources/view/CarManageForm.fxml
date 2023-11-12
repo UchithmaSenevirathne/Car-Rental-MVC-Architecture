@@ -22,11 +22,15 @@
             </Label>
             <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="387.0" prefWidth="829.0">
               <columns>
-                <TableColumn fx:id="colCarNo" prefWidth="114.0" text="Car Number" />
-                <TableColumn fx:id="colBrand" prefWidth="199.0" text="Brand" />
-                  <TableColumn fx:id="colAvailability" prefWidth="251.0" text="Availability" />
-                  <TableColumn fx:id="colUpdate" prefWidth="134.0" text="UPDATE" />
-                  <TableColumn fx:id="colDelete" prefWidth="130.0" text="DELETE" />
+                <TableColumn fx:id="colCarNo" prefWidth="74.0" text="Car Number" />
+                <TableColumn fx:id="colBrand" prefWidth="96.0" text="Brand" />
+                  <TableColumn fx:id="colAvailability" prefWidth="70.0" text="Availability" />
+                  <TableColumn fx:id="colCurrentMilage" prefWidth="98.0" text="Current Milage" />
+                  <TableColumn fx:id="colKmOneDay" prefWidth="103.0" text="Km for One Day" />
+                  <TableColumn fx:id="colPriceOneDay" prefWidth="112.0" text="Price for One Day" />
+                  <TableColumn fx:id="colPriceExtraKm" prefWidth="128.0" text="Price for Extra 1Km" />
+                  <TableColumn fx:id="colUpdate" prefWidth="75.0" text="UPDATE" />
+                  <TableColumn fx:id="colDelete" prefWidth="72.0" text="DELETE" />
               </columns>
             </TableView>
             <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCarOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">

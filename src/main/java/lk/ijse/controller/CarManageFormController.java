@@ -41,6 +41,19 @@ public class CarManageFormController {
     private TableColumn<?, ?> colAvailability;
 
     @FXML
+    private TableColumn<?, ?> colCurrentMilage;
+
+    @FXML
+    private TableColumn<?, ?> colKmOneDay;
+
+    @FXML
+    private TableColumn<?, ?> colPriceExtraKm;
+
+    @FXML
+    private TableColumn<?, ?> colPriceOneDay;
+
+
+    @FXML
     private AnchorPane rootNode;
 
     @FXML
@@ -60,6 +73,11 @@ public class CarManageFormController {
     private void setCellValueFactory(){
         colCarNo.setCellValueFactory(new PropertyValueFactory<>("carNo"));
         colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        colAvailability.setCellValueFactory(new PropertyValueFactory<>("Availability"));
+        colCurrentMilage.setCellValueFactory(new PropertyValueFactory<>("CurrentMilage"));
+        colKmOneDay.setCellValueFactory(new PropertyValueFactory<>("KmOneDay"));
+        colPriceOneDay.setCellValueFactory(new PropertyValueFactory<>("PriceOneDay"));
+        colPriceExtraKm.setCellValueFactory(new PropertyValueFactory<>("PriceExtraKm"));
         colUpdate.setCellValueFactory(new PropertyValueFactory<>("UpdateButton"));
         colDelete.setCellValueFactory(new PropertyValueFactory<>("DeleteButton"));
     }
@@ -82,6 +100,11 @@ public class CarManageFormController {
                         new CarTm(
                                 dto.getCarNo(),
                                 dto.getBrand(),
+                                dto.getAvailability(),
+                                dto.getCurrentMilage(),
+                                dto.getKmOneDay(),
+                                dto.getPriceOneDay(),
+                                dto.getPriceExtraKm(),
                                 updateButton,
                                 deleteButton
                         )

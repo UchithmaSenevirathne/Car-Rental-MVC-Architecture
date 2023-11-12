@@ -12,6 +12,11 @@ import lombok.NoArgsConstructor;
 public class CarTm {
     private String carNo;
     private String brand;
+    private String availability;
+    private double currentMilage;
+    private double kmOneDay;
+    private double priceOneDay;
+    private double priceExtraKm;
     private Button updateButton;
     private Button deleteButton;
 }

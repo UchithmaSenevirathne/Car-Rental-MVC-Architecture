@@ -39,8 +39,13 @@ public class CarFormController {
     void btnCarOnAction(ActionEvent event) {
         String carNo = txtCarNo.getText();
         String brand = txtCarBrand.getText();
+        String availability = "yes";
+        double currentMilage = 0.0;
+        double kmOneDay = 0.0;
+        double priceOneDay = 0.0;
+        double priceExtraKm = 0.0;
 
-        var dto = new CarDto(carNo, brand);
+        var dto = new CarDto(carNo, brand, availability, currentMilage, kmOneDay, priceOneDay, priceExtraKm);
 
         var model = new CarModel();
 
