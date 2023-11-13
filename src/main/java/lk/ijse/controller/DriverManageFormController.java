@@ -79,6 +79,7 @@ public class DriverManageFormController {
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colLicenseNo.setCellValueFactory(new PropertyValueFactory<>("licenseNo"));
         colUserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+        colAvailablity.setCellValueFactory(new PropertyValueFactory<>("availability"));
         colUpdate.setCellValueFactory(new PropertyValueFactory<>("UpdateButton"));
         colDelete.setCellValueFactory(new PropertyValueFactory<>("DeleteButton"));
     }
@@ -106,6 +107,7 @@ public class DriverManageFormController {
                                 dto.getContact(),
                                 dto.getLicenseNo(),
                                 dto.getUserName(),
+                                dto.getAvailability(),
                                 updateButton,
                                 deleteButton
                         )
@@ -222,7 +224,7 @@ public class DriverManageFormController {
                 }
                 String searchKeyword = newValue.toLowerCase();
 
-                if(DriverTm.getId().toLowerCase().indexOf(searchKeyword) > -1){
+                if(DriverTm.getDrId().toLowerCase().indexOf(searchKeyword) > -1){
                     return true;
                 }else if(DriverTm.getName().toLowerCase().indexOf(searchKeyword) > -1){
                     return true;
@@ -289,12 +291,24 @@ public class DriverManageFormController {
     }
 
     @FXML
-    void btnReportOnAction(ActionEvent event) {
+    void btnReportOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/ReportForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Report Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
-    void btnSalaryOnAction(ActionEvent event) {
+    void btnSalaryOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/SalaryForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Salary Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 }

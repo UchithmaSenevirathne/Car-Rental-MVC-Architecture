@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PaymentFormController {
+public class SalaryFormController {
     @FXML
     private AnchorPane rootNode;
 
@@ -82,23 +82,23 @@ public class PaymentFormController {
     }
 
     @FXML
+    void btnPaymentOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/PaymentForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Payment Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
     void btnReportOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/ReportForm.fxml"));
 
         Scene scene = new Scene(rootNode);
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setTitle("Report Manage Form");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
-
-    @FXML
-    void btnSalaryOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/SalaryForm.fxml"));
-
-        Scene scene = new Scene(rootNode);
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setTitle("Salary Manage Form");
         stage.setScene(scene);
         stage.centerOnScreen();
     }

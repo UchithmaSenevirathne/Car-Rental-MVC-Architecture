@@ -10,13 +10,14 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class DriverTm {
-    private String id;
+    private String drId;
     private String name;
     private String address;
     private String email;
     private String contact;
     private String licenseNo;
     private String userName;
+    private String availability;
     private Button updateButton;
     private Button deleteButton;
 }

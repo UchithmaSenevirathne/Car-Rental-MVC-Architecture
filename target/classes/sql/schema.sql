@@ -13,23 +13,21 @@ CREATE TABLE user(
 );
 
 DESC user;
-
 SELECT * FROM user;
 
 CREATE TABLE customer(
-        cusId VARCHAR(5) PRIMARY KEY,
+        cusId VARCHAR(10) PRIMARY KEY,
         name VARCHAR(20) NOT NULL,
         address TEXT NOT NULL,
         email VARCHAR(20) NOT NULL,
-        contact VARCHAR(11) NOT NULL
+        contact VARCHAR(15) NOT NULL
 );
 
 DESC customer;
-
 SELECT * FROM customer;
 
 CREATE TABLE driver(
-        drId VARCHAR(5) PRIMARY KEY,
+        drId VARCHAR(10) PRIMARY KEY,
         name VARCHAR(20) NOT NULL,
         address TEXT NOT NULL,
         email VARCHAR(20) NOT NULL,
@@ -41,95 +39,77 @@ CREATE TABLE driver(
 );
 
 DESC driver;
-
 SELECT * FROM driver;
 
-CREATE TABLE driverSalary(
-        drSalId VARCHAR(5) PRIMARY KEY,
-        amount DOUBLE (6,2) NOT NULL,
-        month VARCHAR(20) NOT NULL,
-        drId varchar(5),
-        constraint foreign key (drId) references driver(drId)
+CREATE TABLE car(
+        carNo VARCHAR(10) PRIMARY KEY,
+        brand VARCHAR(20) NOT NULL,
+        availability VARCHAR(10),
+        currentMileage DOUBLE(8,2),
+        kmOneDay DOUBLE(8,2),
+        priceOneDay DOUBLE(8,2),
+        priceExtraKm DOUBLE(8,2)
 );
 
-DESC driverSalary;
-
-SELECT * FROM driverSalary;
+DESC car;
+SELECT * FROM car;
 
 CREATE TABLE booking(
-        bId VARCHAR(5) PRIMARY KEY,
-        type VARCHAR(20) NOT NULL,
-        cusId varchar(5),
+        bId VARCHAR(10) PRIMARY KEY,
+        pickUpDate DATE NOT NULL,
+        days INT(5) ,
+        status VARCHAR(50) NOT NULL,
+        payment DOUBLE(8,2),
+        cusId varchar(10),
         constraint foreign key (cusId) references customer(cusId)
 );
 
 DESC booking;
-
 SELECT * FROM booking;
 
-CREATE TABLE driverSchedule(
-        drSchedule VARCHAR(5) PRIMARY KEY,
-        date DATE NOT NULL,
-        drId varchar(5),
-        constraint foreign key (drId) references driver(drId),
-        bId varchar(5),
-        constraint foreign key (bId) references booking(bId),
-        rideTo VARCHAR(20) NOT NULL,
-        distance DOUBLE(5,2) NOT NULL
-);
-
-DESC driverSchedule;
-
-SELECT * FROM driverSchedule;
-
-CREATE TABLE payment(
-        payId VARCHAR(5) PRIMARY KEY,
-        payAmount DOUBLE(10,2) NOT NULL,
-        bId varchar(5),
-        constraint foreign key (bId) references booking(bId)
-);
-
-DESC payment;
-
-SELECT * FROM payment;
-
-CREATE TABLE car(
-        carNo VARCHAR(5) PRIMARY KEY,
-        brand VARCHAR(20) NOT NULL,
-        availability VARCHAR(10),
-        currentMilage DOUBLE(6,2),
-        kmOneDay DOUBLE(6,2),
-        priceOneDay DOUBLE(8,2),
-        priceExtraKm DOUBLE(6,2)
-);
-
-DESC car;
-
-SELECT * FROM car;
-
 CREATE TABLE bookingDetail(
-        bDetailId VARCHAR(5) PRIMARY KEY,
-        date DATE NOT NULL,
-        carNo varchar(5),
-        constraint foreign key (carNo) references car(carNo),
-        bId varchar(5),
+        bId varchar(10),
         constraint foreign key (bId) references booking(bId),
-        rideTo VARCHAR(20) NOT NULL,
-        distance DOUBLE(5,2) NOT NULL,
-        status VARCHAR(10)
+        carNo varchar(10),
+        constraint foreign key (carNo) references car(carNo),
+        drId varchar(10),
+        constraint foreign key (drId) references driver(drId)
 );
 
 DESC bookingDetail;
-
 SELECT * FROM bookingDetail;
 
+CREATE TABLE driverSalary(
+        drSalId VARCHAR(10) PRIMARY KEY,
+        amount DOUBLE (8,2) NOT NULL,
+        month VARCHAR(20) NOT NULL,
+        drId varchar(10),
+        constraint foreign key (drId) references driver(drId)
+);
+
+DESC driverSalary;
+SELECT * FROM driverSalary;
+
+CREATE TABLE driverSchedule(
+        drScheduleNo VARCHAR(10) PRIMARY KEY,
+        date DATE NOT NULL,
+        drId varchar(10),
+        constraint foreign key (drId) references driver(drId),
+        bId varchar(10),
+        constraint foreign key (bId) references booking(bId),
+        rideTo VARCHAR(20) NOT NULL,
+        distance DOUBLE(8,2) NOT NULL
+);
+
+DESC driverSchedule;
+SELECT * FROM driverSchedule;
+
 CREATE TABLE carMaintain(
-                    mainId VARCHAR(5) PRIMARY KEY,
-                    type VARCHAR(10) NOT NULL
+        mainId VARCHAR(5) PRIMARY KEY,
+        type VARCHAR(10) NOT NULL
 );
 
 DESC carMaintain;
-
 SELECT * FROM carMaintain;
 
 CREATE TABLE maintainDetail(
@@ -143,7 +123,6 @@ CREATE TABLE maintainDetail(
 );
 
 DESC maintainDetail;
-
 SELECT * FROM maintainDetail;
 
 SHOW TABLES;

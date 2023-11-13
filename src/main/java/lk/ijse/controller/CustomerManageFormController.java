@@ -209,7 +209,7 @@ public class CustomerManageFormController {
                 }
                 String searchKeyword = newValue.toLowerCase();
 
-                if(CustomerTm.getId().toLowerCase().indexOf(searchKeyword) > -1){
+                if(CustomerTm.getCusId().toLowerCase().indexOf(searchKeyword) > -1){
                     return true;
                 }else if(CustomerTm.getName().toLowerCase().indexOf(searchKeyword) > -1){
                     return true;
@@ -276,12 +276,24 @@ public class CustomerManageFormController {
     }
 
     @FXML
-    void btnReportOnAction(ActionEvent event) {
+    void btnReportOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/ReportForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Report Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
-    void btnSalaryOnAction(ActionEvent event) {
+    void btnSalaryOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/SalaryForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Salary Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 }

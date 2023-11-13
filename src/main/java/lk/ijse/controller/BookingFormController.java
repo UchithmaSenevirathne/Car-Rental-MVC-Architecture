@@ -1,11 +1,41 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import lk.ijse.dto.BookDTO;
+import lk.ijse.dto.CarDto;
+import lk.ijse.dto.CustomerDto;
+import lk.ijse.dto.DriverDto;
+import lk.ijse.dto.tm.BookTm;
+import lk.ijse.dto.tm.CarTm;
+import lk.ijse.dto.tm.DriverTm;
+import lk.ijse.model.*;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class BookingFormController {
+    private final CustomerModel customerModel = new CustomerModel();
+    private final DriverModel driverModel = new DriverModel();
+    private final CarModel carModel = new CarModel();
+    private final BookingModel bookingModel = new BookingModel();
+    private final ObservableList<CarTm> obList1 = FXCollections.observableArrayList();
+    private final ObservableList<DriverTm> obList2 = FXCollections.observableArrayList();
+    private final ObservableList<BookTm> obList3 = FXCollections.observableArrayList();
+
     @FXML
     private TableColumn<?, ?> colBrand;
 
@@ -19,28 +49,28 @@ public class BookingFormController {
     private TableColumn<?, ?> colDrId;
 
     @FXML
-    private TableColumn<?, ?> colDrName;
+    private TableColumn<?, ?> colCusId;
 
     @FXML
-    private TableColumn<?, ?> colPickupDate;
+    private TableColumn<?, ?> colPickUpDate;
 
     @FXML
-    private TableColumn<?, ?> colRentId;
+    private TableColumn<?, ?> colBId;
 
     @FXML
-    private ComboBox<?> comboCarNo;
+    private ComboBox<String> comboCarNo;
 
     @FXML
-    private ComboBox<?> comboCusId;
+    private ComboBox<String> comboCusId;
 
     @FXML
-    private ComboBox<?> comboDrId;
+    private ComboBox<String> comboDrId;
 
     @FXML
-    private Label lblAdvancePayment;
+    private TextField txtAdvancePayment;
 
     @FXML
-    private Label lblBookingDate;
+    private DatePicker datepickerDate;
 
     @FXML
     private Label lblBookingId;
@@ -58,7 +88,7 @@ public class BookingFormController {
     private Label lblCusName;
 
     @FXML
-    private Label lblDays;
+    private TextField txtDays;
 
     @FXML
     private Label lblDrName;
@@ -67,7 +97,7 @@ public class BookingFormController {
     private AnchorPane rootNode;
 
     @FXML
-    private TableView<?> tableView;
+    private TableView<BookTm> tableView;
 
     @FXML
     private TextField txtSearchCar;
@@ -75,57 +105,288 @@ public class BookingFormController {
     @FXML
     private TextField txtSearchCus;
 
-    @FXML
-    void btnAddCarOnAction(ActionEvent event) {
+    private final MakeBookingModel makeBookingModel = new MakeBookingModel();
+    private final CarManageFormController carManageFormController = new CarManageFormController();
 
+    public void initialize() {
+        setCellValueFactory();
+        generateNextBookingId();
+        //setDate();
+        loadCustomerIds();
+        loadDriverIds();
+        loadCarNo();
+    }
+
+    private void setCellValueFactory() {
+        colBId.setCellValueFactory(new PropertyValueFactory<>("bId"));
+        colCarNo.setCellValueFactory(new PropertyValueFactory<>("carNo"));
+        colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        colDrId.setCellValueFactory(new PropertyValueFactory<>("drId"));
+        colCusId.setCellValueFactory(new PropertyValueFactory<>("cusId"));
+        colPickUpDate.setCellValueFactory(new PropertyValueFactory<>("pickUpDate"));
+        colDays.setCellValueFactory(new PropertyValueFactory<>("days"));
+    }
+
+    private void generateNextBookingId() {
+        try {
+            String rentId = bookingModel.generateNextBookingId();
+            lblBookingId.setText(rentId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void loadCarNo() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<CarDto> carList = carModel.getAllCars();
+
+            for (CarDto carDto : carList) {
+                obList.add(carDto.getCarNo());
+            }
+            comboCarNo.setItems(obList);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void loadCustomerIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<CustomerDto> cusList = customerModel.getAllCustomers();
+
+            for (CustomerDto dto : cusList) {
+                obList.add(dto.getId());
+            }
+            comboCusId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //private void setDate() {
+    //}
+
+    private void loadDriverIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<DriverDto> drList = driverModel.getAllDrivers();
+
+            for (DriverDto dto : drList) {
+                obList.add(dto.getId());
+            }
+            comboDrId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
-    void btnCarOnAction(ActionEvent event) {
+    void btnAddCarOnAction(ActionEvent event) {
+        String bId = lblBookingId.getText();
+        String carNo = comboCarNo.getValue();
+        String brand = lblCarName.getText();
+        String drId = comboDrId.getValue();
+        String cusId = comboCusId.getValue();
+        LocalDate localDate = datepickerDate.getValue();
+        Date pickUpDate = java.sql.Date.valueOf(localDate);
+        int days = Integer.parseInt(txtDays.getText());
 
+        obList3.add(new BookTm(
+                bId,
+                carNo,
+                brand,
+                drId,
+                cusId,
+                pickUpDate,
+                days
+        ));
+        System.out.println(bId);
+
+        tableView.setItems(obList3);
+    }
+
+    @FXML
+    void btnCarOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CarManageForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Cars Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
     void btnConfirmRentOnAction(ActionEvent event) {
+        String bId = lblBookingId.getText();
+        LocalDate localDate = datepickerDate.getValue();
+        Date pickUpDate = java.sql.Date.valueOf(localDate);
+        int days = Integer.parseInt(txtDays.getText());
+        String status = "Pending";
+        double payment = Double.parseDouble(txtAdvancePayment.getText());
+        String cusId = comboCusId.getValue();
+
+        List<CarTm> carTmList = new ArrayList<>();
+
+        for (CarTm carTm : carManageFormController.obListCar) {
+            carTmList.add(carTm);
+        }
+
+        System.out.println(carTmList);
+
+        List<DriverTm> driverTmList = new ArrayList<>();
+
+        for (DriverTm driverTm : obList2) {
+            driverTmList.add(driverTm);
+        }
+
+        System.out.println(driverTmList);
+
+        List<BookTm> bookTmList = new ArrayList<>();
+
+        for (BookTm bookTm : obList3) {
+            bookTmList.add(bookTm);
+        }
+
+        System.out.println(bookTmList);
+
+        var bookDto = new BookDTO(
+                bId,
+                pickUpDate,
+                days,
+                status,
+                payment,
+                cusId,
+                carTmList,
+                driverTmList,
+                bookTmList
+        );
+
+        try {
+            boolean isSuccess = makeBookingModel.makeBooking(bookDto);
+            System.out.println(isSuccess);
+            if(isSuccess) {
+                new Alert(Alert.AlertType.CONFIRMATION, "booking completed!").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
 
     }
 
     @FXML
-    void btnCustomerOnAction(ActionEvent event) {
+    void cmbCarOnAction(ActionEvent event) {
+        String carNo = comboCarNo.getValue();
 
+        try {
+            CarDto dto = CarModel.searchCar(carNo);
+
+            lblCarName.setText(dto.getBrand());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
-    void btnDashboardOnAction(ActionEvent event) {
+    void cmbCusOnAction(ActionEvent event) throws SQLException {
+        String id = comboCusId.getValue();
+        CustomerDto dto = customerModel.searchCustomer(id);
 
+        lblCusName.setText(dto.getName());
+        lblCusContact.setText(dto.getContact());
+        lblCusAddress.setText(dto.getAddress());
     }
 
     @FXML
-    void btnDriverOnAction(ActionEvent event) {
+    void cmbDrOnAction(ActionEvent event) throws SQLException {
+        String drId = comboDrId.getValue();
+        DriverDto dto = driverModel.searchDriver(drId);
 
+        lblDrName.setText(dto.getUserName());
     }
 
     @FXML
-    void btnLogoutOnAction(ActionEvent event) {
+    void btnCustomerOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CustomerManageForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Customer Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
-    void btnPaymentOnAction(ActionEvent event) {
+    void btnDashboardOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Dashboard Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
-    void btnReportOnAction(ActionEvent event) {
+    void btnDriverOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverManageForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Driver Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
-    void btnSalaryOnAction(ActionEvent event) {
+    void btnLogoutOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Login Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
+    void btnPaymentOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/PaymentForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Payment Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnReportOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/ReportForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Report Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnSalaryOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/SalaryForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Salary Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+   /* @FXML
     void txtSearchCarOnAction(ActionEvent event) {
 
     }
@@ -133,5 +394,5 @@ public class BookingFormController {
     @FXML
     void txtSearchCusOnAction(ActionEvent event) {
 
-    }
+    }*/
 }

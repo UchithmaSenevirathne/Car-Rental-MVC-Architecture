@@ -63,8 +63,9 @@ public class DriverFormController {
         String licenseNo = txtDrLicenseNo.getText();
         String userName = txtUserName.getText();
         String pwd = txtPassword.getText();
+        String availability = "Yes";
 
-        var driverDto = new DriverDto(id, name, address, email, contact, licenseNo, userName);
+        var driverDto = new DriverDto(id, name, address, email, contact, licenseNo, userName, availability);
         var userDto = new UserDTO(userName, pwd, "DRI");
 
         var model = new DriverModel();

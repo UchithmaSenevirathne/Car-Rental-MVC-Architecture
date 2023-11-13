@@ -2,7 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.CarDto;
-import lk.ijse.dto.CustomerDto;
+import lk.ijse.dto.tm.CarTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarModel {
+
     public boolean saveCar(CarDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -21,7 +22,7 @@ public class CarModel {
         pstm.setString(1, dto.getCarNo());
         pstm.setString(2, dto.getBrand());
         pstm.setString(3, dto.getAvailability());
-        pstm.setDouble(4, dto.getCurrentMilage());
+        pstm.setDouble(4, dto.getCurrentMileage());
         pstm.setDouble(5, dto.getKmOneDay());
         pstm.setDouble(6, dto.getPriceOneDay());
         pstm.setDouble(7, dto.getPriceExtraKm());
@@ -45,12 +46,12 @@ public class CarModel {
             String car_number = resultSet.getString(1);
             String car_brand = resultSet.getString(2);
             String car_availability = resultSet.getString(3);
-            double car_milage = resultSet.getDouble(4);
+            double car_mileage = resultSet.getDouble(4);
             double km_day = resultSet.getDouble(5);
             double price_day = resultSet.getDouble(6);
             double price_extra = resultSet.getDouble(7);
 
-            var dto = new CarDto(car_number, car_brand, car_availability, car_milage, km_day, price_day, price_extra);
+            var dto = new CarDto(car_number, car_brand, car_availability, car_mileage, km_day, price_day, price_extra);
             dtoList.add(dto);
         }
         return dtoList;
@@ -64,7 +65,7 @@ public class CarModel {
 
         pstm.setString(1, dto.getBrand());
         pstm.setString(2, dto.getAvailability());
-        pstm.setDouble(3, dto.getCurrentMilage());
+        pstm.setDouble(3, dto.getCurrentMileage());
         pstm.setDouble(4, dto.getKmOneDay());
         pstm.setDouble(5, dto.getPriceOneDay());
         pstm.setDouble(6, dto.getPriceExtraKm());
@@ -73,7 +74,7 @@ public class CarModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public CarDto searchCar(String carNo) throws SQLException {
+    public static CarDto searchCar(String carNo) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM car WHERE carNo = ?";
@@ -109,5 +110,32 @@ public class CarModel {
         pstm.setString(1, carNo);
 
         return pstm.executeUpdate() > 0;
+    }
+
+
+    public boolean updateCar(List<CarTm> carList) throws SQLException {
+        for (CarTm carTm : carList) {
+            if(!updateAvailable(carTm)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean updateAvailable(CarTm carTm) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE car SET availability = 'No' WHERE carNo = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        //pstm.setString(1, "No");
+        pstm.setString(2, carTm.getCarNo());
+
+        System.out.println(carTm.getCarNo());
+
+        boolean isUpdate = pstm.executeUpdate() > 0;
+
+        System.out.println("car update "+ isUpdate);
+
+        return isUpdate;
     }
 }

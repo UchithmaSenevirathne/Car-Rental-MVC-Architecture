@@ -15,9 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.CarDto;
 import lk.ijse.dto.tm.CarTm;
-import lk.ijse.dto.tm.DriverTm;
 import lk.ijse.model.CarModel;
-import lk.ijse.model.CustomerModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -62,7 +60,7 @@ public class CarManageFormController {
     @FXML
     private TextField txtSearchCar;
 
-    private final ObservableList<CarTm> obList = FXCollections.observableArrayList();
+    public final ObservableList<CarTm> obListCar = FXCollections.observableArrayList();
 
 
     public void initialize(){
@@ -83,7 +81,7 @@ public class CarManageFormController {
     }
 
     private void loadAllCars(){
-        obList.clear();
+        obListCar.clear();
 
         var model = new CarModel();
 
@@ -96,12 +94,12 @@ public class CarManageFormController {
 
                 updateButton.setOnAction(event -> openCarPopup(dto));
                 deleteButton.setOnAction(event -> deleteCar(dto.getCarNo()));
-                obList.add(
+                obListCar.add(
                         new CarTm(
                                 dto.getCarNo(),
                                 dto.getBrand(),
                                 dto.getAvailability(),
-                                dto.getCurrentMilage(),
+                                dto.getCurrentMileage(),
                                 dto.getKmOneDay(),
                                 dto.getPriceOneDay(),
                                 dto.getPriceExtraKm(),
@@ -110,7 +108,7 @@ public class CarManageFormController {
                         )
                 );
             }
-            tableView.setItems(obList);
+            tableView.setItems(obListCar);
         }catch (Exception e){
             throw new RuntimeException(e);
         }
@@ -218,7 +216,7 @@ public class CarManageFormController {
 
     @FXML
     void txtSEARCHOnAction(ActionEvent event) {
-        FilteredList<CarTm> filteredData = new FilteredList<>(obList, b -> true);
+        FilteredList<CarTm> filteredData = new FilteredList<>(obListCar, b -> true);
 
         txtSearchCar.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(CarTm -> {
@@ -278,12 +276,24 @@ public class CarManageFormController {
     }
 
     @FXML
-    void btnReportOnAction(ActionEvent event) {
+    void btnReportOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/ReportForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Report Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
-    void btnSalaryOnAction(ActionEvent event) {
+    void btnSalaryOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/SalaryForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Salary Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 }

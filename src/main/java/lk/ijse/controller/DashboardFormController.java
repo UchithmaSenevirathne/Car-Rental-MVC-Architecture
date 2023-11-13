@@ -106,13 +106,25 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnReportOnAction(ActionEvent event) {
+    void btnReportOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/ReportForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Report Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
-    void btnSalaryOnAction(ActionEvent event) {
+    void btnSalaryOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/SalaryForm.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Salary Manage Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
