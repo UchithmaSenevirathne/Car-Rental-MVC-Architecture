@@ -22,7 +22,7 @@
             </Label>
             <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="391.0" prefWidth="838.0">
               <columns>
-                <TableColumn fx:id="colId" prefWidth="65.0" text="ID" />
+                <TableColumn fx:id="colCusId" prefWidth="65.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="135.0" text="Name" />
                   <TableColumn fx:id="colAddress" prefWidth="132.0" text="Address" />
                   <TableColumn fx:id="colEmail" prefWidth="182.0" text="E-mail" />

@@ -82,7 +82,7 @@ public class DriverModel {
         pstm1.setString(3, userDTO.getUserName());
 
         if(pstm1.executeUpdate() > 0) {
-            String sql2 = "UPDATE driver SET name = ?, address = ?, email = ?, contact = ?, licenseNo = ?, userName = ?, availability = ? WHERE id = ?";
+            String sql2 = "UPDATE driver SET name = ?, address = ?, email = ?, contact = ?, licenseNo = ?, userName = ?, availability = ? WHERE drId = ?";
             PreparedStatement pstm2 = connection.prepareStatement(sql2);
 
             pstm2.setString(1, driverDto.getName());
@@ -103,7 +103,7 @@ public class DriverModel {
     public DriverDto searchDriver(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM driver WHERE id = ?";
+        String sql = "SELECT * FROM driver WHERE drId = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, id);
@@ -127,15 +127,23 @@ public class DriverModel {
         return dto;
     }
 
-    public boolean deleteDriver(String id) throws SQLException {
+    public boolean deleteDriver(String userName) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "DELETE FROM driver WHERE id = ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        String sql1 = "DELETE FROM driver WHERE userName = ?";
+        PreparedStatement pstm1 = connection.prepareStatement(sql1);
 
-        pstm.setString(1, id);
+        pstm1.setString(1, userName);
 
-        return pstm.executeUpdate() > 0;
+        if(pstm1.executeUpdate() > 0) {
+            String sql2 = "DELETE FROM user WHERE userName = ?";
+            PreparedStatement pstm2 = connection.prepareStatement(sql2);
+
+            pstm2.setString(1, userName);
+
+            return pstm2.executeUpdate() > 0;
+        }
+        return false;
     }
 
     public boolean updateDriver(List<DriverTm> driverList) throws SQLException {

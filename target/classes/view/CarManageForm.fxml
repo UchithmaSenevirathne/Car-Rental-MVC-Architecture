@@ -25,7 +25,7 @@
                 <TableColumn fx:id="colCarNo" prefWidth="74.0" text="Car Number" />
                 <TableColumn fx:id="colBrand" prefWidth="96.0" text="Brand" />
                   <TableColumn fx:id="colAvailability" prefWidth="70.0" text="Availability" />
-                  <TableColumn fx:id="colCurrentMilage" prefWidth="98.0" text="Current Milage" />
+                  <TableColumn fx:id="colCurrentMileage" prefWidth="98.0" text="Current Milage" />
                   <TableColumn fx:id="colKmOneDay" prefWidth="103.0" text="Km for One Day" />
                   <TableColumn fx:id="colPriceOneDay" prefWidth="112.0" text="Price for One Day" />
                   <TableColumn fx:id="colPriceExtraKm" prefWidth="128.0" text="Price for Extra 1Km" />

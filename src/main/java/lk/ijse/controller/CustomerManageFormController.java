@@ -37,7 +37,7 @@ public class CustomerManageFormController {
     private TableColumn<CustomerTm, String> colEmail;
 
     @FXML
-    private TableColumn<CustomerTm, String> colId;
+    private TableColumn<CustomerTm, String> colCusId;
 
     @FXML
     private TableColumn<CustomerTm, String> colName;
@@ -63,7 +63,7 @@ public class CustomerManageFormController {
     }
 
     private void setCellValueFactory(){
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colCusId.setCellValueFactory(new PropertyValueFactory<>("cusId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));

@@ -60,7 +60,7 @@ public class CarModel {
     public boolean updateCar(CarDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE car SET brand = ?, availability = ?, currentMilage = ?, kmOneDay = ?, priceOneDay = ?, priceExtraKm = ? WHERE carNo = ?";
+        String sql = "UPDATE car SET brand = ?, availability = ?, currentMileage = ?, kmOneDay = ?, priceOneDay = ?, priceExtraKm = ? WHERE carNo = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getBrand());
@@ -125,9 +125,9 @@ public class CarModel {
     private boolean updateAvailable(CarTm carTm) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE car SET availability = 'No' WHERE carNo = ?";
+        String sql = "UPDATE car SET availability = ? WHERE carNo = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
-        //pstm.setString(1, "No");
+        pstm.setString(1, "No");
         pstm.setString(2, carTm.getCarNo());
 
         System.out.println(carTm.getCarNo());

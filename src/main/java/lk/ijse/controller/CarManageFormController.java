@@ -39,7 +39,7 @@ public class CarManageFormController {
     private TableColumn<?, ?> colAvailability;
 
     @FXML
-    private TableColumn<?, ?> colCurrentMilage;
+    private TableColumn<?, ?> colCurrentMileage;
 
     @FXML
     private TableColumn<?, ?> colKmOneDay;
@@ -49,7 +49,6 @@ public class CarManageFormController {
 
     @FXML
     private TableColumn<?, ?> colPriceOneDay;
-
 
     @FXML
     private AnchorPane rootNode;
@@ -72,7 +71,7 @@ public class CarManageFormController {
         colCarNo.setCellValueFactory(new PropertyValueFactory<>("carNo"));
         colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         colAvailability.setCellValueFactory(new PropertyValueFactory<>("Availability"));
-        colCurrentMilage.setCellValueFactory(new PropertyValueFactory<>("CurrentMilage"));
+        colCurrentMileage.setCellValueFactory(new PropertyValueFactory<>("CurrentMileage"));
         colKmOneDay.setCellValueFactory(new PropertyValueFactory<>("KmOneDay"));
         colPriceOneDay.setCellValueFactory(new PropertyValueFactory<>("PriceOneDay"));
         colPriceExtraKm.setCellValueFactory(new PropertyValueFactory<>("PriceExtraKm"));

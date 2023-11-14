@@ -40,22 +40,12 @@
                      </font>
                   </Label>
                   <Label fx:id="lblBookingId" layoutX="20.0" layoutY="76.0" prefHeight="17.0" prefWidth="56.0" />
-                  <Label layoutX="21.0" layoutY="118.0" text="Search">
+                  <Label layoutX="21.0" layoutY="118.0" text="Cus ID">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtSearchCus" layoutX="20.0" layoutY="137.0" onAction="#txtSearchCusOnAction" prefHeight="25.0" prefWidth="117.0" promptText="CUSTOMER">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="167.0" layoutY="118.0" text="Cus ID">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="comboCusId" layoutX="167.0" layoutY="137.0" onAction="#cmbCusOnAction" prefHeight="25.0" prefWidth="105.0" />
+                  <ComboBox fx:id="comboCusId" layoutX="19.0" layoutY="140.0" onAction="#cmbCusOnAction" prefHeight="25.0" prefWidth="105.0" />
                   <Label layoutX="22.0" layoutY="186.0" text="Name">
                      <font>
                         <Font name="System Bold" size="11.0" />
@@ -91,22 +81,12 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Label layoutX="22.0" layoutY="59.0" text="Search">
+                  <Label layoutX="23.0" layoutY="58.0" text="Car No">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtSearchCar" layoutX="22.0" layoutY="75.0" onAction="#txtSearchCarOnAction" prefHeight="25.0" prefWidth="117.0" promptText="CAR">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="165.0" layoutY="59.0" text="Car No">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="comboCarNo" layoutX="165.0" layoutY="74.0" onAction="#cmbCarOnAction" prefHeight="25.0" prefWidth="98.0" />
+                  <ComboBox fx:id="comboCarNo" layoutX="23.0" layoutY="74.0" onAction="#cmbCarOnAction" prefHeight="25.0" prefWidth="98.0" />
                   <Label layoutX="24.0" layoutY="133.0" text="Car Name">
                      <font>
                         <Font name="System Bold" size="11.0" />

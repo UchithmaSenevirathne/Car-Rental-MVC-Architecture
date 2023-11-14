@@ -22,14 +22,14 @@
             </Label>
             <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="386.0" prefWidth="837.0">
               <columns>
-                <TableColumn fx:id="colId" prefWidth="62.0" text="ID" />
+                <TableColumn fx:id="colDrId" prefWidth="62.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="65.0" text="Name" />
                   <TableColumn fx:id="colAddress" prefWidth="89.0" text="Address" />
                   <TableColumn fx:id="colEmail" prefWidth="124.0" text="E-mail" />
                   <TableColumn fx:id="colContact" prefWidth="101.0" text="Contact" />
                   <TableColumn fx:id="colLicenseNo" prefWidth="83.0" text="License No" />
                   <TableColumn fx:id="colUserName" prefWidth="82.0" text="UserName" />
-                  <TableColumn fx:id="colAvailablity" prefWidth="68.0" text="Availability" />
+                  <TableColumn fx:id="colAvailability" prefWidth="68.0" text="Availability" />
                   <TableColumn fx:id="colUpdate" prefWidth="81.0" text="UPDATE" />
                   <TableColumn fx:id="colDelete" prefWidth="81.0" text="DELETE" />
               </columns>

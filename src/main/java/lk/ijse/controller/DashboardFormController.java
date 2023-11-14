@@ -19,18 +19,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardFormController {
+public class DashboardFormController implements Initializable{
 
-   /* @FXML
+   @FXML
     private PieChart piechart;
 
     @FXML
-    private BarChart<?, ?> barChart;*/
+    private BarChart<?, ?> barChart;
 
     @FXML
     private AnchorPane rootNode;
 
-  /*  @Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
@@ -69,7 +69,7 @@ public class DashboardFormController {
         series2.getData().add(new XYChart.Data("5 Star", 4034));
 
         barChart.getData().addAll(series1,series2);
-    }*/
+    }
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) throws IOException {

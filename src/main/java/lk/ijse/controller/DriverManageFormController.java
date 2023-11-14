@@ -29,7 +29,7 @@ public class DriverManageFormController {
     private TableColumn<?, ?> colAddress;
 
     @FXML
-    private TableColumn<?, ?> colAvailablity;
+    private TableColumn<?, ?> colAvailability;
 
     @FXML
     private TableColumn<?, ?> colContact;
@@ -38,7 +38,7 @@ public class DriverManageFormController {
     private TableColumn<?, ?> colEmail;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<?, ?> colDrId;
 
     @FXML
     private TableColumn<?, ?> colLicenseNo;
@@ -72,14 +72,14 @@ public class DriverManageFormController {
     }
 
     private void setCellValueFactory(){
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colDrId.setCellValueFactory(new PropertyValueFactory<>("drId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colLicenseNo.setCellValueFactory(new PropertyValueFactory<>("licenseNo"));
         colUserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
-        colAvailablity.setCellValueFactory(new PropertyValueFactory<>("availability"));
+        colAvailability.setCellValueFactory(new PropertyValueFactory<>("availability"));
         colUpdate.setCellValueFactory(new PropertyValueFactory<>("UpdateButton"));
         colDelete.setCellValueFactory(new PropertyValueFactory<>("DeleteButton"));
     }
@@ -97,7 +97,7 @@ public class DriverManageFormController {
                 Button deleteButton = new Button("Delete");
 
                 updateButton.setOnAction(event -> openDriverPopup(dto));
-                deleteButton.setOnAction(event -> deleteDriver(dto.getId()));
+                deleteButton.setOnAction(event -> deleteDriver(dto.getUserName())); //*********** getId()
                 obList.add(
                         new DriverTm(
                                 dto.getId(),
@@ -120,11 +120,11 @@ public class DriverManageFormController {
         }
     }
 
-    private void deleteDriver(String id) {
+    private void deleteDriver(String userName) {
         var model = new DriverModel();
 
         try {
-            boolean b = model.deleteDriver(id);
+            boolean b = model.deleteDriver(userName);
 
             if(b){
                 loadAllDrivers();
