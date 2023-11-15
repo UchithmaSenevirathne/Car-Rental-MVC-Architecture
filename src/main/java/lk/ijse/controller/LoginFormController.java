@@ -25,6 +25,9 @@ public class LoginFormController {
     @FXML
     private TextField txtUserName;
 
+    @FXML
+    private TextField txtJobRoll;
+
     /*@FXML
     void btnSignUpLoginPgOnAction(ActionEvent event) throws IOException {
 
@@ -61,7 +64,7 @@ public class LoginFormController {
     }
 
     private boolean isAdmin(String userName, String password){
-        if(userName.equals("Uchithma") && password.equals("#077pc")){
+        if(userName.equals("iman") && password.equals("1234")){
             return true;
         }
         return false;

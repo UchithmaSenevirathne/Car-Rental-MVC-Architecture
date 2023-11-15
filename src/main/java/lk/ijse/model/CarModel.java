@@ -113,24 +113,21 @@ public class CarModel {
     }
 
 
-    public boolean updateCar(List<CarTm> carList) throws SQLException {
+    /*public boolean updateCar(List<CarTm> carList) throws SQLException {
         for (CarTm carTm : carList) {
             if(!updateAvailable(carTm)) {
                 return false;
             }
         }
         return true;
-    }
+    }*/
 
-    private boolean updateAvailable(CarTm carTm) throws SQLException {
+    public boolean updateAvailable(String carID) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE car SET availability = ? WHERE carNo = ?";
+        String sql = "UPDATE car SET availability = 'NO' WHERE carNo = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, "No");
-        pstm.setString(2, carTm.getCarNo());
-
-        System.out.println(carTm.getCarNo());
+        pstm.setString(1, carID);
 
         boolean isUpdate = pstm.executeUpdate() > 0;
 

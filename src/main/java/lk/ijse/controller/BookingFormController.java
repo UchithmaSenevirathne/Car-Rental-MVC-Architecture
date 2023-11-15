@@ -11,10 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.dto.BookDTO;
-import lk.ijse.dto.CarDto;
-import lk.ijse.dto.CustomerDto;
-import lk.ijse.dto.DriverDto;
+import lk.ijse.dto.*;
 import lk.ijse.dto.tm.BookTm;
 import lk.ijse.dto.tm.CarTm;
 import lk.ijse.dto.tm.DriverTm;
@@ -28,12 +25,19 @@ import java.util.Date;
 import java.util.List;
 
 public class BookingFormController {
+
     private final CustomerModel customerModel = new CustomerModel();
+
     private final DriverModel driverModel = new DriverModel();
+
     private final CarModel carModel = new CarModel();
+
     private final BookingModel bookingModel = new BookingModel();
+
     private final ObservableList<CarTm> obList1 = FXCollections.observableArrayList();
+
     private final ObservableList<DriverTm> obList2 = FXCollections.observableArrayList();
+
     private final ObservableList<BookTm> obList3 = FXCollections.observableArrayList();
 
     @FXML
@@ -202,7 +206,8 @@ public class BookingFormController {
                 pickUpDate,
                 days
         ));
-        System.out.println(bId);
+        System.out.println("++++++++++");
+        System.out.println(obList3);
 
         tableView.setItems(obList3);
     }
@@ -228,29 +233,17 @@ public class BookingFormController {
         double payment = Double.parseDouble(txtAdvancePayment.getText());
         String cusId = comboCusId.getValue();
 
-        List<CarTm> carTmList = new ArrayList<>();
-
-        for (CarTm carTm : carManageFormController.obListCar) {
-            carTmList.add(carTm);
-        }
-
-        System.out.println(carTmList);
-
-        List<DriverTm> driverTmList = new ArrayList<>();
-
-        for (DriverTm driverTm : obList2) {
-            driverTmList.add(driverTm);
-        }
-
-        System.out.println(driverTmList);
-
-        List<BookTm> bookTmList = new ArrayList<>();
+        List<bookingDetailDTO> bookingDetailList = new ArrayList<>();
 
         for (BookTm bookTm : obList3) {
-            bookTmList.add(bookTm);
+            bookingDetailList.add(new bookingDetailDTO(
+                    bookTm.getBId(),
+                    bookTm.getCarNo(),
+                    bookTm.getDrId()
+            ));
         }
 
-        System.out.println(bookTmList);
+        System.out.println(bookingDetailList);
 
         var bookDto = new BookDTO(
                 bId,
@@ -259,10 +252,10 @@ public class BookingFormController {
                 status,
                 payment,
                 cusId,
-                carTmList,
-                driverTmList,
-                bookTmList
+                bookingDetailList
         );
+
+        System.out.println(bookDto);
 
         try {
             boolean isSuccess = makeBookingModel.makeBooking(bookDto);

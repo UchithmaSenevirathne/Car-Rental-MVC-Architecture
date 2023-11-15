@@ -21,7 +21,5 @@ public class BookDTO {
     private String status;
     private double payment;
     private String cusId;
-    private List<CarTm> carList = new ArrayList<>();
-    private List<DriverTm> driverList = new ArrayList<>();
-    private List<BookTm> bookList = new ArrayList<>();
+    private List<bookingDetailDTO> bookingList = new ArrayList<>();
 }

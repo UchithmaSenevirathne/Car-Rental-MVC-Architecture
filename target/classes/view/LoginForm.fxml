@@ -7,50 +7,33 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <Pane prefHeight="450.0" prefWidth="432.0" style="-fx-background-color: #0a4051;">
-         <children>
-            <Label layoutX="167.0" layoutY="337.0" text="Apex" textFill="WHITE">
-               <font>
-                  <Font name="Felix Titling" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="219.0" layoutY="345.0" text="AUTO RENTAL" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="207.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/ApexIcon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="282.0" fitWidth="361.0" layoutX="39.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/defender-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </children></Pane>
-      <Label layoutX="562.0" layoutY="79.0" text="Sign In">
+      <ImageView fitHeight="650.0" fitWidth="1012.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MacBook Air - 9.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="265.0" fitWidth="268.0" layoutX="154.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/illust.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="694.0" layoutY="191.0" text="Sign In">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Corbel Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserName" layoutX="479.0" layoutY="174.0" prefHeight="25.0" prefWidth="225.0" promptText="UserName" />
-      <Label layoutX="629.0" layoutY="250.0" opacity="0.56" text="Forget password?">
+      <TextField fx:id="txtUserName" layoutX="608.0" layoutY="283.0" prefHeight="25.0" prefWidth="226.0" promptText="UserName" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Button layoutX="608.0" layoutY="453.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: #5758BB; -fx-background-radius: 10;" text="SIGN IN" textFill="WHITE" />
+      <PasswordField fx:id="fieldPassword" layoutX="608.0" layoutY="328.0" prefHeight="25.0" prefWidth="226.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Label layoutX="749.0" layoutY="352.0" opacity="0.56" text="Forgot Password ?">
          <font>
-            <Font name="System Italic" size="10.0" />
+            <Font size="10.0" />
          </font>
       </Label>
-      <Button layoutX="479.0" layoutY="342.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="225.0" style="-fx-border-color: #0a4051; -fx-border-radius: 5; -fx-background-color: white;" text="SIGN IN" textFill="#0a4051">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Button>
-      <PasswordField fx:id="fieldPassword" layoutX="479.0" layoutY="225.0" prefHeight="25.0" prefWidth="225.0" promptText="Password" />
+      <TextField fx:id="txtJobRoll" layoutX="608.0" layoutY="375.0" prefHeight="25.0" prefWidth="226.0" promptText="Roll" style="-fx-background-color: white; -fx-background-radius: 10;" />
    </children>
 </AnchorPane>

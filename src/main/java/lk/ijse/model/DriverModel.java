@@ -146,22 +146,21 @@ public class DriverModel {
         return false;
     }
 
-    public boolean updateDriver(List<DriverTm> driverList) throws SQLException {
+    /*public boolean updateDriver(List<DriverTm> driverList) throws SQLException {
         for (DriverTm driverTm : driverList) {
             if(!updateAvailable(driverTm)) {
                 return false;
             }
         }
         return true;
-    }
+    }*/
 
-    private boolean updateAvailable(DriverTm driverTm) throws SQLException {
+    public boolean updateAvailable(String driverID) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE driver SET availability = ? WHERE drId = ?";
+        String sql = "UPDATE driver SET availability = 'NO' WHERE drId = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, "No");
-        pstm.setString(2, driverTm.getDrId());
+        pstm.setString(1, driverID);
 
         return pstm.executeUpdate() > 0;
     }
