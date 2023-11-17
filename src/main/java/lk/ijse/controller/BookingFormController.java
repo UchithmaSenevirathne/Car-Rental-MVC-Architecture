@@ -80,22 +80,22 @@ public class BookingFormController {
     private Label lblBookingId;
 
     @FXML
-    private Label lblCarName;
+    private TextField txtCarName;
 
     @FXML
-    private Label lblCusAddress;
+    private TextField txtCusAddress;
 
     @FXML
-    private Label lblCusContact;
+    private TextField txtCusContact;
 
     @FXML
-    private Label lblCusName;
+    private TextField txtCusName;
 
     @FXML
     private TextField txtDays;
 
     @FXML
-    private Label lblDrName;
+    private TextField txtDrName;
 
     @FXML
     private AnchorPane rootNode;
@@ -190,7 +190,7 @@ public class BookingFormController {
     void btnAddCarOnAction(ActionEvent event) {
         String bId = lblBookingId.getText();
         String carNo = comboCarNo.getValue();
-        String brand = lblCarName.getText();
+        String brand = txtCarName.getText();
         String drId = comboDrId.getValue();
         String cusId = comboCusId.getValue();
         LocalDate localDate = datepickerDate.getValue();
@@ -276,7 +276,7 @@ public class BookingFormController {
         try {
             CarDto dto = CarModel.searchCar(carNo);
 
-            lblCarName.setText(dto.getBrand());
+            txtCarName.setText(dto.getBrand());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -288,9 +288,9 @@ public class BookingFormController {
         String id = comboCusId.getValue();
         CustomerDto dto = customerModel.searchCustomer(id);
 
-        lblCusName.setText(dto.getName());
-        lblCusContact.setText(dto.getContact());
-        lblCusAddress.setText(dto.getAddress());
+        txtCusName.setText(dto.getName());
+        txtCusContact.setText(dto.getContact());
+        txtCusAddress.setText(dto.getAddress());
     }
 
     @FXML
@@ -298,7 +298,7 @@ public class BookingFormController {
         String drId = comboDrId.getValue();
         DriverDto dto = driverModel.searchDriver(drId);
 
-        lblDrName.setText(dto.getUserName());
+        txtDrName.setText(dto.getUserName());
     }
 
     @FXML

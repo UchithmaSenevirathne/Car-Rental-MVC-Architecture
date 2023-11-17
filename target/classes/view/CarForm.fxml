@@ -10,7 +10,7 @@
    <children>
       <TextField fx:id="txtCarNo" layoutX="34.0" layoutY="86.0" prefHeight="25.0" prefWidth="159.0" promptText="Car No" style="-fx-background-radius: 5;" />
       <TextField fx:id="txtCarBrand" layoutX="204.0" layoutY="86.0" prefHeight="25.0" prefWidth="159.0" promptText="Brand" style="-fx-background-radius: 5;" />
-      <Button fx:id="btnCarForm" layoutX="34.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="25.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #115d76;" text="Save" textFill="WHITE">
+      <Button fx:id="btnCarForm" layoutX="34.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="25.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #115d76;" text="SAVE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
