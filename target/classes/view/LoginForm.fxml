@@ -13,12 +13,7 @@
    <children>
       <ImageView fitHeight="650.0" fitWidth="1012.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/MacBook Air - 9.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="265.0" fitWidth="268.0" layoutX="154.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/illust.png" />
+            <Image url="@../image/Login.png" />
          </image>
       </ImageView>
       <Label layoutX="694.0" layoutY="191.0" text="Sign In">
@@ -27,13 +22,32 @@
          </font>
       </Label>
       <TextField fx:id="txtUserName" layoutX="608.0" layoutY="283.0" prefHeight="25.0" prefWidth="226.0" promptText="UserName" style="-fx-background-color: white; -fx-background-radius: 10;" />
-      <Button layoutX="608.0" layoutY="453.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: #5758BB; -fx-background-radius: 10;" text="SIGN IN" textFill="WHITE" />
+      <Button layoutX="608.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: #5758BB; -fx-background-radius: 10;" text="SIGN IN" textFill="WHITE" />
       <PasswordField fx:id="fieldPassword" layoutX="608.0" layoutY="328.0" prefHeight="25.0" prefWidth="226.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" />
-      <Label layoutX="749.0" layoutY="352.0" opacity="0.56" text="Forgot Password ?">
+      <Label layoutX="753.0" layoutY="352.0" opacity="0.56" text="Forgot Password ?">
          <font>
-            <Font size="10.0" />
+            <Font name="System Italic" size="10.0" />
          </font>
       </Label>
-      <TextField fx:id="txtJobRoll" layoutX="608.0" layoutY="375.0" prefHeight="25.0" prefWidth="226.0" promptText="Roll" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Label layoutX="116.0" layoutY="241.0" text="APEX" textFill="WHITE">
+         <font>
+            <Font name="Felix Titling" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="167.0" layoutY="249.0" text="AUTO RENTAL" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="104.0" fitWidth="81.0" layoutX="77.0" layoutY="352.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/whiteLeavesLogin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="431.0" fitWidth="624.0" layoutX="119.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/loginCar.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

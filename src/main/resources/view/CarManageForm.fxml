@@ -123,7 +123,7 @@
       </ImageView>
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="34.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/car (1).png" />
+            <Image url="@../image/car(1).png" />
          </image>
       </ImageView>
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="52.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">

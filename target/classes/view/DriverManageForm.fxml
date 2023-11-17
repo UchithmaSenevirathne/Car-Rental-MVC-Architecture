@@ -116,7 +116,7 @@
       </ImageView>
       <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="36.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/car-steering-wheel (1).png" />
+            <Image url="@../image/car-steering-wheel(1).png" />
          </image>
       </ImageView>
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="34.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">

@@ -9,77 +9,72 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #5758BB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
    <children>
-      <Pane layoutX="175.0" layoutY="20.0" prefHeight="610.0" prefWidth="856.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
+      <Pane layoutX="175.0" layoutY="20.0" prefHeight="610.0" prefWidth="856.0" style="-fx-background-color: E9E9E9; -fx-background-radius: 10;">
          <children>
-            <TextField layoutX="624.0" layoutY="21.0" prefHeight="25.0" prefWidth="196.0" promptText="Search" style="-fx-background-color: white; -fx-background-radius: 10;" />
-            <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="836.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/user.png" />
-               </image>
-            </ImageView>
-            <Pane layoutX="57.0" layoutY="76.0" prefHeight="89.0" prefWidth="28.0" style="-fx-background-color: #1abc9c; -fx-background-radius: 5;" />
-            <Pane layoutX="62.0" layoutY="76.0" prefHeight="89.0" prefWidth="223.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+            <TextField layoutX="624.0" layoutY="21.0" prefHeight="25.0" prefWidth="196.0" promptText="Search" style="-fx-background-color: F9FAFC; -fx-background-radius: 10;" />
+            <Pane layoutX="57.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #1abc9c; -fx-background-radius: 5;" />
+            <Pane layoutX="62.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
                <children>
-                  <Label layoutX="112.0" layoutY="14.0" text="Bookings">
+                  <Label layoutX="59.0" layoutY="13.0" text="Bookings">
                      <font>
                         <Font name="Corbel Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="112.0" layoutY="36.0" text="305" textFill="#1abc9c">
+                  <Label layoutX="67.0" layoutY="28.0" text="305" textFill="#1abc9c">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="45.0" fitWidth="48.0" layoutX="34.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/appointment.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="329.0" layoutY="76.0" prefHeight="89.0" prefWidth="28.0" style="-fx-background-color: #8c7ae6; -fx-background-radius: 5;" />
-            <Pane layoutX="334.0" layoutY="76.0" prefHeight="89.0" prefWidth="223.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+            <Pane layoutX="329.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #8c7ae6; -fx-background-radius: 5;" />
+            <Pane layoutX="334.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
                <children>
-                  <Label layoutX="112.0" layoutY="14.0" text="Earnings">
+                  <Label layoutX="55.0" layoutY="13.0" text="Earnings">
                      <font>
                         <Font name="Corbel Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="109.0" layoutY="37.0" text="1054" textFill="#8c7ae6">
+                  <Label layoutX="56.0" layoutY="27.0" text="1054" textFill="#8c7ae6">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="45.0" fitWidth="48.0" layoutX="34.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/earnings.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="590.0" layoutY="76.0" prefHeight="89.0" prefWidth="28.0" style="-fx-background-color: #fd9644; -fx-background-radius: 5;" />
-            <Pane layoutX="595.0" layoutY="76.0" prefHeight="89.0" prefWidth="223.0" style="-fx-background-color: white; -fx-background-radius: 5;">
+            <Pane layoutX="590.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #fd9644; -fx-background-radius: 5;" />
+            <Pane layoutX="595.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
                <children>
-                  <Label layoutX="112.0" layoutY="14.0" text="Travellers">
+                  <Label layoutX="60.0" layoutY="11.0" text="Travellers">
                      <font>
                         <Font name="Corbel Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="111.0" layoutY="35.0" text="570" textFill="#fd9644">
+                  <Label layoutX="69.0" layoutY="24.0" text="570" textFill="#fd9644">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="45.0" fitWidth="48.0" layoutX="32.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="41.0" fitWidth="35.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/travellers.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="54.0" layoutY="407.0" prefHeight="189.0" prefWidth="239.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+            <Pane layoutX="54.0" layoutY="407.0" prefHeight="189.0" prefWidth="239.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 10;">
                <children>
                   <ImageView fitHeight="189.0" fitWidth="239.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -91,7 +86,7 @@
                   <Label layoutX="40.0" layoutY="113.0" text="BMW" />
                </children>
             </Pane>
-            <Pane layoutX="54.0" layoutY="193.0" prefHeight="189.0" prefWidth="239.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+            <Pane layoutX="54.0" layoutY="193.0" prefHeight="189.0" prefWidth="239.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 10;">
                <children>
                   <ImageView fitHeight="189.0" fitWidth="239.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -121,7 +116,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="326.0" layoutY="193.0" prefHeight="399.0" prefWidth="496.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+            <Pane layoutX="326.0" layoutY="193.0" prefHeight="399.0" prefWidth="496.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 10;">
                <children>
                   <ImageView fitHeight="290.0" fitWidth="309.0" layoutX="30.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -177,50 +172,50 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <Button layoutX="5.0" layoutY="123.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="                         DASHBOARD" textFill="#e9c90e">
+      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #3d3e9a;" text="                   DASHBOARD" textFill="#e9c90e">
          <font>
             <Font name="Corbel Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="               CUSTOMER" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="      DRIVER" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="Car" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="CAR" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnBookingOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="       Booking" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnBookingOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="            BOOKING" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="        Payment" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="             PAYMENT" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Salary" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="       SALARY" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Report" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="       REPORT" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Pane layoutX="5.0" layoutY="374.0" opacity="0.19" prefHeight="3.0" prefWidth="139.0" style="-fx-background-color: f5f1f8;" />
+      <Pane layoutX="5.0" layoutY="374.0" opacity="0.19" prefHeight="3.0" prefWidth="165.0" style="-fx-background-color: f5f1f8;" />
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/dashboard (1).png" />
+            <Image url="@../image/dashboard(1).png" />
          </image>
       </ImageView>
       <ImageView fitHeight="22.0" fitWidth="16.0" layoutX="37.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
@@ -258,7 +253,7 @@
             <Image url="@../image/report.png" />
          </image>
       </ImageView>
-      <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Logout" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="     Logout" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
