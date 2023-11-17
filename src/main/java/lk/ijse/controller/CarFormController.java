@@ -27,6 +27,18 @@ public class CarFormController {
     @FXML
     private Label lblCarForm;
 
+    @FXML
+    private TextField txtCurrentMileage;
+
+    @FXML
+    private TextField txtKmOneDay;
+
+    @FXML
+    private TextField txtPriceExtraKm;
+
+    @FXML
+    private TextField txtPriceOneDay;
+
     Stage stage;
 
     @FXML
@@ -39,11 +51,11 @@ public class CarFormController {
     void btnCarOnAction(ActionEvent event) {
         String carNo = txtCarNo.getText();
         String brand = txtCarBrand.getText();
-        String availability = "yes";
-        double currentMileage = 0.0;
-        double kmOneDay = 0.0;
-        double priceOneDay = 0.0;
-        double priceExtraKm = 0.0;
+        String availability = "YES";
+        double currentMileage = Double.parseDouble(txtCurrentMileage.getText());
+        double kmOneDay = Double.parseDouble(txtKmOneDay.getText());
+        double priceOneDay = Double.parseDouble(txtPriceOneDay.getText());
+        double priceExtraKm = Double.parseDouble(txtPriceExtraKm.getText());
 
         var dto = new CarDto(carNo, brand, availability, currentMileage, kmOneDay, priceOneDay, priceExtraKm);
 
@@ -56,7 +68,7 @@ public class CarFormController {
                     new Alert(Alert.AlertType.CONFIRMATION, "car updated!!").show();
                     clearFields();
                 }
-            }else if(btnCarForm.getText().equals("Save")) {
+            }else if(btnCarForm.getText().equals("SAVE")) {
                 boolean isSaved = model.saveCar(dto);
 
                 if (isSaved) {
