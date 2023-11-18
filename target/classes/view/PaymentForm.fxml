@@ -2,15 +2,169 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
+<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #5758BB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
    <children>
-      <Pane layoutX="149.0" layoutY="20.0" prefHeight="610.0" prefWidth="882.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;" />
+      <Pane layoutX="172.0" layoutY="20.0" prefHeight="610.0" prefWidth="859.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
+         <children>
+            <Pane layoutX="29.0" layoutY="27.0" prefHeight="274.0" prefWidth="267.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="40.0" prefWidth="267.0" style="-fx-background-color: #5758BB;">
+                     <children>
+                        <Label layoutX="107.0" layoutY="12.0" text="PAYMENT" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <TextField fx:id="txtDate" layoutX="14.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtCusId" layoutX="147.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtName" layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtContact" layoutX="147.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtAddress" layoutX="14.0" layoutY="215.0" prefHeight="25.0" prefWidth="238.0" />
+                  <Label layoutX="14.0" layoutY="47.0" text="Rent ID">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="95.0" text="Date">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="147.0" layoutY="95.0" text="Cus ID">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="16.0" layoutY="144.0" text="Name">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="148.0" layoutY="144.0" text="Contact">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="13.0" layoutY="198.0" text="Address">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="147.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: orange;" text="SEARCH" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="txtRentId" layoutX="14.0" layoutY="65.0" prefHeight="25.0" prefWidth="106.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="315.0" layoutY="27.0" prefHeight="274.0" prefWidth="267.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="40.0" prefWidth="267.0" style="-fx-background-color: #5758BB;">
+                     <children>
+                        <Label layoutX="81.0" layoutY="12.0" text="RENT CAR DETAIL" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <TextField fx:id="txtPriceOneDay" layoutX="14.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtExtraKm" layoutX="147.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtDrId" layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtDrName" layoutX="147.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtDrCost" layoutX="14.0" layoutY="215.0" prefHeight="25.0" prefWidth="106.0" />
+                  <Label layoutX="14.0" layoutY="47.0" text="Car ID">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="95.0" text="Price One Day">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="147.0" layoutY="95.0" text="Extra Km">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="16.0" layoutY="144.0" text="Driver ID">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="148.0" layoutY="144.0" text="Driver Name">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="13.0" layoutY="198.0" text="Driver Cost">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCarId" layoutX="14.0" layoutY="63.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtBrand" layoutX="147.0" layoutY="63.0" prefHeight="25.0" prefWidth="106.0" />
+                  <Label layoutX="147.0" layoutY="47.0" text="Brand">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="147.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnAddPaymentOnAction" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: red;" text="ADD PAYMENT" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="611.0" layoutY="27.0" prefHeight="274.0" prefWidth="226.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #5758BB;">
+                     <children>
+                        <Label layoutX="73.0" layoutY="12.0" text="HAVE TO PAY" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <TextField fx:id="txtTotal" layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="14.0" layoutY="46.0" text="Total Payment">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="19.0" layoutY="216.0" mnemonicParsing="false" onAction="#btnCheckOutOnAction" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: green;" text="CHECK OUT" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <TableView fx:id="tableView" layoutX="29.0" layoutY="332.0" prefHeight="246.0" prefWidth="807.0">
+              <columns>
+                <TableColumn fx:id="colRentId" prefWidth="82.0" text="Rent ID" />
+                <TableColumn fx:id="colCarId" prefWidth="88.0" text="Car ID" />
+                  <TableColumn fx:id="colBrand" prefWidth="126.0" text="Brand" />
+                  <TableColumn fx:id="colDrId" prefWidth="110.0" text="Driver ID" />
+                  <TableColumn fx:id="colCusId" prefWidth="111.0" text="Customer ID" />
+                  <TableColumn fx:id="colPickUpDate" prefWidth="192.0" text="Pick Up Date" />
+                  <TableColumn fx:id="colDays" prefWidth="97.0" text="Days" />
+              </columns>
+            </TableView>
+         </children></Pane>
       <Label layoutX="10.0" layoutY="55.0" text="APEX" textFill="WHITE">
          <font>
             <Font name="Felix Titling" size="20.0" />
@@ -21,47 +175,47 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="              Dashboard" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #5758BB;" text="                 DASHBOARD" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #5758BB;" text="              CUSTOMER" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #5758BB;" text="      DRIVER" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="Car" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #5758BB;" text="CAR" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnBookingOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="       Booking" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnBookingOnAction" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #5758BB;" text="           BOOKING" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="        Payment" textFill="#e9c90e">
+      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #3d3e9a;" text="           PAYMENT" textFill="#e9c90e">
          <font>
             <Font name="Corbel Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Salary" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #5758BB;" text="      SALARY" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Report" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #5758BB;" text="       REPORT" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Pane layoutX="5.0" layoutY="374.0" opacity="0.19" prefHeight="3.0" prefWidth="139.0" style="-fx-background-color: f5f1f8;" />
+      <Pane layoutX="5.0" layoutY="374.0" opacity="0.19" prefHeight="2.0" prefWidth="163.0" style="-fx-background-color: f5f1f8;" />
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/dashboard.png" />
@@ -107,7 +261,7 @@
             <Image url="@../image/report.png" />
          </image>
       </ImageView>
-      <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Logout" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: #5758BB;" text="     Logout" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>

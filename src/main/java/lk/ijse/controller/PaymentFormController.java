@@ -11,8 +11,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.BookDTO;
+import lk.ijse.dto.CarDto;
+import lk.ijse.dto.CustomerDto;
+import lk.ijse.dto.PaymentDetailDTO;
+import lk.ijse.model.CarModel;
+import lk.ijse.model.PaymentModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class PaymentFormController {
     @FXML
@@ -40,7 +48,7 @@ public class PaymentFormController {
     private TableColumn<?, ?> colRentId;
 
     @FXML
-    private Label lblRentId;
+    private TextField txtRentId;
 
     @FXML
     private TableView<?> tableView;
@@ -96,7 +104,20 @@ public class PaymentFormController {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
+        String bId = txtRentId.getText();
 
+        try {
+            PaymentDetailDTO dto = PaymentModel.searchPaymentDetail(bId);
+
+            txtDate.setText(String.valueOf(dto.getPickUpDate()));
+            txtCusId.setText(dto.getCusId());
+            txtName.setText(dto.getName());
+            txtContact.setText(dto.getContact());
+            txtAddress.setText(dto.getAddress());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     void btnBookingOnAction(ActionEvent event) throws IOException {
