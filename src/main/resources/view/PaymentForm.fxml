@@ -26,12 +26,12 @@
                         </Label>
                      </children>
                   </Pane>
-                  <TextField layoutX="14.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="147.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="147.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="14.0" layoutY="215.0" prefHeight="25.0" prefWidth="238.0" />
-                  <Label layoutX="14.0" layoutY="64.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtDate" layoutX="14.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtCusId" layoutX="147.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtName" layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtContact" layoutX="147.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtAddress" layoutX="14.0" layoutY="215.0" prefHeight="25.0" prefWidth="238.0" />
+                  <Label fx:id="lblRentId" layoutX="14.0" layoutY="64.0" prefHeight="25.0" prefWidth="106.0" />
                   <Label layoutX="14.0" layoutY="47.0" text="Rent ID">
                      <font>
                         <Font name="System Bold" size="11.0" />
@@ -62,7 +62,7 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Button layoutX="147.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: orange;" text="SEARCH" textFill="WHITE">
+                  <Button layoutX="147.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: orange;" text="SEARCH" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
@@ -80,11 +80,11 @@
                         </Label>
                      </children>
                   </Pane>
-                  <TextField layoutX="14.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="147.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="147.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="14.0" layoutY="215.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtPriceOneDay" layoutX="14.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtExtraKm" layoutX="147.0" layoutY="112.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtDrId" layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtDrName" layoutX="147.0" layoutY="161.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtDrCost" layoutX="14.0" layoutY="215.0" prefHeight="25.0" prefWidth="106.0" />
                   <Label layoutX="14.0" layoutY="47.0" text="Car ID">
                      <font>
                         <Font name="System Bold" size="11.0" />
@@ -115,14 +115,14 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="14.0" layoutY="63.0" prefHeight="25.0" prefWidth="106.0" />
-                  <TextField layoutX="147.0" layoutY="63.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtCarId" layoutX="14.0" layoutY="63.0" prefHeight="25.0" prefWidth="106.0" />
+                  <TextField fx:id="txtBrand" layoutX="147.0" layoutY="63.0" prefHeight="25.0" prefWidth="106.0" />
                   <Label layoutX="147.0" layoutY="47.0" text="Brand">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Button layoutX="147.0" layoutY="215.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: red;" text="ADD PAYMENT" textFill="WHITE">
+                  <Button layoutX="147.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnAddPaymentOnAction" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: red;" text="ADD PAYMENT" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
@@ -140,28 +140,28 @@
                         </Label>
                      </children>
                   </Pane>
-                  <TextField layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="txtTotal" layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="200.0" />
                   <Label layoutX="14.0" layoutY="46.0" text="Total Payment">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Button layoutX="19.0" layoutY="216.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: green;" text="CHECK OUT" textFill="WHITE">
+                  <Button layoutX="19.0" layoutY="216.0" mnemonicParsing="false" onAction="#btnCheckOutOnAction" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: green;" text="CHECK OUT" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
-            <TableView layoutX="29.0" layoutY="332.0" prefHeight="246.0" prefWidth="807.0">
+            <TableView fx:id="tableView" layoutX="29.0" layoutY="332.0" prefHeight="246.0" prefWidth="807.0">
               <columns>
-                <TableColumn prefWidth="82.0" text="Rent ID" />
-                <TableColumn prefWidth="88.0" text="Car ID" />
-                  <TableColumn prefWidth="126.0" text="Brand" />
-                  <TableColumn prefWidth="110.0" text="Driver ID" />
-                  <TableColumn prefWidth="111.0" text="Customer ID" />
-                  <TableColumn prefWidth="192.0" text="Pick Up Date" />
-                  <TableColumn prefWidth="97.0" text="Days" />
+                <TableColumn fx:id="colRentId" prefWidth="82.0" text="Rent ID" />
+                <TableColumn fx:id="colCarId" prefWidth="88.0" text="Car ID" />
+                  <TableColumn fx:id="colBrand" prefWidth="126.0" text="Brand" />
+                  <TableColumn fx:id="colDrId" prefWidth="110.0" text="Driver ID" />
+                  <TableColumn fx:id="colCusId" prefWidth="111.0" text="Customer ID" />
+                  <TableColumn fx:id="colPickUpDate" prefWidth="192.0" text="Pick Up Date" />
+                  <TableColumn fx:id="colDays" prefWidth="97.0" text="Days" />
               </columns>
             </TableView>
          </children></Pane>

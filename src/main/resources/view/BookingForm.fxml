@@ -14,57 +14,57 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BookingFormController">
+<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #5758BB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BookingFormController">
    <children>
-      <Pane layoutX="149.0" layoutY="20.0" prefHeight="610.0" prefWidth="882.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
+      <Pane layoutX="177.0" layoutY="20.0" prefHeight="610.0" prefWidth="854.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
          <children>
             <Pane layoutX="30.0" layoutY="33.0" prefHeight="346.0" prefWidth="281.0" style="-fx-background-color: white;">
                <children>
-                  <Pane prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #0a4051;">
+                  <Pane prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #5758BB;">
                      <children>
-                        <Label layoutX="99.0" layoutY="10.0" text="Invoice Details" textFill="WHITE">
+                        <Label layoutX="91.0" layoutY="10.0" text="INVOICE DETAILS" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Label layoutX="19.0" layoutY="59.0" text="Rent ID">
+                  <Label layoutX="24.0" layoutY="59.0" text="RENT ID">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label layoutX="167.0" layoutY="59.0" text="Date">
+                  <Label layoutX="23.0" layoutY="120.0" text="DATE">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblBookingId" layoutX="20.0" layoutY="76.0" prefHeight="17.0" prefWidth="56.0" />
-                  <Label layoutX="21.0" layoutY="118.0" text="Cus ID">
+                  <Label fx:id="lblBookingId" layoutX="23.0" layoutY="76.0" prefHeight="25.0" prefWidth="105.0" />
+                  <Label layoutX="168.0" layoutY="57.0" text="CUS ID">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="comboCusId" layoutX="19.0" layoutY="140.0" onAction="#cmbCusOnAction" prefHeight="25.0" prefWidth="105.0" />
-                  <Label layoutX="22.0" layoutY="186.0" text="Name">
+                  <ComboBox fx:id="comboCusId" layoutX="168.0" layoutY="72.0" onAction="#cmbCusOnAction" prefHeight="25.0" prefWidth="105.0" />
+                  <Label layoutX="22.0" layoutY="186.0" text="NAME">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label layoutX="169.0" layoutY="186.0" text="Contact">
+                  <Label layoutX="168.0" layoutY="186.0" text="CONTACT">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label layoutX="21.0" layoutY="257.0" text="Address">
+                  <Label layoutX="21.0" layoutY="257.0" text="ADDRESS">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="datepickerDate" layoutX="167.0" layoutY="72.0" prefHeight="25.0" prefWidth="105.0" />
-                  <TextField fx:id="txtCusName" layoutX="23.0" layoutY="204.0" prefHeight="25.0" prefWidth="98.0" />
-                  <TextField fx:id="txtCusContact" layoutX="171.0" layoutY="204.0" prefHeight="25.0" prefWidth="98.0" />
-                  <TextField fx:id="txtCusAddress" layoutX="23.0" layoutY="273.0" prefHeight="25.0" prefWidth="244.0" />
+                  <DatePicker fx:id="datepickerDate" layoutX="22.0" layoutY="136.0" prefHeight="25.0" prefWidth="244.0" />
+                  <TextField fx:id="txtCusName" layoutX="22.0" layoutY="204.0" prefHeight="25.0" prefWidth="105.0" />
+                  <TextField fx:id="txtCusContact" layoutX="168.0" layoutY="204.0" prefHeight="25.0" prefWidth="105.0" />
+                  <TextField fx:id="txtCusAddress" layoutX="21.0" layoutY="273.0" prefHeight="25.0" prefWidth="244.0" />
                </children>
                <effect>
                   <DropShadow height="9.28" radius="4.14" width="9.28" />
@@ -72,43 +72,43 @@
             </Pane>
             <Pane layoutX="327.0" layoutY="33.0" prefHeight="346.0" prefWidth="281.0" style="-fx-background-color: white;">
                <children>
-                  <Pane prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #0a4051;">
+                  <Pane prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #5758BB;">
                      <children>
-                        <Label layoutX="113.0" layoutY="10.0" text="Car Select" textFill="WHITE">
+                        <Label layoutX="113.0" layoutY="10.0" text="CAR SELECT" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Label layoutX="23.0" layoutY="58.0" text="Car No">
+                  <Label layoutX="23.0" layoutY="58.0" text="CAR NO">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
                   <ComboBox fx:id="comboCarNo" layoutX="23.0" layoutY="74.0" onAction="#cmbCarOnAction" prefHeight="25.0" prefWidth="98.0" />
-                  <Label layoutX="24.0" layoutY="133.0" text="Car Name">
+                  <Label layoutX="24.0" layoutY="133.0" text="CAR NAME">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label layoutX="166.0" layoutY="133.0" text="Days">
+                  <Label layoutX="166.0" layoutY="133.0" text="DAYS">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label layoutX="24.0" layoutY="205.0" text="Driver ID">
+                  <Label layoutX="24.0" layoutY="205.0" text="DRIVER ID">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
                   <ComboBox fx:id="comboDrId" layoutX="23.0" layoutY="220.0" onAction="#cmbDrOnAction" prefHeight="25.0" prefWidth="98.0" />
-                  <Label layoutX="165.0" layoutY="205.0" text="Driver Name">
+                  <Label layoutX="165.0" layoutY="205.0" text="DRIVER NAME">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Button layoutX="183.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnAddCarOnAction" prefHeight="16.0" prefWidth="82.0" style="-fx-background-color: red;" text="ADD CAR" textFill="WHITE">
+                  <Button layoutX="183.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnAddCarOnAction" prefHeight="16.0" prefWidth="82.0" style="-fx-background-color: RED;" text="ADD CAR" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
@@ -121,42 +121,42 @@
                   <DropShadow height="9.28" radius="4.14" width="9.28" />
                </effect>
             </Pane>
-            <Pane layoutX="624.0" layoutY="33.0" prefHeight="346.0" prefWidth="228.0" style="-fx-background-color: white;">
+            <Pane layoutX="624.0" layoutY="33.0" prefHeight="346.0" prefWidth="203.0" style="-fx-background-color: white;">
                <children>
-                  <Pane prefHeight="37.0" prefWidth="228.0" style="-fx-background-color: #0a4051;">
+                  <Pane prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #5758BB;">
                      <children>
-                        <Label layoutX="101.0" layoutY="10.0" text="Rent" textFill="WHITE">
+                        <Label layoutX="86.0" layoutY="10.0" text="RENT" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Label layoutX="28.0" layoutY="61.0" text="Advance Payment">
+                  <Label layoutX="31.0" layoutY="61.0" text="ADVANCE PAYMENT">
                      <font>
-                        <Font name="System Bold" size="11.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Button layoutX="28.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnConfirmRentOnAction" prefHeight="24.0" prefWidth="172.0" style="-fx-background-color: green;" text="CONFIRM RENT" textFill="WHITE">
+                  <Button layoutX="31.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnConfirmRentOnAction" prefHeight="24.0" prefWidth="141.0" style="-fx-background-color: green;" text="CONFIRM RENT" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="txtAdvancePayment" layoutX="27.0" layoutY="77.0" prefHeight="25.0" prefWidth="172.0" />
+                  <TextField fx:id="txtAdvancePayment" layoutX="31.0" layoutY="77.0" prefHeight="25.0" prefWidth="141.0" />
                </children>
                <effect>
                   <DropShadow height="9.28" radius="4.14" width="9.28" />
                </effect>
             </Pane>
-            <TableView fx:id="tableView" layoutX="30.0" layoutY="396.0" prefHeight="200.0" prefWidth="823.0">
+            <TableView fx:id="tableView" layoutX="28.0" layoutY="396.0" prefHeight="200.0" prefWidth="801.0">
               <columns>
-                <TableColumn fx:id="colBId" prefWidth="75.0" text="Rent ID" />
-                <TableColumn fx:id="colCarNo" prefWidth="75.0" text="Car No" />
-                  <TableColumn fx:id="colBrand" prefWidth="152.0" text="Brand" />
-                  <TableColumn fx:id="colDrId" prefWidth="120.0" text="Driver ID" />
-                  <TableColumn fx:id="colCusId" prefWidth="138.0" text="Customer ID" />
-                  <TableColumn fx:id="colPickUpDate" prefWidth="161.0" text="Pickup Date" />
-                  <TableColumn fx:id="colDays" prefWidth="101.0" text="Days" />
+                <TableColumn fx:id="colBId" prefWidth="75.0" text="RENT ID" />
+                <TableColumn fx:id="colCarNo" prefWidth="75.0" text="CAR NO" />
+                  <TableColumn fx:id="colBrand" prefWidth="152.0" text="BRAND" />
+                  <TableColumn fx:id="colDrId" prefWidth="120.0" text="DRIVER ID" />
+                  <TableColumn fx:id="colCusId" prefWidth="138.0" text="CUSTOMER ID" />
+                  <TableColumn fx:id="colPickUpDate" prefWidth="161.0" text="PICK UP DATE" />
+                  <TableColumn fx:id="colDays" prefWidth="79.0" text="DAYS" />
               </columns>
             </TableView>
          </children></Pane>
@@ -170,47 +170,47 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="              Dashboard" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #5758BB;" text="                   DASHBOARD" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #5758BB;" text="               CUSTOMER" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #5758BB;" text="       DRIVER" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="Car" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #5758BB;" text="CAR" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="260.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="       Booking" textFill="#e9c90e">
+      <Button layoutX="-8.0" layoutY="260.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #3d3e9a;" text="            BOOKING" textFill="#e9c90e">
          <font>
             <Font name="Corbel Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="        Payment" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #5758BB;" text="             PAYMENT" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Salary" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #5758BB;" text="        SALARY" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Report" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #5758BB;" text="        REPORT" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Pane layoutX="5.0" layoutY="374.0" opacity="0.19" prefHeight="3.0" prefWidth="139.0" style="-fx-background-color: f5f1f8;" />
+      <Pane layoutX="5.0" layoutY="374.0" opacity="0.19" prefHeight="3.0" prefWidth="166.0" style="-fx-background-color: f5f1f8;" />
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/dashboard.png" />
@@ -256,7 +256,7 @@
             <Image url="@../image/report.png" />
          </image>
       </ImageView>
-      <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Logout" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="184.0" style="-fx-background-color: #5758BB;" text="   Logout" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>

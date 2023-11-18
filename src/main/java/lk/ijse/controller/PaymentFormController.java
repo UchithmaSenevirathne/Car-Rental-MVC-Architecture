@@ -5,6 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -14,6 +18,86 @@ public class PaymentFormController {
     @FXML
     private AnchorPane rootNode;
 
+    @FXML
+    private TableColumn<?, ?> colBrand;
+
+    @FXML
+    private TableColumn<?, ?> colCarId;
+
+    @FXML
+    private TableColumn<?, ?> colCusId;
+
+    @FXML
+    private TableColumn<?, ?> colDays;
+
+    @FXML
+    private TableColumn<?, ?> colDrId;
+
+    @FXML
+    private TableColumn<?, ?> colPickUpDate;
+
+    @FXML
+    private TableColumn<?, ?> colRentId;
+
+    @FXML
+    private Label lblRentId;
+
+    @FXML
+    private TableView<?> tableView;
+
+    @FXML
+    private TextField txtAddress;
+
+    @FXML
+    private TextField txtBrand;
+
+    @FXML
+    private TextField txtCarId;
+
+    @FXML
+    private TextField txtContact;
+
+    @FXML
+    private TextField txtCusId;
+
+    @FXML
+    private TextField txtDate;
+
+    @FXML
+    private TextField txtDrCost;
+
+    @FXML
+    private TextField txtDrId;
+
+    @FXML
+    private TextField txtDrName;
+
+    @FXML
+    private TextField txtExtraKm;
+
+    @FXML
+    private TextField txtName;
+
+    @FXML
+    private TextField txtPriceOneDay;
+
+    @FXML
+    private TextField txtTotal;
+
+    @FXML
+    void btnAddPaymentOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnCheckOutOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnSearchOnAction(ActionEvent event) {
+
+    }
     @FXML
     void btnBookingOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/BookingForm.fxml"));
