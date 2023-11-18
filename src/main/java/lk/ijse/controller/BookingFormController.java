@@ -13,8 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.*;
 import lk.ijse.dto.tm.BookTm;
-import lk.ijse.dto.tm.CarTm;
-import lk.ijse.dto.tm.DriverTm;
 import lk.ijse.model.*;
 
 import java.io.IOException;
@@ -33,10 +31,6 @@ public class BookingFormController {
     private final CarModel carModel = new CarModel();
 
     private final BookingModel bookingModel = new BookingModel();
-
-    private final ObservableList<CarTm> obList1 = FXCollections.observableArrayList();
-
-    private final ObservableList<DriverTm> obList2 = FXCollections.observableArrayList();
 
     private final ObservableList<BookTm> obList3 = FXCollections.observableArrayList();
 
@@ -233,10 +227,10 @@ public class BookingFormController {
         double payment = Double.parseDouble(txtAdvancePayment.getText());
         String cusId = comboCusId.getValue();
 
-        List<bookingDetailDTO> bookingDetailList = new ArrayList<>();
+        List<BookingDetailDTO> bookingDetailList = new ArrayList<>();
 
         for (BookTm bookTm : obList3) {
-            bookingDetailList.add(new bookingDetailDTO(
+            bookingDetailList.add(new BookingDetailDTO(
                     bookTm.getBId(),
                     bookTm.getCarNo(),
                     bookTm.getDrId()

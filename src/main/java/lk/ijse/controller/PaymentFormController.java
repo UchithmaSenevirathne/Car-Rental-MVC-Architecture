@@ -1,28 +1,36 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.dto.BookDTO;
-import lk.ijse.dto.CarDto;
-import lk.ijse.dto.CustomerDto;
-import lk.ijse.dto.PaymentDetailDTO;
-import lk.ijse.model.CarModel;
-import lk.ijse.model.PaymentModel;
+import lk.ijse.dto.*;
+import lk.ijse.dto.tm.BookTm;
+import lk.ijse.model.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 public class PaymentFormController {
+    //private final ObservableList<BookTm> obList = FXCollections.observableArrayList();
+
+    private final CustomerModel customerModel = new CustomerModel();
+
+    private final DriverModel driverModel = new DriverModel();
+
+    private final CarModel carModel = new CarModel();
+
     @FXML
     private AnchorPane rootNode;
 
@@ -51,7 +59,7 @@ public class PaymentFormController {
     private TextField txtRentId;
 
     @FXML
-    private TableView<?> tableView;
+    private TableView<BookTm> tableView;
 
     @FXML
     private TextField txtAddress;
@@ -92,6 +100,20 @@ public class PaymentFormController {
     @FXML
     private TextField txtTotal;
 
+    public void initialize() {
+        setCellValueFactory();
+    }
+
+    private void setCellValueFactory() {
+        colRentId.setCellValueFactory(new PropertyValueFactory<>("bId"));
+        colCarId.setCellValueFactory(new PropertyValueFactory<>("carNo"));
+        colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        colDrId.setCellValueFactory(new PropertyValueFactory<>("drId"));
+        colCusId.setCellValueFactory(new PropertyValueFactory<>("cusId"));
+        colPickUpDate.setCellValueFactory(new PropertyValueFactory<>("pickUpDate"));
+        colDays.setCellValueFactory(new PropertyValueFactory<>("days"));
+    }
+
     @FXML
     void btnAddPaymentOnAction(ActionEvent event) {
 
@@ -107,18 +129,61 @@ public class PaymentFormController {
         String bId = txtRentId.getText();
 
         try {
-            PaymentDetailDTO dto = PaymentModel.searchPaymentDetail(bId);
+            //PaymentDetailDTO dto = PaymentModel.searchPaymentDetail(bId);
 
-            txtDate.setText(String.valueOf(dto.getPickUpDate()));
-            txtCusId.setText(dto.getCusId());
-            txtName.setText(dto.getName());
-            txtContact.setText(dto.getContact());
-            txtAddress.setText(dto.getAddress());
+            List<PaymentDetailDTO> dto = PaymentModel.searchPaymentDetail(bId);
+
+            for(PaymentDetailDTO dto1 : dto) {
+                txtRentId.setText(dto1.getBId());
+                txtDate.setText(String.valueOf(dto1.getPickUpDate()));
+                txtCusId.setText(dto1.getCusId());
+
+                String cusId = txtCusId.getText();
+                CustomerDto dtoCus = customerModel.searchCustomer(cusId);
+
+                txtName.setText(dtoCus.getName());
+                txtContact.setText(dtoCus.getContact());
+                txtAddress.setText(dtoCus.getAddress());
+            }
+            addToTable(dto);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+    private void addToTable(List<PaymentDetailDTO> dto) throws SQLException {
+        ObservableList<BookTm> obList = FXCollections.observableArrayList();
+
+        /*String bId = dto.getBId();
+        String carNo = dto.getCarNo();
+        CarDto dtoCar = carModel.searchCar(carNo);
+        String brand = dtoCar.getBrand();
+        String drId = dto.getDrId();
+        String cusId = dto.getCusId();
+        Date pickUpDate = java.sql.Date.valueOf(txtDate.getText());
+        int days = dto.getDays();*/
+
+        for (PaymentDetailDTO dto1 : dto){
+            CarDto dtoCar = carModel.searchCar(dto1.getCarNo());
+            String brand = dtoCar.getBrand();
+            obList.add(new BookTm(
+                    dto1.getBId(),
+                    dto1.getCarNo(),
+                    brand,
+                    dto1.getDrId(),
+                    dto1.getCusId(),
+                    dto1.getPickUpDate(),
+                    dto1.getDays()
+            ));
+        }
+        System.out.println("++++++++++");
+        System.out.println(obList);
+
+        tableView.setItems(obList);
+
+    }
+
     @FXML
     void btnBookingOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/BookingForm.fxml"));

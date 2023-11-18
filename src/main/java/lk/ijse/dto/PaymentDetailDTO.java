@@ -12,8 +12,10 @@ import java.util.Date;
 public class PaymentDetailDTO {
     private String bId;
     private Date pickUpDate;
+    private int days;
+    private String status;
+    private double payment;
     private String cusId;
-    private String name;
-    private String contact;
-    private String address;
+    private String carNo;
+    private String drId;
 }

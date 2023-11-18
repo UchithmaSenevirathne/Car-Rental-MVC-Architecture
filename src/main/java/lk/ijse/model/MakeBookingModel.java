@@ -2,7 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.BookDTO;
-import lk.ijse.dto.bookingDetailDTO;
+import lk.ijse.dto.BookingDetailDTO;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -23,7 +23,7 @@ public class MakeBookingModel {
             boolean isBookingSaved = BookingModel.saveBooking(bookDto.getBId(), bookDto.getPickUpDate(), bookDto.getDays(), bookDto.getStatus(), bookDto.getPayment(), bookDto.getCusId());
             System.out.println("booking "+ isBookingSaved);
             if (isBookingSaved) {
-                for(bookingDetailDTO bookingDetail : bookDto.getBookingList()){
+                for(BookingDetailDTO bookingDetail : bookDto.getBookingList()){
                     boolean isCarUpdated = carModel.updateAvailable(bookingDetail.getCarNo());
                     boolean isDriverUpdated = driverModel.updateAvailable(bookingDetail.getDriverId());
                     boolean isBookingDetailSaved = bookingDetailModel.saveBookingDetail(bookingDetail);

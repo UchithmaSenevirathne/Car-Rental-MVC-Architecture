@@ -1,8 +1,5 @@
 package lk.ijse.dto;
 
-import lk.ijse.dto.tm.BookTm;
-import lk.ijse.dto.tm.CarTm;
-import lk.ijse.dto.tm.DriverTm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +18,5 @@ public class BookDTO {
     private String status;
     private double payment;
     private String cusId;
-    private List<bookingDetailDTO> bookingList = new ArrayList<>();
+    private List<BookingDetailDTO> bookingList = new ArrayList<>();
 }
