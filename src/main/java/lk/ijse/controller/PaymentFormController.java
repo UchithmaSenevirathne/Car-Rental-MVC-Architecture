@@ -24,7 +24,8 @@ import java.util.Date;
 import java.util.List;
 
 public class PaymentFormController {
-    //private final ObservableList<BookTm> obList = FXCollections.observableArrayList();
+    private final ObservableList<BookTm> obList = FXCollections.observableArrayList();
+    //ObservableList<BookTm> obList = FXCollections.observableArrayList();
 
     private final CustomerModel customerModel = new CustomerModel();
 
@@ -103,6 +104,8 @@ public class PaymentFormController {
 
     Integer index;
 
+    private int totalPay = 0;
+
     public void initialize() {
         setCellValueFactory();
     }
@@ -137,8 +140,44 @@ public class PaymentFormController {
     }
 
     @FXML
-    void btnAddPaymentOnAction(ActionEvent event) {
+    void btnAddPaymentOnAction(ActionEvent event) throws SQLException {
+        //clearTxt();
 
+        double priceOneDay = Double.parseDouble(txtPriceOneDay.getText());
+
+        //
+        int index = tableView.getSelectionModel().getSelectedIndex();
+
+        int days = Integer.parseInt(colDays.getCellData(index).toString());
+        System.out.println("days....." + days);
+        //
+
+        int extraKm = Integer.parseInt(txtExtraKm.getText());
+
+        //
+        CarDto dto = carModel.searchCar(txtCarId.getText());
+        double priceExtraKm = dto.getPriceExtraKm();
+        //
+
+        double driverCost = Double.parseDouble(txtDrCost.getText());
+
+        double total = ((priceOneDay * days) + (extraKm * priceExtraKm) + driverCost);
+
+        totalPayment(total);
+
+    }
+
+    private void totalPayment(double total) {
+        totalPay += total;
+
+        txtTotal.setText(String.valueOf(totalPay));
+
+        clearTxt();
+    }
+
+    private void clearTxt() {
+        txtExtraKm.setText("");
+        txtDrCost.setText("");
     }
 
     @FXML
@@ -175,7 +214,7 @@ public class PaymentFormController {
     }
 
     private void addToTable(List<PaymentDetailDTO> dto) throws SQLException {
-        ObservableList<BookTm> obList = FXCollections.observableArrayList();
+        //ObservableList<BookTm> obList = FXCollections.observableArrayList();
 
         /*String bId = dto.getBId();
         String carNo = dto.getCarNo();
