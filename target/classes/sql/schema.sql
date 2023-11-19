@@ -93,10 +93,10 @@ SELECT * FROM payment;
 
 CREATE TABLE driverSalary(
         drSalId VARCHAR(10) PRIMARY KEY,
-        amount DOUBLE (8,2) NOT NULL,
-        month VARCHAR(20) NOT NULL,
         drId varchar(10),
-        constraint foreign key (drId) references driver(drId)
+        constraint foreign key (drId) references driver(drId),
+        amount DOUBLE (8,2) NOT NULL,
+        month VARCHAR(20) NOT NULL
 );
 
 DESC driverSalary;

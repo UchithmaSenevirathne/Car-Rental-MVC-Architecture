@@ -1,17 +1,27 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.DriverDto;
+import lk.ijse.dto.tm.DriverTm;
+import lk.ijse.dto.tm.SalDriverTm;
+import lk.ijse.model.DriverModel;
+import lk.ijse.model.SalaryModel;
 
 import java.io.IOException;
+import java.util.List;
 
 public class SalaryFormController {
     @FXML
@@ -48,10 +58,28 @@ public class SalaryFormController {
     private TableColumn<?, ?> colUserName;
 
     @FXML
-    private TableView<?> tableView;
+    private TableView<SalDriverTm> tableView;
 
     @FXML
     private TextField txtSearchDr;
+
+    private final ObservableList<SalDriverTm> obList = FXCollections.observableArrayList();
+
+    public void initialize(){
+        setCellValueFactory();
+        //loadAllDrivers();
+    }
+
+    private void setCellValueFactory(){
+        colDrId.setCellValueFactory(new PropertyValueFactory<>("drId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        colLicenseNo.setCellValueFactory(new PropertyValueFactory<>("licenseNo"));
+        colUserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+        colAvailability.setCellValueFactory(new PropertyValueFactory<>("availability"));
+    }
 
     @FXML
     void btnADDSalOnAction(ActionEvent event) throws IOException {
@@ -77,7 +105,34 @@ public class SalaryFormController {
 
     @FXML
     void txtSEARCHOnAction(ActionEvent event) {
+        String search = txtSearchDr.getText();
 
+        obList.clear();
+
+        var model = new SalaryModel();
+
+        try {
+            List<DriverDto> dtoList = model.getAllDrivers(search);
+
+            for(DriverDto dto : dtoList){
+                obList.add(
+                        new SalDriverTm(
+                                dto.getId(),
+                                dto.getName(),
+                                dto.getAddress(),
+                                dto.getEmail(),
+                                dto.getContact(),
+                                dto.getLicenseNo(),
+                                dto.getUserName(),
+                                dto.getAvailability()
+                        )
+                );
+            }
+            tableView.setItems(obList);
+
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

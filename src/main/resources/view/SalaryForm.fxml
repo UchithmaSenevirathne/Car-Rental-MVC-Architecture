@@ -22,16 +22,14 @@
             </Label>
             <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="391.0" prefWidth="803.0">
               <columns>
-                <TableColumn fx:id="colDrId" prefWidth="46.0" text="ID" />
-                <TableColumn fx:id="colName" prefWidth="69.0" text="Name" />
-                  <TableColumn fx:id="colAddress" prefWidth="82.0" text="Address" />
-                  <TableColumn fx:id="colEmail" prefWidth="130.0" text="E-mail" />
-                  <TableColumn fx:id="colContact" prefWidth="92.0" text="Contact" />
-                  <TableColumn fx:id="colLicenseNo" prefWidth="78.0" text="License No" />
-                  <TableColumn fx:id="colUserName" prefWidth="76.0" text="UserName" />
-                  <TableColumn fx:id="colAvailability" prefWidth="72.0" text="Availability" />
-                  <TableColumn fx:id="colUpdate" text="UPDATE" />
-                  <TableColumn fx:id="colDelete" prefWidth="77.0" text="DELETE" />
+                <TableColumn fx:id="colDrId" prefWidth="71.0" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="85.0" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="94.0" text="Address" />
+                  <TableColumn fx:id="colEmail" prefWidth="149.0" text="E-mail" />
+                  <TableColumn fx:id="colContact" prefWidth="100.0" text="Contact" />
+                  <TableColumn fx:id="colLicenseNo" prefWidth="101.0" text="License No" />
+                  <TableColumn fx:id="colUserName" prefWidth="115.0" text="UserName" />
+                  <TableColumn fx:id="colAvailability" prefWidth="87.0" text="Availability" />
               </columns>
             </TableView>
             <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDSalOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
