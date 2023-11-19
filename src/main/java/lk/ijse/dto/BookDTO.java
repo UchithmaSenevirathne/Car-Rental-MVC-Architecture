@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 public class BookDTO {
     private String bId;
-    private Date pickUpDate;
+    private String pickUpDate;
     private int days;
     private String status;
     private double payment;

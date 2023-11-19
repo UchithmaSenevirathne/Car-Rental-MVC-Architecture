@@ -164,4 +164,14 @@ public class DriverModel {
 
         return pstm.executeUpdate() > 0;
     }
+
+    public boolean updateAvailableYes(String bId) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE driver SET availability = 'YES' WHERE drId IN (SELECT drId FROM booking WHERE bId = ?)";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, bId);
+
+        return pstm.executeUpdate() > 0;
+    }
 }

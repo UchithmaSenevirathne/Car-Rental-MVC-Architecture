@@ -1,10 +1,7 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
-import lk.ijse.dto.BookDTO;
-import lk.ijse.dto.CarDto;
-import lk.ijse.dto.CustomerDto;
-import lk.ijse.dto.PaymentDetailDTO;
+import lk.ijse.dto.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +12,10 @@ import java.util.Date;
 import java.util.List;
 
 public class PaymentModel {
+
+    private static final CarModel carModel = new CarModel();
+    private static final DriverModel driverModel = new DriverModel();
+    private static final BookingModel bookingModel = new BookingModel();
 
     public static List<PaymentDetailDTO> searchPaymentDetail(String bId) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
@@ -45,7 +46,7 @@ public class PaymentModel {
 
         while (resultSet.next()) {
             String b_Id = resultSet.getString(1);
-            Date date = resultSet.getDate(2);
+            String date = resultSet.getString(2);
             int rent_days = resultSet.getInt(3);
             String rent_status = resultSet.getString(4);
             double rent_pay = resultSet.getDouble(5);
@@ -58,5 +59,30 @@ public class PaymentModel {
         }
 
         return dtoList;
+    }
+
+    public static boolean savePayment(String bId, double totalPayment, String pickUpDate, BookingDetailDTO bookingDetailDTO) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "INSERT INTO payment VALUES(?, ?, ?)";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, bId);
+        pstm.setDouble(2, totalPayment);
+        pstm.setString(3, pickUpDate);
+
+        boolean isSaved = pstm.executeUpdate() > 0;
+
+        if(isSaved){
+            boolean isCarUpdated = carModel.updateAvailableYes(bookingDetailDTO.getBId());
+            boolean isDriverUpdated = driverModel.updateAvailableYes(bookingDetailDTO.getBId());
+            boolean isBookingUpdated = bookingModel.UpdateBooking(bookingDetailDTO);
+
+            if(isCarUpdated && isDriverUpdated && isBookingUpdated){
+                return true;
+            }
+        }
+
+        return false;
     }
 }

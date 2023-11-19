@@ -15,6 +15,6 @@ public class BookTm {
     private String brand;
     private String drId;
     private String cusId;
-    private Date pickUpDate;
+    private String pickUpDate;
     private int days;
 }

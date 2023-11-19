@@ -12,6 +12,8 @@ CREATE TABLE user(
         role VARCHAR(20) NOT NULL
 );
 
+INSERT INTO user VALUES("admin", "1234", "ADM");
+
 DESC user;
 SELECT * FROM user;
 
@@ -56,7 +58,7 @@ SELECT * FROM car;
 
 CREATE TABLE booking(
         bId VARCHAR(10) PRIMARY KEY,
-        pickUpDate DATE NOT NULL,
+        pickUpDate VARCHAR(10) NOT NULL,
         days INT(5) ,
         status VARCHAR(50) NOT NULL,
         payment DOUBLE(8,2),
@@ -79,6 +81,16 @@ CREATE TABLE bookingDetail(
 DESC bookingDetail;
 SELECT * FROM bookingDetail;
 
+CREATE TABLE payment(
+        bId varchar(10),
+        constraint foreign key (bId) references booking(bId),
+        totalPayment DOUBLE(10,2),
+        pickUpDate  VARCHAR(10) NOT NULL
+);
+
+DESC payment;
+SELECT * FROM payment;
+
 CREATE TABLE driverSalary(
         drSalId VARCHAR(10) PRIMARY KEY,
         amount DOUBLE (8,2) NOT NULL,
@@ -92,7 +104,7 @@ SELECT * FROM driverSalary;
 
 CREATE TABLE driverSchedule(
         drScheduleNo VARCHAR(10) PRIMARY KEY,
-        date DATE NOT NULL,
+        date VARCHAR(10) NOT NULL,
         drId varchar(10),
         constraint foreign key (drId) references driver(drId),
         bId varchar(10),
@@ -114,7 +126,7 @@ SELECT * FROM carMaintain;
 
 CREATE TABLE maintainDetail(
         mainDetailId VARCHAR(5) PRIMARY KEY,
-        date DATE NOT NULL,
+        date VARCHAR(10) NOT NULL,
         carNo varchar(5),
         constraint foreign key (carNo) references car(carNo),
         mainId varchar(5),

@@ -187,8 +187,9 @@ public class BookingFormController {
         String brand = txtCarName.getText();
         String drId = comboDrId.getValue();
         String cusId = comboCusId.getValue();
-        LocalDate localDate = datepickerDate.getValue();
-        Date pickUpDate = java.sql.Date.valueOf(localDate);
+        //LocalDate localDate = datepickerDate.getValue();
+        //Date pickUpDate = java.sql.Date.valueOf(localDate);
+        String pickUpDate = String.valueOf(datepickerDate.getValue());
         int days = Integer.parseInt(txtDays.getText());
 
         obList3.add(new BookTm(
@@ -220,8 +221,9 @@ public class BookingFormController {
     @FXML
     void btnConfirmRentOnAction(ActionEvent event) {
         String bId = lblBookingId.getText();
-        LocalDate localDate = datepickerDate.getValue();
-        Date pickUpDate = java.sql.Date.valueOf(localDate);
+        //LocalDate localDate = datepickerDate.getValue();
+        //Date pickUpDate = java.sql.Date.valueOf(localDate);
+        String pickUpDate = String.valueOf(datepickerDate.getValue());
         int days = Integer.parseInt(txtDays.getText());
         String status = "Pending";
         double payment = Double.parseDouble(txtAdvancePayment.getText());

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,6 +21,9 @@ import lk.ijse.model.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -104,7 +108,7 @@ public class PaymentFormController {
 
     Integer index;
 
-    private int totalPay = 0;
+    private double totalPay = 0;
 
     public void initialize() {
         setCellValueFactory();
@@ -181,8 +185,47 @@ public class PaymentFormController {
     }
 
     @FXML
-    void btnCheckOutOnAction(ActionEvent event) {
+    void btnCheckOutOnAction(ActionEvent event){
+        String bId = txtRentId.getText();
+        double totalPayment = Double.parseDouble(txtTotal.getText());
+        String pickUpDate = txtDate.getText();
 
+        String carNo = txtCarId.getText();
+        String drId = txtDrId.getText();
+
+        var bookingDetailDto = new BookingDetailDTO(
+             bId,
+             carNo,
+             drId
+        );
+
+        try {
+            boolean isSaved = PaymentModel.savePayment(bId, totalPayment, pickUpDate,bookingDetailDto);
+
+            if(isSaved){
+                new Alert(Alert.AlertType.CONFIRMATION, "Payment Completed Successful!").show();
+                clearFields();
+            }
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private void clearFields() {
+        txtRentId.setText("");
+        txtDate.setText("");
+        txtCusId.setText("");
+        txtName.setText("");
+        txtContact.setText("");
+        txtAddress.setText("");
+        txtCarId.setText("");
+        txtBrand.setText("");
+        txtPriceOneDay.setText("");
+        txtExtraKm.setText("");
+        txtDrName.setText("");
+        txtDrId.setText("");
+        txtDrCost.setText("");
+        txtTotal.setText("");
     }
 
     @FXML
