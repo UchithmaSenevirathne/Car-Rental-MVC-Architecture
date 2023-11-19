@@ -153,7 +153,7 @@
                   </Button>
                </children>
             </Pane>
-            <TableView fx:id="tableView" layoutX="29.0" layoutY="332.0" prefHeight="246.0" prefWidth="807.0">
+            <TableView fx:id="tableView" layoutX="29.0" layoutY="332.0" onMouseClicked="#setDetail" prefHeight="246.0" prefWidth="807.0">
               <columns>
                 <TableColumn fx:id="colRentId" prefWidth="82.0" text="Rent ID" />
                 <TableColumn fx:id="colCarId" prefWidth="88.0" text="Car ID" />

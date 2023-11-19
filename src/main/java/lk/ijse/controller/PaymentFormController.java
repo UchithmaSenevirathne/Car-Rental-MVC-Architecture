@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.*;
@@ -100,6 +101,8 @@ public class PaymentFormController {
     @FXML
     private TextField txtTotal;
 
+    Integer index;
+
     public void initialize() {
         setCellValueFactory();
     }
@@ -112,6 +115,25 @@ public class PaymentFormController {
         colCusId.setCellValueFactory(new PropertyValueFactory<>("cusId"));
         colPickUpDate.setCellValueFactory(new PropertyValueFactory<>("pickUpDate"));
         colDays.setCellValueFactory(new PropertyValueFactory<>("days"));
+    }
+
+    @FXML
+    void setDetail(MouseEvent event) throws SQLException {
+        index = tableView.getSelectionModel().getSelectedIndex();
+
+        if(index <= -1){
+            return;
+        }
+
+        txtCarId.setText(colCarId.getCellData(index).toString());
+        txtBrand.setText(colBrand.getCellData(index).toString());
+        txtDrId.setText(colDrId.getCellData(index).toString());
+
+        CarDto dto = carModel.searchCar(txtCarId.getText());
+        txtPriceOneDay.setText(String.valueOf(dto.getPriceOneDay()));
+
+        DriverDto dto1 = driverModel.searchDriver(txtDrId.getText());
+        txtDrName.setText(dto1.getName());
     }
 
     @FXML
