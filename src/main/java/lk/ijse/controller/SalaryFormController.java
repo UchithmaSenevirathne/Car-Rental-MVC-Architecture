@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -13,6 +16,69 @@ import java.io.IOException;
 public class SalaryFormController {
     @FXML
     private AnchorPane rootNode;
+
+    @FXML
+    private TableColumn<?, ?> colAddress;
+
+    @FXML
+    private TableColumn<?, ?> colAvailability;
+
+    @FXML
+    private TableColumn<?, ?> colContact;
+
+    @FXML
+    private TableColumn<?, ?> colDelete;
+
+    @FXML
+    private TableColumn<?, ?> colDrId;
+
+    @FXML
+    private TableColumn<?, ?> colEmail;
+
+    @FXML
+    private TableColumn<?, ?> colLicenseNo;
+
+    @FXML
+    private TableColumn<?, ?> colName;
+
+    @FXML
+    private TableColumn<?, ?> colUpdate;
+
+    @FXML
+    private TableColumn<?, ?> colUserName;
+
+    @FXML
+    private TableView<?> tableView;
+
+    @FXML
+    private TextField txtSearchDr;
+
+    @FXML
+    void btnADDSalOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/AddSalaryForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Add Salary Form");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnViewAllOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtSEARCHOnAction(ActionEvent event) {
+
+    }
 
     @FXML
     void btnBookingOnAction(ActionEvent event) throws IOException {
