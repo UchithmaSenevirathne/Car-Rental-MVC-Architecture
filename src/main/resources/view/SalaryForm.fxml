@@ -20,7 +20,7 @@
                   <Font name="Corbel Bold" size="13.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="391.0" prefWidth="803.0">
+            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" onMouseClicked="#setData" prefHeight="391.0" prefWidth="803.0">
               <columns>
                 <TableColumn fx:id="colDrId" prefWidth="71.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="85.0" text="Name" />

@@ -65,4 +65,7 @@ public class AddSalaryFormController {
         txtMonth.setText("");
     }
 
+    public void setSalaryData(String drId) {
+        txtDrId.setText(drId);
+    }
 }

@@ -10,8 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.CarDto;
 import lk.ijse.dto.DriverDto;
 import lk.ijse.dto.tm.DriverTm;
 import lk.ijse.dto.tm.SalDriverTm;
@@ -61,6 +63,8 @@ public class SalaryFormController {
     @FXML
     private TextField txtSearchDr;
 
+    private Integer index;
+
     private final ObservableList<SalDriverTm> obList = FXCollections.observableArrayList();
 
     public void initialize(){
@@ -100,8 +104,15 @@ public class SalaryFormController {
     }
 
     @FXML
-    void btnViewAllOnAction(ActionEvent event) {
+    void btnViewAllOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/ViewSalary.fxml"));
 
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("View Salary Form");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
@@ -144,6 +155,39 @@ public class SalaryFormController {
         } catch (Exception e){
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Error\", \"An error occurred while fetching driver data.").show();
+        }
+    }
+
+    @FXML
+    void setData(MouseEvent event) {
+        index = tableView.getSelectionModel().getSelectedIndex();
+
+        if(index <= -1){
+            return;
+        }
+
+        String drId = colDrId.getCellData(index).toString();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AddSalaryForm.fxml"));
+
+            Parent rootNode = loader.load();
+
+            AddSalaryFormController addSalaryFormController = loader.getController();
+
+            addSalaryFormController.setSalaryData(
+                    drId
+            );
+
+            Scene scene = new Scene(rootNode);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Add Salary Form");
+            stage.centerOnScreen();
+            stage.show();
+
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 
