@@ -14,6 +14,8 @@ import lk.ijse.model.UserModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.regex.Pattern;
 
 public class LoginFormController {
@@ -66,13 +68,35 @@ public class LoginFormController {
             stage.setScene(scene);
             stage.centerOnScreen();
         }else {
-            Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverSchedule.fxml"));
+            try {
+                Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverSchedule.fxml"));
 
-            Scene scene = new Scene(rootNode);
-            Stage stage = (Stage) this.rootNode.getScene().getWindow();
-            stage.setTitle("Driver Schedule Form");
-            stage.setScene(scene);
-            stage.centerOnScreen();
+                String date = String.valueOf(LocalDate.now());
+                String time = String.valueOf(LocalTime.now());
+
+                String logId = generateNextLogId();
+
+                boolean isSaved = UserModel.saveLogin(logId, userName, date, time);
+
+                if(isSaved) {
+                    Scene scene = new Scene(rootNode);
+                    Stage stage = (Stage) this.rootNode.getScene().getWindow();
+                    stage.setTitle("Driver Schedule Form");
+                    stage.setScene(scene);
+                    stage.centerOnScreen();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private String generateNextLogId() {
+        try {
+            String logId = UserModel.generateNextLogId();
+            return logId;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

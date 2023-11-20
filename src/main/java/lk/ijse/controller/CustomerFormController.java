@@ -13,6 +13,8 @@ import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class CustomerFormController {
@@ -42,6 +44,8 @@ public class CustomerFormController {
 
     private final ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
 
+    //private CustomerManageFormController customerManageFormController;
+
     @FXML
     void btnCancelCusOnAction(ActionEvent event) {
         stage = (Stage) rootNode.getScene().getWindow();
@@ -49,7 +53,7 @@ public class CustomerFormController {
     }
 
     @FXML
-    void btnSaveCusOnAction(ActionEvent event) {
+    void btnSaveCusOnAction(ActionEvent event) throws SQLException {
         String id = txtcusId.getText();
         String name = txtcusName.getText();
         String address = txtcusAddress.getText();
@@ -84,7 +88,7 @@ public class CustomerFormController {
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
+        //customerManageFormController.loadAllCustomers();
     }
 
     private boolean validateCustomer(String id, String name, String address, String email, String contact) {

@@ -17,6 +17,13 @@ INSERT INTO user VALUES("admin", "1234", "ADM");
 DESC user;
 SELECT * FROM user;
 
+CREATE TABLE login(
+        logId VARCHAR(10) PRIMARY KEY,
+        userName VARCHAR(20) NOT NULL,
+        date VARCHAR(20) NOT NULL,
+        time VARCHAR(15) NOT NULL
+);
+
 CREATE TABLE customer(
         cusId VARCHAR(10) PRIMARY KEY,
         name VARCHAR(20) NOT NULL,

@@ -72,7 +72,7 @@ public class CustomerManageFormController {
         colDelete.setCellValueFactory(new PropertyValueFactory<>("deleteButton"));
     }
 
-    private void loadAllCustomers(){
+    public void loadAllCustomers(){
         obList.clear();
 
         var model = new CustomerModel();
@@ -107,7 +107,16 @@ public class CustomerManageFormController {
         }
     }
 
+    /*public void refreshCustomerTable() {
+        // Implement the logic to refresh the customer table here
+        // You can call the getAllCustomer method and update the table data
+        List<CustomerDto> customers = new CustomerModel.getAllCustomers(); // Replace with your actual method
+        customerTable.getItems().clear();
+        customerTable.getItems().addAll(customers);
+    }*/
+
     private void openCustomerPopup(CustomerDto customerDto){
+        //CustomerFormController cusForm = new CustomerFormController(this);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CustomerForm.fxml"));
 

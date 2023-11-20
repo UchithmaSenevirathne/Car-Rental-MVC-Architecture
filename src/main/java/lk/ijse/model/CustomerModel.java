@@ -129,5 +129,4 @@ public class CustomerModel {
         return pstm.executeUpdate() > 0;
     }
 
-
 }
