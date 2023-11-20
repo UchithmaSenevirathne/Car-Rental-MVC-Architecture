@@ -13,6 +13,8 @@ import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
 
+import java.util.regex.Pattern;
+
 public class CustomerFormController {
 
     @FXML
@@ -64,23 +66,49 @@ public class CustomerFormController {
 //        }
 
         try {
-            if(btnCusFormBtn.getText().equals("UPDATE")){
-                boolean isUpdated = model.updateCustomer(dto);
-                if(isUpdated){
-                    new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
-                    clearFields();
-                }
-            }else if(btnCusFormBtn.getText().equals("Save")) {
-                boolean isSaved = model.saveCustomer(dto);
-                if (isSaved) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
-                    clearFields();
+            if(validateCustomer(id, name, address, email, contact)) {
+                if (btnCusFormBtn.getText().equals("UPDATE")) {
+                    boolean isUpdated = model.updateCustomer(dto);
+                    if (isUpdated) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+                        clearFields();
+                    }
+                } else if (btnCusFormBtn.getText().equals("Save")) {
+                    boolean isSaved = model.saveCustomer(dto);
+                    if (isSaved) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+                        clearFields();
+                    }
                 }
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
 
+    }
+
+    private boolean validateCustomer(String id, String name, String address, String email, String contact) {
+        if(!Pattern.matches("[C][0-9]{3,}", id)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer ID").show();
+            return false;
+        }
+        if(!Pattern.matches("([a-zA-Z_\\\\s]+)", name)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer Name").show();
+            return false;
+        }
+        if(!Pattern.matches("([a-zA-Z_\\\\s]+)", address)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer Address").show();
+            return false;
+        }
+        if(!Pattern.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", email)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer Email").show();
+            return false;
+        }
+        if(!Pattern.matches("[0-9]{10}", contact)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer Contact").show();
+            return false;
+        }
+        return true;
     }
 
     private void clearFields() {

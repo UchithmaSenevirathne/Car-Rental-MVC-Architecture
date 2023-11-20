@@ -14,6 +14,7 @@ import lk.ijse.model.UserModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 public class LoginFormController {
 
@@ -44,11 +45,11 @@ public class LoginFormController {
         String password = fieldPassword.getText();
         try {
             boolean isIn = UserModel.searchUser(userName, password);
-            if (!isIn){
-                new Alert(Alert.AlertType.WARNING,"Invalid UserName or Password").show();
+            if (!isIn) {
+                new Alert(Alert.AlertType.WARNING, "Invalid UserName or Password").show();
                 return;
-            }else  {
-                isAdmin(userName,password);
+            } else {
+                isAdmin(userName, password);
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
