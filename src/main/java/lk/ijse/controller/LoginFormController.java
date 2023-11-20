@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
 public class LoginFormController {
@@ -72,7 +73,9 @@ public class LoginFormController {
                 Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverSchedule.fxml"));
 
                 String date = String.valueOf(LocalDate.now());
-                String time = String.valueOf(LocalTime.now());
+                LocalTime currentTime = LocalTime.now();
+                String time = currentTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+                //String time = String.valueOf(LocalTime.now());
 
                 String logId = generateNextLogId();
 
