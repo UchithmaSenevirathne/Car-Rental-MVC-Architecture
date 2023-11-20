@@ -92,7 +92,7 @@ public class CustomerFormController {
             new Alert(Alert.AlertType.ERROR, "Invalid Customer ID").show();
             return false;
         }
-        if(!Pattern.matches("([a-zA-Z_\\\\s]+)", name)){
+        if(!Pattern.matches("[A-Z][a-z]+ [A-Z][a-z]+", name)){
             new Alert(Alert.AlertType.ERROR, "Invalid Customer Name").show();
             return false;
         }

@@ -13,6 +13,7 @@ import lk.ijse.dto.UserDTO;
 import lk.ijse.model.DriverModel;
 
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 public class DriverFormController {
     @FXML
@@ -71,23 +72,61 @@ public class DriverFormController {
         var model = new DriverModel();
 
         try {
-            if(btnDrFormBtn.getText().equals("UPDATE")) {
-                boolean isUpdate = model.updateDriver(driverDto, userDto);
-                if (isUpdate) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "driver updated!!").show();
-                    clearFields();
-                }
-            }else if(btnDrFormBtn.getText().equals("Save")) {
-                boolean isSaved = model.saveDriver(driverDto, userDto);
+            if(validateDriver(id, name, address, email, contact, licenseNo, userName, pwd)) {
+                if (btnDrFormBtn.getText().equals("UPDATE")) {
+                    boolean isUpdate = model.updateDriver(driverDto, userDto);
+                    if (isUpdate) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "driver updated!!").show();
+                        clearFields();
+                    }
+                } else if (btnDrFormBtn.getText().equals("Save")) {
+                    boolean isSaved = model.saveDriver(driverDto, userDto);
 
-                if (isSaved) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "driver saved!").show();
-                    clearFields();
+                    if (isSaved) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "driver saved!").show();
+                        clearFields();
+                    }
                 }
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    private boolean validateDriver(String id, String name, String address, String email, String contact, String licenseNo, String userName, String pwd) {
+        if(!Pattern.matches("[D][0-9]{3,}", id)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Driver ID").show();
+            return false;
+        }
+        if(!Pattern.matches("[A-Z][a-z]+ [A-Z][a-z]+", name)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Driver Name").show();
+            return false;
+        }
+        if(!Pattern.matches("([a-zA-Z_\\\\s]+)", address)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Driver Address").show();
+            return false;
+        }
+        if(!Pattern.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", email)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Driver Email").show();
+            return false;
+        }
+        if(!Pattern.matches("[0-9]{10}", contact)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Driver Contact").show();
+            return false;
+        }
+        if(!Pattern.matches("[A-Z](?:\\d[- ]*){12}", licenseNo)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Driver License Number").show();
+            return false;
+        }
+        if(!Pattern.matches("[A-Za-zA-Z]+", userName)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Driver UserName").show();
+            return false;
+        }
+        if(!Pattern.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}", pwd)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Driver Password").show();
+            return false;
+        }
+        return true;
     }
 
     private void clearFields() {

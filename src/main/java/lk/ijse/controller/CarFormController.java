@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import lk.ijse.dto.CarDto;
 import lk.ijse.model.CarModel;
 
+import java.util.regex.Pattern;
+
 public class CarFormController {
     @FXML
     private AnchorPane rootNode;
@@ -62,23 +64,33 @@ public class CarFormController {
         var model = new CarModel();
 
         try{
-            if(btnCarForm.getText().equals("UPDATE")){
-                boolean isUpdated = model.updateCar(dto);
-                if(isUpdated){
-                    new Alert(Alert.AlertType.CONFIRMATION, "car updated!!").show();
-                    clearFields();
-                }
-            }else if(btnCarForm.getText().equals("SAVE")) {
-                boolean isSaved = model.saveCar(dto);
+            if(validateCar(carNo)) {
+                if (btnCarForm.getText().equals("UPDATE")) {
+                    boolean isUpdated = model.updateCar(dto);
+                    if (isUpdated) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "car updated!!").show();
+                        clearFields();
+                    }
+                } else if (btnCarForm.getText().equals("SAVE")) {
+                    boolean isSaved = model.saveCar(dto);
 
-                if (isSaved) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "car saved!").show();
-                    clearFields();
+                    if (isSaved) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "car saved!").show();
+                        clearFields();
+                    }
                 }
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    private boolean validateCar(String carNo) {
+        if(!Pattern.matches("[D][0-9]{3,}", carNo)){
+            new Alert(Alert.AlertType.ERROR, "Invalid Car Number").show();
+            return false;
+        }
+        return true;
     }
 
     private void clearFields() {
