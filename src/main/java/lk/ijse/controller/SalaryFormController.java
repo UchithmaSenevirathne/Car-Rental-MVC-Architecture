@@ -7,11 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.DriverDto;
@@ -68,6 +66,9 @@ public class SalaryFormController {
     public void initialize(){
         setCellValueFactory();
         //loadAllDrivers();
+        txtSearchDr.textProperty().addListener((observable, oldValue, newValue) -> {
+           searchDrivers(newValue);
+        });
     }
 
     private void setCellValueFactory(){
@@ -77,7 +78,7 @@ public class SalaryFormController {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colLicenseNo.setCellValueFactory(new PropertyValueFactory<>("licenseNo"));
-        colUserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+        colUserName.setCellValueFactory(new PropertyValueFactory<>("userName"));
         colAvailability.setCellValueFactory(new PropertyValueFactory<>("availability"));
     }
 
@@ -106,17 +107,22 @@ public class SalaryFormController {
     @FXML
     void txtSEARCHOnAction(ActionEvent event) {
         String search = txtSearchDr.getText();
+        System.out.println("search "+search);
+        searchDrivers(search);
+    }
 
+    private void searchDrivers(String search) {
         obList.clear();
 
         var model = new SalaryModel();
 
         try {
-            List<DriverDto> dtoList = model.getAllDrivers(search);
+            if (model != null) {
+                List<DriverDto> dtoList = model.getAllDrivers(search);
 
-            for(DriverDto dto : dtoList){
-                obList.add(
-                        new SalDriverTm(
+                if (dtoList != null) {
+                    for (DriverDto dto : dtoList) {
+                        obList.add(new SalDriverTm(
                                 dto.getId(),
                                 dto.getName(),
                                 dto.getAddress(),
@@ -125,13 +131,19 @@ public class SalaryFormController {
                                 dto.getLicenseNo(),
                                 dto.getUserName(),
                                 dto.getAvailability()
-                        )
-                );
+                        ));
+                    }
+                    tableView.setItems(obList);
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "ERROR : Driver data is null").show();
+                }
+            } else {
+                new Alert(Alert.AlertType.ERROR, "SalaryModel is not initialized").show();
             }
-            tableView.setItems(obList);
 
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        } catch (Exception e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Error\", \"An error occurred while fetching driver data.").show();
         }
     }
 

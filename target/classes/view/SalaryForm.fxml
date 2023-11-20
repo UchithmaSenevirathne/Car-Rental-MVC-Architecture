@@ -37,7 +37,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <TextField fx:id="txtSearchDr" layoutX="635.0" layoutY="38.0" onAction="#txtSEARCHOnAction" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
+            <TextField fx:id="txtSearchDr" layoutX="560.0" layoutY="38.0" onAction="#txtSEARCHOnAction" prefHeight="25.0" prefWidth="192.0" promptText="Search" />
             <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="45.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/add.png" />
@@ -54,6 +54,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
+            <Button layoutX="760.0" layoutY="38.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #5758BB;" text="Search" textFill="WHITE" />
          </children>
       </Pane>
       <Label layoutX="10.0" layoutY="55.0" text="APEX" textFill="WHITE">

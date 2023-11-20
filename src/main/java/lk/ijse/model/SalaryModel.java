@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class SalaryModel {
+    //private Connection connection;
+
     public boolean saveSalary(SalaryDTO dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -53,37 +55,39 @@ public class SalaryModel {
     public List<DriverDto> getAllDrivers(String search) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = null;
+        List<DriverDto> driverList = new ArrayList<>();
 
-        if(Pattern.matches("[C][0-9]{3,}", search)) {
-            String sql = "SELECT * FROM driver WHERE drId = ? ";
-            pstm = connection.prepareStatement(sql);
-
-            pstm.setString(1, search);
-        }else{
-            String sql = "SELECT * FROM driver WHERE name = ? ";
-            pstm = connection.prepareStatement(sql);
+        try {
+            String sql = "SELECT * FROM driver WHERE drId LIKE ? OR name LIKE ?";
+            //PreparedStatement pstm = connection.prepareStatement(sql);
+            PreparedStatement pstm = connection.prepareStatement(sql);
 
             pstm.setString(1, search);
+            pstm.setString(2, search);
+
+            ResultSet resultSet = pstm.executeQuery();
+
+            while (resultSet.next()) {
+                DriverDto driver = new DriverDto(
+                        resultSet.getString("drId"),
+                        resultSet.getString("name"),
+                        resultSet.getString("address"),
+                        resultSet.getString("email"),
+                        resultSet.getString("contact"),
+                        resultSet.getString("licenseNo"),
+                        resultSet.getString("userName"),
+                        resultSet.getString("availability")
+
+                );
+
+                driverList.add(driver);
+            }
+
+            pstm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        List<DriverDto> dtoList = new ArrayList<>();
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        while (resultSet.next()){
-            String dr_id = resultSet.getString(1);
-            String dr_name = resultSet.getString(2);
-            String dr_address = resultSet.getString(3);
-            String dr_email = resultSet.getString(4);
-            String dr_contact = resultSet.getString(5);
-            String dr_licenseNo = resultSet.getString(6);
-            String dr_userName = resultSet.getString(7);
-            String dr_availability = resultSet.getString(8);
-
-            var dto = new DriverDto(dr_id, dr_name, dr_address, dr_email, dr_contact, dr_licenseNo, dr_userName, dr_availability);
-            dtoList.add(dto);
-        }
-        return dtoList;
+        return driverList;
     }
 }
