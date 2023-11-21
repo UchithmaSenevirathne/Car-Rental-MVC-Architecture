@@ -93,25 +93,34 @@ public class CustomerFormController {
 
     private boolean validateCustomer(String id, String name, String address, String email, String contact) {
         if(!Pattern.matches("[C][0-9]{3,}", id)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Customer ID").show();
+            txtcusId.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("[A-Z][a-z]+ [A-Z][a-z]+", name)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Customer Name").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Customer Name").show();
+            txtcusName.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("([a-zA-Z_\\\\s]+)", address)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Customer Address").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Customer Address").show();
+            txtcusAddress.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", email)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Customer Email").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Customer Email").show();
+            txtcusEmail.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("[0-9]{10}", contact)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Customer Contact").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Customer Contact").show();
+            txtcusContact.setStyle("-fx-border-color: #b30404");
             return false;
         }
+        txtcusId.setStyle("-fx-border-color: default");
+        txtcusName.setStyle("-fx-border-color: default");
+        txtcusAddress.setStyle("-fx-border-color: default");
+        txtcusEmail.setStyle("-fx-border-color: default");
+        txtcusContact.setStyle("-fx-border-color: default");
         return true;
     }
 

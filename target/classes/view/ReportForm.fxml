@@ -10,7 +10,13 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ReportFormController">
    <children>
-      <Pane layoutX="149.0" layoutY="20.0" prefHeight="610.0" prefWidth="882.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;" />
+      <Pane layoutX="149.0" layoutY="20.0" prefHeight="610.0" prefWidth="882.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
+         <children>
+            <Button layoutX="654.0" layoutY="154.0" mnemonicParsing="false" onAction="#btnViewLoginReportOnAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: green;" text="VIEW LOGIN REPORT" textFill="WHITE" />
+            <Button layoutX="654.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnViewCusReportOnAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: green;" text="VIEW CUSTOMER REPORT" textFill="WHITE" />
+            <Button layoutX="654.0" layoutY="265.0" mnemonicParsing="false" onAction="#btnTransactionOnAction" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: green;" text="TRANSACTION" textFill="WHITE" />
+            <ImageView fitHeight="435.0" fitWidth="506.0" layoutX="42.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" />
+         </children></Pane>
       <Label layoutX="10.0" layoutY="55.0" text="APEX" textFill="WHITE">
          <font>
             <Font name="Felix Titling" size="20.0" />
@@ -104,7 +110,7 @@
       </ImageView>
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/profit-report%20(1).png" />
+            <Image url="@../image/profit-report(1).png" />
          </image>
       </ImageView>
       <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Logout" textFill="WHITE">
