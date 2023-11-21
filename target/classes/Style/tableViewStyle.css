@@ -1,0 +1,22 @@
+.table-view{
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+}
+
+.table-view .column-header{
+    -fx-background-color: #5758BB;
+    -fx-font-weight: bold;
+    -fx-border-radius: 10;
+}
+
+.table-view .column-header:hover{
+    -fx-background-color: #212171;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:filled:selected{
+    -fx-background-color: #e7e7e7;
+}
