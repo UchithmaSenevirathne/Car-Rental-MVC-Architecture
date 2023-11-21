@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,6 +35,28 @@
                   <Image url="@../image/logout.png" />
                </image>
             </ImageView>
+            <TextField fx:id="txtDriverName" layoutX="787.0" layoutY="16.0" prefHeight="25.0" prefWidth="198.0" />
+            <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="759.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/user.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tableView" layoutX="19.0" layoutY="128.0" prefHeight="435.0" prefWidth="968.0" stylesheets="@../Style/tableViewStyle.css">
+              <columns>
+                <TableColumn fx:id="colBId" prefWidth="91.0" text="RENT ID" />
+                <TableColumn fx:id="colCusName" prefWidth="262.0" text="CUSTOMER NAME" />
+                  <TableColumn fx:id="colBrand" prefWidth="143.0" text="CAR NAME" />
+                  <TableColumn fx:id="colAddress" prefWidth="116.0" text="ADDRESS" />
+                  <TableColumn fx:id="colContact" prefWidth="116.0" text="CONTACT" />
+                  <TableColumn fx:id="colPickUpDate" prefWidth="147.0" text="PICKUP DATE" />
+                  <TableColumn fx:id="colDays" prefWidth="92.0" text="DAYS" />
+              </columns>
+            </TableView>
+            <Label layoutX="596.0" layoutY="19.0" text="DRIVER SCHEDULE" textFill="#3d3e9a">
+               <font>
+                  <Font name="Corbel Bold" size="16.0" />
+               </font>
+            </Label>
          </children></Pane>
    </children>
 </AnchorPane>

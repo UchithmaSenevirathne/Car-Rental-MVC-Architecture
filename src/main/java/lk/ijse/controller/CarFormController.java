@@ -87,9 +87,11 @@ public class CarFormController {
 
     private boolean validateCar(String carNo) {
         if(!Pattern.matches("[D][0-9]{3,}", carNo)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Car Number").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Car Number").show();
+            txtCarNo.setStyle("-fx-border-color: #b30404");
             return false;
         }
+        txtCarNo.setStyle("-fx-border-color: default");
         return true;
     }
 

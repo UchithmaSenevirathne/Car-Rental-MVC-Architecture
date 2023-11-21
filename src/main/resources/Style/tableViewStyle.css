@@ -10,7 +10,7 @@
 }
 
 .table-view .column-header:hover{
-    -fx-background-color: #212171;
+    -fx-background-color: #3d3e9a;
 }
 
 .table-view .column-header .label{
@@ -18,5 +18,5 @@
 }
 
 .table-view .table-row-cell:filled:selected{
-    -fx-background-color: #e7e7e7;
+    -fx-background-color: #9697ec;
 }

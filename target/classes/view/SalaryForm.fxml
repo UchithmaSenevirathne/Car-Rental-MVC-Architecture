@@ -20,7 +20,7 @@
                   <Font name="Corbel Bold" size="13.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" onMouseClicked="#setData" prefHeight="391.0" prefWidth="803.0">
+            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" onMouseClicked="#setData" prefHeight="414.0" prefWidth="803.0" stylesheets="@../Style/tableViewStyle.css">
               <columns>
                 <TableColumn fx:id="colDrId" prefWidth="71.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="85.0" text="Name" />
@@ -32,7 +32,7 @@
                   <TableColumn fx:id="colAvailability" prefWidth="87.0" text="Availability" />
               </columns>
             </TableView>
-            <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDSalOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
+            <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDSalOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #3d3e9a; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#3d3e9a">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
@@ -43,13 +43,12 @@
                   <Image url="@../image/add.png" />
                </image>
             </ImageView>
-            <Button layoutX="760.0" layoutY="563.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #5758BB;" text="     Back" textFill="WHITE" />
             <ImageView fitHeight="25.0" fitWidth="16.0" layoutX="770.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/previous.png" />
                </image>
             </ImageView>
-            <Button layoutX="116.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnViewAllOnAction" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="VIEW ALL" textFill="#115d76">
+            <Button layoutX="116.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnViewAllOnAction" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #3d3e9a; -fx-border-radius: 5; -fx-background-radius: 5;" text="VIEW ALL" textFill="#3d3e9a">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>

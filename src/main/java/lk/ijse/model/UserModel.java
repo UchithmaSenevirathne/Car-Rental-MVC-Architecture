@@ -45,9 +45,9 @@ public class UserModel {
             String[] split = currentLogId.split("L");
             int id = Integer.parseInt(split[1]);
             id++;
-            return "L00" + id;
+            return "L" + id;
         }
-        return "L001";
+        return "L1";
     }
 
     public static boolean saveLogin(String logId, String userName, String date, String time) throws SQLException {

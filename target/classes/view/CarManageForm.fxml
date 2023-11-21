@@ -11,34 +11,34 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #0a4051;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CarManageFormController">
+<AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #5758BB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CarManageFormController">
    <children>
-      <Pane layoutX="149.0" layoutY="20.0" prefHeight="611.0" prefWidth="881.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
+      <Pane layoutX="173.0" layoutY="20.0" prefHeight="611.0" prefWidth="857.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
          <children>
-            <Label layoutX="37.0" layoutY="42.0" text="CARS" textFill="#0a4051">
+            <Label layoutX="37.0" layoutY="42.0" text="CARS" textFill="#3d3e9a">
                <font>
-                  <Font name="Corbel Bold" size="13.0" />
+                  <Font name="Corbel Bold" size="17.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="387.0" prefWidth="829.0">
+            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="421.0" prefWidth="809.0" stylesheets="@../Style/tableViewStyle.css">
               <columns>
-                <TableColumn fx:id="colCarNo" prefWidth="74.0" text="Car Number" />
-                <TableColumn fx:id="colBrand" prefWidth="96.0" text="Brand" />
-                  <TableColumn fx:id="colAvailability" prefWidth="70.0" text="Availability" />
+                <TableColumn fx:id="colCarNo" prefWidth="46.0" text="Car No" />
+                <TableColumn fx:id="colBrand" prefWidth="79.0" text="Brand" />
+                  <TableColumn fx:id="colAvailability" prefWidth="78.0" text="Availability" />
                   <TableColumn fx:id="colCurrentMileage" prefWidth="98.0" text="Current Milage" />
-                  <TableColumn fx:id="colKmOneDay" prefWidth="103.0" text="Km for One Day" />
-                  <TableColumn fx:id="colPriceOneDay" prefWidth="112.0" text="Price for One Day" />
-                  <TableColumn fx:id="colPriceExtraKm" prefWidth="128.0" text="Price for Extra 1Km" />
-                  <TableColumn fx:id="colUpdate" prefWidth="75.0" text="UPDATE" />
-                  <TableColumn fx:id="colDelete" prefWidth="72.0" text="DELETE" />
+                  <TableColumn fx:id="colKmOneDay" prefWidth="99.0" text="Km for One Day" />
+                  <TableColumn fx:id="colPriceOneDay" prefWidth="120.0" text="Price for One Day" />
+                  <TableColumn fx:id="colPriceExtraKm" prefWidth="131.0" text="Price for Extra 1Km" />
+                  <TableColumn fx:id="colUpdate" prefWidth="83.0" text="UPDATE" />
+                  <TableColumn fx:id="colDelete" prefWidth="74.0" text="DELETE" />
               </columns>
             </TableView>
-            <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCarOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
+            <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCarOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #3d3e9a; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#3d3e9a">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <TextField fx:id="txtSearchCar" layoutX="661.0" layoutY="38.0" onAction="#txtSEARCHOnAction" prefHeight="25.0" prefWidth="192.0" promptText="Search">
+            <TextField fx:id="txtSearchCar" layoutX="641.0" layoutY="38.0" onAction="#txtSEARCHOnAction" prefHeight="25.0" prefWidth="192.0" promptText="Search">
                <font>
                   <Font size="11.0" />
                </font></TextField>
@@ -47,7 +47,6 @@
                   <Image url="@../image/add.png" />
                </image>
             </ImageView>
-            <Button layoutX="786.0" layoutY="561.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #115d76;" text="     Back" textFill="WHITE" />
             <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="792.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/previous.png" />
@@ -55,57 +54,57 @@
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="10.0" layoutY="55.0" text="APEX" textFill="WHITE">
+      <Label layoutX="20.0" layoutY="55.0" text="APEX" textFill="WHITE">
          <font>
             <Font name="Felix Titling" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="63.0" layoutY="63.0" text="AUTO RENTAL" textFill="WHITE">
+      <Label layoutX="72.0" layoutY="63.0" text="AUTO RENTAL" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="              Dashboard" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #5758BB;" text="                   DASHBOARD" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="           Customer" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="155.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #5758BB;" text="               CUSTOMER" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Driver" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDriverOnAction" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #5758BB;" text="       DRIVER" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="Car" textFill="#e9c90e">
+      <Button layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #3d3e9a;" text="CAR" textFill="#e9c90e">
          <font>
             <Font name="Corbel Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="261.0" mnemonicParsing="false" onAction="#btnBookingOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="       Booking" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="261.0" mnemonicParsing="false" onAction="#btnBookingOnAction" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #5758BB;" text="           BOOKING" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="        Payment" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #5758BB;" text="            PAYMENT" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="   Salary" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #5758BB;" text="       SALARY" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Report" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #5758BB;" text="         REPORT" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Pane layoutX="5.0" layoutY="376.0" opacity="0.19" prefHeight="3.0" prefWidth="139.0" style="-fx-background-color: f5f1f8;" />
+      <Pane layoutX="5.0" layoutY="376.0" opacity="0.19" prefHeight="3.0" prefWidth="161.0" style="-fx-background-color: f5f1f8;" />
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/dashboard.png" />
@@ -124,11 +123,6 @@
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="34.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/car(1).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="52.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/ApexIcon.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
@@ -151,7 +145,7 @@
             <Image url="@../image/report.png" />
          </image>
       </ImageView>
-      <Button layoutX="-8.0" layoutY="609.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="157.0" style="-fx-background-color: #0a4051;" text="     Logout" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="609.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="181.0" style="-fx-background-color: #5758BB;" text="     Logout" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>

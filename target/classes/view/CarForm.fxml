@@ -6,28 +6,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="359.0" prefWidth="394.0" style="-fx-background-color: f5f1f8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CarFormController">
+<AnchorPane fx:id="rootNode" prefHeight="359.0" prefWidth="394.0" style="-fx-background-color: E9E9E9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CarFormController">
    <children>
-      <TextField fx:id="txtCarNo" layoutX="34.0" layoutY="86.0" prefHeight="25.0" prefWidth="159.0" promptText="Car No" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtCarBrand" layoutX="204.0" layoutY="86.0" prefHeight="25.0" prefWidth="159.0" promptText="Brand" style="-fx-background-radius: 5;" />
-      <Button fx:id="btnCarForm" layoutX="34.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="25.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #115d76;" text="SAVE" textFill="WHITE">
+      <TextField fx:id="txtCarNo" layoutX="34.0" layoutY="86.0" prefHeight="25.0" prefWidth="159.0" promptText="Car No" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtCarBrand" layoutX="204.0" layoutY="86.0" prefHeight="25.0" prefWidth="159.0" promptText="Brand" style="-fx-background-color: F9FAFC;" />
+      <Button fx:id="btnCarForm" layoutX="34.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnCarOnAction" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: #3d3e9a;" text="SAVE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="204.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnCancelCarOnAction" prefHeight="25.0" prefWidth="159.0" style="-fx-background-radius: 10;" text="Cancel" textFill="#115d76">
+      <Button layoutX="204.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnCancelCarOnAction" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: white; -fx-border-color: #3d3e9a; -fx-border-radius: 4;" text="Cancel" textFill="#3d3e9a">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="lblCarForm" layoutX="165.0" layoutY="37.0" text="Car Form" textFill="#115d76">
+      <Label fx:id="lblCarForm" layoutX="165.0" layoutY="37.0" text="Car Form" textFill="#3d3e9a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCurrentMileage" layoutX="34.0" layoutY="131.0" prefHeight="25.0" prefWidth="209.0" promptText="Current Mileage" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtKmOneDay" layoutX="34.0" layoutY="175.0" prefHeight="25.0" prefWidth="159.0" promptText="Km One Day" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtPriceOneDay" layoutX="204.0" layoutY="175.0" prefHeight="25.0" prefWidth="159.0" promptText="Price One Day" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtPriceExtraKm" layoutX="34.0" layoutY="219.0" prefHeight="25.0" prefWidth="209.0" promptText="Price Extra Km" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtCurrentMileage" layoutX="34.0" layoutY="131.0" prefHeight="25.0" prefWidth="209.0" promptText="Current Mileage" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtKmOneDay" layoutX="34.0" layoutY="175.0" prefHeight="25.0" prefWidth="159.0" promptText="Km One Day" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtPriceOneDay" layoutX="204.0" layoutY="175.0" prefHeight="25.0" prefWidth="159.0" promptText="Price One Day" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtPriceExtraKm" layoutX="34.0" layoutY="219.0" prefHeight="25.0" prefWidth="209.0" promptText="Price Extra Km" style="-fx-background-color: F9FAFC;" />
    </children>
 </AnchorPane>

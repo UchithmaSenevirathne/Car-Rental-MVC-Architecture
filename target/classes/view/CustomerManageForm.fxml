@@ -15,23 +15,23 @@
    <children>
       <Pane layoutX="174.0" layoutY="20.0" prefHeight="612.0" prefWidth="858.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
          <children>
-            <Label layoutX="37.0" layoutY="42.0" text="CUSTOMERS" textFill="#5758bb">
+            <Label layoutX="37.0" layoutY="42.0" text="CUSTOMERS" textFill="#3d3e9a">
                <font>
                   <Font name="Corbel Bold" size="13.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="391.0" prefWidth="803.0">
+            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="420.0" prefWidth="803.0" stylesheets="@../Style/tableViewStyle.css">
               <columns>
                 <TableColumn fx:id="colCusId" prefWidth="65.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="115.0" text="Name" />
                   <TableColumn fx:id="colAddress" prefWidth="117.0" text="Address" />
-                  <TableColumn fx:id="colEmail" prefWidth="174.0" text="E-mail" />
-                  <TableColumn fx:id="colContact" prefWidth="112.0" text="Contact" />
-                  <TableColumn fx:id="colUpdate" prefWidth="109.0" text="UPDATE" />
-                  <TableColumn fx:id="colDelete" prefWidth="110.0" text="DELETE" />
+                  <TableColumn fx:id="colEmail" prefWidth="199.0" text="E-mail" />
+                  <TableColumn fx:id="colContact" prefWidth="121.0" text="Contact" />
+                  <TableColumn fx:id="colUpdate" prefWidth="100.0" text="UPDATE" />
+                  <TableColumn fx:id="colDelete" prefWidth="85.0" text="DELETE" />
               </columns>
             </TableView>
-            <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCusOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #115d76; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#115d76">
+            <Button layoutX="37.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnADDCusOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: #3d3e9a; -fx-border-radius: 5; -fx-background-radius: 5;" text="       ADD" textFill="#3d3e9a">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
@@ -42,7 +42,6 @@
                   <Image url="@../image/add.png" />
                </image>
             </ImageView>
-            <Button layoutX="760.0" layoutY="563.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #5758BB;" text="     Back" textFill="WHITE" />
             <ImageView fitHeight="25.0" fitWidth="16.0" layoutX="770.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/previous.png" />

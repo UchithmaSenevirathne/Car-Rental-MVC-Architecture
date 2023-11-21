@@ -95,37 +95,53 @@ public class DriverFormController {
 
     private boolean validateDriver(String id, String name, String address, String email, String contact, String licenseNo, String userName, String pwd) {
         if(!Pattern.matches("[D][0-9]{3,}", id)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Driver ID").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Driver ID").show();
+            txtDrId.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("[A-Z][a-z]+ [A-Z][a-z]+", name)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Driver Name").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Driver Name").show();
+            txtDrName.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("([a-zA-Z_\\\\s]+)", address)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Driver Address").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Driver Address").show();
+            txtDrAddress.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", email)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Driver Email").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Driver Email").show();
+            txtDrEmail.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("[0-9]{10}", contact)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Driver Contact").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Driver Contact").show();
+            txtDrContact.setStyle("-fx-border-color: #b30404");
             return false;
         }
-        if(!Pattern.matches("[A-Z](?:\\d[- ]*){12}", licenseNo)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Driver License Number").show();
+        if(!Pattern.matches("[A-Z](?:\\d[- ]*){12}", licenseNo)){        //L123456789012
+            //new Alert(Alert.AlertType.ERROR, "Invalid Driver License Number").show();
+            txtDrLicenseNo.setStyle("-fx-border-color: #b30404");
             return false;
         }
         if(!Pattern.matches("[A-Za-zA-Z]+", userName)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Driver UserName").show();
+            //new Alert(Alert.AlertType.ERROR, "Invalid Driver UserName").show();
+            txtUserName.setStyle("-fx-border-color: #b30404");
             return false;
         }
-        if(!Pattern.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}", pwd)){
-            new Alert(Alert.AlertType.ERROR, "Invalid Driver Password").show();
+        if(!Pattern.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}", pwd)){    //#001DRpw
+            //new Alert(Alert.AlertType.ERROR, "Invalid Driver Password").show();
+            txtPassword.setStyle("-fx-border-color: #b30404");
             return false;
         }
+        txtDrId.setStyle("-fx-border-color: default");
+        txtDrName.setStyle("-fx-border-color: default");
+        txtDrAddress.setStyle("-fx-border-color: default");
+        txtDrEmail.setStyle("-fx-border-color: default");
+        txtDrContact.setStyle("-fx-border-color: default");
+        txtDrLicenseNo.setStyle("-fx-border-color: default");
+        txtUserName.setStyle("-fx-border-color: default");
+        txtPassword.setStyle("-fx-border-color: default");
         return true;
     }
 

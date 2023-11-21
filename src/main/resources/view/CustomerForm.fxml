@@ -6,39 +6,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="387.0" prefWidth="369.0" style="-fx-background-color: #115d76;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
+<AnchorPane fx:id="rootNode" prefHeight="387.0" prefWidth="369.0" style="-fx-background-color: E9E9E9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
    <children>
-      <TextField fx:id="txtcusId" layoutX="148.0" layoutY="42.0" prefHeight="25.0" prefWidth="189.0" promptText="ID" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtcusName" layoutX="148.0" layoutY="88.0" prefHeight="25.0" prefWidth="189.0" promptText="Name" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtcusAddress" layoutX="148.0" layoutY="135.0" prefHeight="25.0" prefWidth="189.0" promptText="Address" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtcusEmail" layoutX="148.0" layoutY="180.0" prefHeight="25.0" prefWidth="189.0" promptText="E-mail" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtcusContact" layoutX="147.0" layoutY="226.0" prefHeight="25.0" prefWidth="189.0" promptText="Contact" style="-fx-background-radius: 5;" />
-      <Label layoutX="28.0" layoutY="44.0" text="Customer ID          :" textFill="WHITE">
+      <TextField fx:id="txtcusId" layoutX="148.0" layoutY="42.0" prefHeight="25.0" prefWidth="189.0" promptText="ID" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtcusName" layoutX="148.0" layoutY="88.0" prefHeight="25.0" prefWidth="189.0" promptText="Name" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtcusAddress" layoutX="148.0" layoutY="135.0" prefHeight="25.0" prefWidth="189.0" promptText="Address" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtcusEmail" layoutX="148.0" layoutY="180.0" prefHeight="25.0" prefWidth="189.0" promptText="E-mail" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtcusContact" layoutX="147.0" layoutY="226.0" prefHeight="25.0" prefWidth="189.0" promptText="Contact" style="-fx-background-color: F9FAFC;" />
+      <Label layoutX="28.0" layoutY="44.0" text="Customer ID          :" textFill="#3d3e9a">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="28.0" layoutY="90.0" text="Customer Name    :" textFill="WHITE">
+      <Label layoutX="28.0" layoutY="90.0" text="Customer Name    :" textFill="#3d3e9a">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="28.0" layoutY="138.0" text="Customer Address :" textFill="WHITE">
+      <Label layoutX="28.0" layoutY="138.0" text="Customer Address :" textFill="#3d3e9a">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="27.0" layoutY="184.0" text="Customer E-mail   :" textFill="WHITE">
+      <Label layoutX="27.0" layoutY="184.0" text="Customer E-mail   :" textFill="#3d3e9a">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="28.0" layoutY="230.0" text="Customer Contact :" textFill="WHITE">
+      <Label layoutX="28.0" layoutY="230.0" text="Customer Contact :" textFill="#3d3e9a">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button fx:id="btnCusFormBtn" layoutX="88.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnSaveCusOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Save" textFill="#115d76">
+      <Button fx:id="btnCusFormBtn" layoutX="88.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnSaveCusOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #3d3e9a;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="196.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnCancelCusOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 10;" text="Cancel" textFill="#115d76">
+      <Button layoutX="196.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnCancelCusOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: white; -fx-border-color: #3d3e9a; -fx-border-radius: 4;" text="Cancel" textFill="#115d76">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

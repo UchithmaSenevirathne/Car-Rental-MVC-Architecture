@@ -148,7 +148,7 @@
                   <DropShadow height="9.28" radius="4.14" width="9.28" />
                </effect>
             </Pane>
-            <TableView fx:id="tableView" layoutX="28.0" layoutY="396.0" prefHeight="200.0" prefWidth="801.0">
+            <TableView fx:id="tableView" layoutX="28.0" layoutY="396.0" prefHeight="200.0" prefWidth="801.0" stylesheets="@../Style/tableViewStyle.css">
               <columns>
                 <TableColumn fx:id="colBId" prefWidth="75.0" text="RENT ID" />
                 <TableColumn fx:id="colCarNo" prefWidth="75.0" text="CAR NO" />
@@ -160,12 +160,12 @@
               </columns>
             </TableView>
          </children></Pane>
-      <Label layoutX="10.0" layoutY="55.0" text="APEX" textFill="WHITE">
+      <Label layoutX="21.0" layoutY="55.0" text="APEX" textFill="WHITE">
          <font>
             <Font name="Felix Titling" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="63.0" layoutY="63.0" text="AUTO RENTAL" textFill="WHITE">
+      <Label layoutX="74.0" layoutY="63.0" text="AUTO RENTAL" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
@@ -229,11 +229,6 @@
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="34.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/car.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="52.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/ApexIcon.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">

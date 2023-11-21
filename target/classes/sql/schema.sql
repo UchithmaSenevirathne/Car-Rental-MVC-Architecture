@@ -145,3 +145,5 @@ DESC maintainDetail;
 SELECT * FROM maintainDetail;
 
 SHOW TABLES;
+
+select bd.bId,c.name,cr.brand,c.address,c.contact,b.pickUpDate,b.days from car cr left join bookingdetail bd on cr.carNo = bd.carNo left join booking b on bd.bId = b.bId left join customer c on b.cusId = c.cusId where bd.drId = 'D001';

@@ -99,11 +99,6 @@ public class SalaryFormController {
     }
 
     @FXML
-    void btnBackOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btnViewAllOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/ViewSalary.fxml"));
 

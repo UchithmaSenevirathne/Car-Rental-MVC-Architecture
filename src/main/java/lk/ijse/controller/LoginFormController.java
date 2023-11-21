@@ -10,6 +10,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.ScheduleDTO;
+import lk.ijse.model.ScheduleModel;
 import lk.ijse.model.UserModel;
 
 import java.io.IOException;
@@ -17,6 +19,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class LoginFormController {
@@ -30,17 +33,7 @@ public class LoginFormController {
     @FXML
     private TextField txtUserName;
 
-    /*@FXML
-    void btnSignUpLoginPgOnAction(ActionEvent event) throws IOException {
-
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/RegisterForm.fxml"));
-
-        Scene scene = new Scene(rootNode);
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setTitle("Register Form");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }*/
+    DriverScheduleController driverScheduleController = new DriverScheduleController();
 
     @FXML
     void btnSignInOnAction(ActionEvent event) throws IOException {
@@ -69,17 +62,24 @@ public class LoginFormController {
             stage.setScene(scene);
             stage.centerOnScreen();
         }else {
+            var model = new ScheduleModel();
             try {
-                Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverSchedule.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverSchedule.fxml"));
+
+                Parent rootNode = loader.load();
+
+                DriverScheduleController driverScheduleController = loader.getController();
 
                 String date = String.valueOf(LocalDate.now());
                 LocalTime currentTime = LocalTime.now();
                 String time = currentTime.format(DateTimeFormatter.ofPattern("HH:mm"));
-                //String time = String.valueOf(LocalTime.now());
-
                 String logId = generateNextLogId();
 
                 boolean isSaved = UserModel.saveLogin(logId, userName, date, time);
+
+                List<ScheduleDTO> dtoList = model.getSchedule(userName);
+                System.out.println(dtoList);
+                driverScheduleController.setScheduleData(dtoList,userName);
 
                 if(isSaved) {
                     Scene scene = new Scene(rootNode);

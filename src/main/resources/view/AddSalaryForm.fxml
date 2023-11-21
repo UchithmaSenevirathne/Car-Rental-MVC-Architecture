@@ -6,13 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="rootNode" prefHeight="449.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddSalaryFormController">
+<AnchorPane fx:id="rootNode" prefHeight="449.0" prefWidth="310.0" style="-fx-background-color: E9E9E9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddSalaryFormController">
    <children>
-      <TextField fx:id="txtSalId" layoutX="56.0" layoutY="81.0" prefHeight="25.0" prefWidth="199.0" promptText="SALARY ID" style="-fx-background-color: white;" />
-      <TextField fx:id="txtDrId" layoutX="56.0" layoutY="144.0" prefHeight="25.0" prefWidth="199.0" promptText="DRIVER ID" style="-fx-background-color: white;" />
-      <TextField fx:id="txtAmount" layoutX="56.0" layoutY="206.0" prefHeight="25.0" prefWidth="199.0" promptText="AMOUNT" style="-fx-background-color: white;" />
-      <TextField fx:id="txtMonth" layoutX="56.0" layoutY="268.0" prefHeight="25.0" prefWidth="199.0" promptText="MONTH" style="-fx-background-color: white;" />
+      <TextField fx:id="txtSalId" layoutX="56.0" layoutY="81.0" prefHeight="25.0" prefWidth="199.0" promptText="SALARY ID" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtDrId" layoutX="56.0" layoutY="144.0" prefHeight="25.0" prefWidth="199.0" promptText="DRIVER ID" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtAmount" layoutX="56.0" layoutY="206.0" prefHeight="25.0" prefWidth="199.0" promptText="AMOUNT" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtMonth" layoutX="56.0" layoutY="268.0" prefHeight="25.0" prefWidth="199.0" promptText="MONTH" style="-fx-background-color: F9FAFC;" />
       <Label layoutX="110.0" layoutY="37.0" text="DRIVER SALARY" textFill="#5758bb">
          <font>
             <Font name="System Bold" size="12.0" />

@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -29,6 +30,15 @@ public class DashboardFormController implements Initializable{
 
     @FXML
     private AnchorPane rootNode;
+
+    @FXML
+    private Label lblBookings;
+
+    @FXML
+    private Label lblEarnings;
+
+    @FXML
+    private Label lbltravellers;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
