@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="payment" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="782a6487-f31d-46de-9fb7-0ea56de97356">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (7)"/>
+	<queryString language="SQL">
+		<![CDATA[select c.brand,p.totalPayment from car c left join bookingdetail b on c.carNo = b.carNo left join payment p on b.bId = p.bId]]>
+	</queryString>
+	<field name="brand" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="brand"/>
+		<property name="com.jaspersoft.studio.field.label" value="brand"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="car"/>
+	</field>
+	<field name="totalPayment" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="totalPayment"/>
+		<property name="com.jaspersoft.studio.field.label" value="totalPayment"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="24" width="166" height="30" uuid="80191826-b6bb-4c7e-9e4c-d2aa1ec517b8"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAYMENT BILL]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="150" y="0" width="100" height="30" forecolor="#BF0D0A" uuid="5bcab3e1-4fb8-46ac-8f09-48b3679bd9a8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2a3e30b-014f-4e40-ac45-22f96ce57658"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[brand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="100" height="30" forecolor="#BF0D0A" uuid="58e1c886-87c4-4080-b1da-66e47a0edf5c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3ed6ddbe-92bd-4961-bf6f-430a009ffb57"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[totalPayment]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="150" y="1" width="100" height="30" uuid="260b51e6-0eb9-4bb8-856a-b72ed5cc15b7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2a3e30b-014f-4e40-ac45-22f96ce57658"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="3" width="100" height="30" uuid="0083c2da-1dad-42c3-8c6a-e14388633e32">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3ed6ddbe-92bd-4961-bf6f-430a009ffb57"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{totalPayment}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>

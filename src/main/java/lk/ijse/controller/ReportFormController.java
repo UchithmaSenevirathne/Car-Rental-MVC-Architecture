@@ -12,8 +12,11 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.swing.JRViewer;
 import net.sf.jasperreports.view.JasperViewer;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -25,15 +28,13 @@ public class ReportFormController {
     @FXML
     void btnViewLoginReportOnAction(ActionEvent event){
         try {
-            InputStream resourceAsStream = getClass().getResourceAsStream("../report/Login_Report.jrxml");
-            System.out.println("path ->  "+resourceAsStream);
-            JasperDesign load = JRXmlLoader.load(resourceAsStream);
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/report/Login_Report.jrxml");
 
-            /*JRDesignQuery jrDesignQuery = new JRDesignQuery();
+            JRDesignQuery jrDesignQuery = new JRDesignQuery();
             jrDesignQuery.setText("SELECT * FROM login");
-            load.setQuery(jrDesignQuery);*/
+            jasperDesign.setQuery(jrDesignQuery);
 
-            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
             JasperPrint jasperPrint =
                     JasperFillManager.fillReport(
@@ -42,7 +43,14 @@ public class ReportFormController {
                             DbConnection.getInstance().getConnection() //database connection
                     );
 
-            JasperViewer.viewReport(jasperPrint, false);
+            JFrame frame = new JFrame("Jasper Report Viewer");
+            JRViewer viewer = new JRViewer(jasperPrint);
+
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.getContentPane().add(viewer);
+            frame.setSize(new Dimension(1200, 800));
+            frame.setVisible(true);
+
         }catch (JRException | SQLException e){
             e.printStackTrace();
         }
@@ -51,15 +59,13 @@ public class ReportFormController {
     @FXML
     void btnTransactionOnAction(ActionEvent event) {
         try {
-            InputStream resourceAsStream = getClass().getResourceAsStream("../report/PaymentDetails.jrxml");
-            System.out.println("path ->  "+resourceAsStream);
-            JasperDesign load = JRXmlLoader.load(resourceAsStream);
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/report/PaymentDetails.jrxml");
 
-            /*JRDesignQuery jrDesignQuery = new JRDesignQuery();
+            JRDesignQuery jrDesignQuery = new JRDesignQuery();
             jrDesignQuery.setText("SELECT * FROM payment");
-            load.setQuery(jrDesignQuery);*/
+            jasperDesign.setQuery(jrDesignQuery);
 
-            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
             JasperPrint jasperPrint =
                     JasperFillManager.fillReport(
@@ -68,7 +74,14 @@ public class ReportFormController {
                             DbConnection.getInstance().getConnection() //database connection
                     );
 
-            JasperViewer.viewReport(jasperPrint, false);
+            JFrame frame = new JFrame("Jasper Report Viewer");
+            JRViewer viewer = new JRViewer(jasperPrint);
+
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.getContentPane().add(viewer);
+            frame.setSize(new Dimension(1200, 800));
+            frame.setVisible(true);
+
         }catch (JRException | SQLException e){
             e.printStackTrace();
         }
@@ -77,15 +90,13 @@ public class ReportFormController {
     @FXML
     void btnViewCusReportOnAction(ActionEvent event) {
         try {
-            InputStream resourceAsStream = getClass().getResourceAsStream("../report/CustomerDetails.jrxml");
-            System.out.println("path ->  "+resourceAsStream);
-            JasperDesign load = JRXmlLoader.load(resourceAsStream);
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/report/CustomerDetails.jrxml");
 
-            /*JRDesignQuery jrDesignQuery = new JRDesignQuery();
+            JRDesignQuery jrDesignQuery = new JRDesignQuery();
             jrDesignQuery.setText("SELECT * FROM customer");
-            load.setQuery(jrDesignQuery);*/
+            jasperDesign.setQuery(jrDesignQuery);
 
-            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
             JasperPrint jasperPrint =
                     JasperFillManager.fillReport(
@@ -94,7 +105,14 @@ public class ReportFormController {
                             DbConnection.getInstance().getConnection() //database connection
                     );
 
-            JasperViewer.viewReport(jasperPrint, false);
+            JFrame frame = new JFrame("Jasper Report Viewer");
+            JRViewer viewer = new JRViewer(jasperPrint);
+
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.getContentPane().add(viewer);
+            frame.setSize(new Dimension(1200, 800));
+            frame.setVisible(true);
+
         }catch (JRException | SQLException e){
             e.printStackTrace();
         }

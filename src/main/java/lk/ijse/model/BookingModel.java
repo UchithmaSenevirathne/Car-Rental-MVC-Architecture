@@ -30,6 +30,7 @@ public class BookingModel {
             String[] split = currentBookingId.split("B");
             int id = Integer.parseInt(split[1]);
             id++;
+
             return "B00" + id;
         }
         return "B001";

@@ -98,6 +98,16 @@ CREATE TABLE payment(
 DESC payment;
 SELECT * FROM payment;
 
+CREATE TABLE oneCarPayment(
+        bId varchar(10),
+        constraint foreign key (bId) references booking(bId),
+        carNo varchar(10),
+        constraint foreign key (carNo) references car(carNo),
+        extraKm DOUBLE (5,2) not null,
+        driverCost DOUBLE (10,2),
+        subTotal DOUBLE(10,2)
+);
+
 CREATE TABLE driverSalary(
         drSalId VARCHAR(10) PRIMARY KEY,
         drId varchar(10),
@@ -147,3 +157,5 @@ SELECT * FROM maintainDetail;
 SHOW TABLES;
 
 select bd.bId,c.name,cr.brand,c.address,c.contact,b.pickUpDate,b.days from car cr left join bookingdetail bd on cr.carNo = bd.carNo left join booking b on bd.bId = b.bId left join customer c on b.cusId = c.cusId where bd.drId = 'D001';
+
+select c.cusId,c.name,c.address,c.email,c.contact,b.bId,cr.brand,cr.priceOneDay,b.days,pc.extraKm,cr.priceExtraKm,pc.driverCost,pc.subTotal,p.totalPayment from customer c left join booking b on c.cusId = b.cusId left join bookingDetail bd on b.bId = bd.bId left join payment p on b.bId = p.bId left join driver d on bd.drId = d.drId left join car cr on bd.carNo = cr.carNo left join oneCarPayment pc on cr.carNo = pc.carNo where b.bId = 'B001';

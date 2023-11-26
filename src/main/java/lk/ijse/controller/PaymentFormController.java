@@ -15,10 +15,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.db.DbConnection;
 import lk.ijse.dto.*;
 import lk.ijse.dto.tm.BookTm;
 import lk.ijse.model.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.swing.JRViewer;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -156,7 +164,7 @@ public class PaymentFormController {
         System.out.println("days....." + days);
         //
 
-        int extraKm = Integer.parseInt(txtExtraKm.getText());
+        double extraKm = Integer.parseInt(txtExtraKm.getText());
 
         //
         CarDto dto = carModel.searchCar(txtCarId.getText());
@@ -167,7 +175,23 @@ public class PaymentFormController {
 
         double total = ((priceOneDay * days) + (extraKm * priceExtraKm) + driverCost);
 
-        totalPayment(total);
+        String bId = txtRentId.getText();
+        String carNo = txtCarId.getText();
+
+        var dtoOneCarPay =  new OneCarPayDTO(bId,carNo,extraKm,driverCost,total);
+
+        System.out.println(dtoOneCarPay);
+
+        try {
+
+            boolean isSaved = OneCarPayModel.savePayment(dtoOneCarPay);
+
+            if (isSaved){
+                totalPayment(total);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -180,7 +204,12 @@ public class PaymentFormController {
     }
 
     private void clearTxt() {
+        txtCarId.setText("");
+        txtBrand.setText("");
+        txtPriceOneDay.setText("");
         txtExtraKm.setText("");
+        txtDrName.setText("");
+        txtDrId.setText("");
         txtDrCost.setText("");
     }
 
@@ -204,7 +233,6 @@ public class PaymentFormController {
 
             if(isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION, "Payment Completed Successful!").show();
-                clearFields();
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -233,7 +261,6 @@ public class PaymentFormController {
         String bId = txtRentId.getText();
 
         try {
-            //PaymentDetailDTO dto = PaymentModel.searchPaymentDetail(bId);
 
             List<PaymentDetailDTO> dto = PaymentModel.searchPaymentDetail(bId);
 
@@ -257,17 +284,6 @@ public class PaymentFormController {
     }
 
     private void addToTable(List<PaymentDetailDTO> dto) throws SQLException {
-        //ObservableList<BookTm> obList = FXCollections.observableArrayList();
-
-        /*String bId = dto.getBId();
-        String carNo = dto.getCarNo();
-        CarDto dtoCar = carModel.searchCar(carNo);
-        String brand = dtoCar.getBrand();
-        String drId = dto.getDrId();
-        String cusId = dto.getCusId();
-        Date pickUpDate = java.sql.Date.valueOf(txtDate.getText());
-        int days = dto.getDays();*/
-
         for (PaymentDetailDTO dto1 : dto){
             CarDto dtoCar = carModel.searchCar(dto1.getCarNo());
             String brand = dtoCar.getBrand();
@@ -286,6 +302,40 @@ public class PaymentFormController {
 
         tableView.setItems(obList);
 
+    }
+
+    @FXML
+    void btnGenerateBillOnAction(ActionEvent event) {
+        String bId = txtRentId.getText();
+        try {
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/report/PayBill.jrxml");
+
+            JRDesignQuery jrDesignQuery = new JRDesignQuery();
+            jrDesignQuery.setText("select c.cusId,c.name,c.address,c.email,c.contact,b.bId,cr.brand,cr.priceOneDay,b.days,pc.extraKm,cr.priceExtraKm,pc.driverCost,pc.subTotal,p.totalPayment from customer c left join booking b on c.cusId = b.cusId left join bookingDetail bd on b.bId = bd.bId left join payment p on b.bId = p.bId left join driver d on bd.drId = d.drId left join car cr on bd.carNo = cr.carNo left join oneCarPayment pc on cr.carNo = pc.carNo where b.bId = '"+ bId +"';");
+            jasperDesign.setQuery(jrDesignQuery);
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+            JasperPrint jasperPrint =
+                    JasperFillManager.fillReport(
+                            jasperReport, //compiled report
+                            null,
+                            DbConnection.getInstance().getConnection() //database connection
+                    );
+
+            JFrame frame = new JFrame("Jasper Report Viewer");
+            JRViewer viewer = new JRViewer(jasperPrint);
+
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.getContentPane().add(viewer);
+            frame.setSize(new Dimension(1200, 800));
+            frame.setVisible(true);
+
+            clearFields();
+
+        }catch (JRException | SQLException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

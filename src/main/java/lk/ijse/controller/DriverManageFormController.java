@@ -19,6 +19,7 @@ import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.dto.tm.DriverTm;
 import lk.ijse.model.CustomerModel;
 import lk.ijse.model.DriverModel;
+import lk.ijse.model.UserModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -64,6 +65,8 @@ public class DriverManageFormController {
     @FXML
     private TableView<DriverTm> tableView;
 
+    private Integer index;
+
     private final ObservableList<DriverTm> obList = FXCollections.observableArrayList();
 
     public void initialize(){
@@ -85,6 +88,7 @@ public class DriverManageFormController {
     }
 
     private void loadAllDrivers(){
+
         obList.clear();
 
         var model = new DriverModel();

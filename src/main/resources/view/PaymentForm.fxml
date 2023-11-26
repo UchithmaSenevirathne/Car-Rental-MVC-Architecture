@@ -146,7 +146,12 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Button layoutX="19.0" layoutY="216.0" mnemonicParsing="false" onAction="#btnCheckOutOnAction" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: green;" text="CHECK OUT" textFill="WHITE">
+                  <Button layoutX="13.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnCheckOutOnAction" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: green;" text="CHECK OUT" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="13.0" layoutY="235.0" mnemonicParsing="false" onAction="#btnGenerateBillOnAction" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #3d3e9a;" text="GENERATE BILL" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
