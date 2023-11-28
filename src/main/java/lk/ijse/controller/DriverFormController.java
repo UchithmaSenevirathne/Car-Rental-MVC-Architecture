@@ -67,7 +67,7 @@ public class DriverFormController {
         String availability = "YES";
 
         var driverDto = new DriverDto(id, name, address, email, contact, licenseNo, userName, availability);
-        var userDto = new UserDTO(userName, pwd, "DRI");
+        var userDto = new UserDTO(userName, pwd, email, "DRI");
 
         var model = new DriverModel();
 

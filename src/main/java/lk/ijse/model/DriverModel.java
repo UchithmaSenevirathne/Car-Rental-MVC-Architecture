@@ -19,11 +19,12 @@ public class DriverModel {
     public boolean saveDriver(DriverDto dto, UserDTO userDto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm1 = connection.prepareStatement("INSERT INTO user VALUES(?, ?, ?)");
+        PreparedStatement pstm1 = connection.prepareStatement("INSERT INTO user VALUES(?, ?, ?, ?)");
 
         pstm1.setString(1, userDto.getUserName());
         pstm1.setString(2, userDto.getPassword());
-        pstm1.setString(3, userDto.getRole());
+        pstm1.setString(3, userDto.getEmail());
+        pstm1.setString(4, userDto.getRole());
 
         if(pstm1.executeUpdate()>0) {
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO driver VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
@@ -74,12 +75,13 @@ public class DriverModel {
     public boolean updateDriver(DriverDto driverDto, UserDTO userDTO) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql1 = "UPDATE user SET password = ?, role = ? WHERE userName = ?";
+        String sql1 = "UPDATE user SET password = ?, email = ?, role = ? WHERE userName = ?";
         PreparedStatement pstm1 = connection.prepareStatement(sql1);
 
         pstm1.setString(1, userDTO.getPassword());
-        pstm1.setString(2, userDTO.getRole());
-        pstm1.setString(3, userDTO.getUserName());
+        pstm1.setString(2, userDTO.getEmail());
+        pstm1.setString(3, userDTO.getRole());
+        pstm1.setString(4, userDTO.getUserName());
 
         if(pstm1.executeUpdate() > 0) {
             String sql2 = "UPDATE driver SET name = ?, address = ?, email = ?, contact = ?, licenseNo = ?, userName = ?, availability = ? WHERE drId = ?";

@@ -5,35 +5,41 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.model.UserModel;
 
 import java.io.IOException;
 
-public class AdminFormController {
-    @FXML
-    private TableColumn<?, ?> colDelete;
-
-    @FXML
-    private TableColumn<?, ?> colEmail;
-
-    @FXML
-    private TableColumn<?, ?> colUpdate;
-
-    @FXML
-    private TableColumn<?, ?> colUserName;
-
+public class VerifySuperAdminController {
     @FXML
     private AnchorPane rootNode;
 
     @FXML
-    private TableView<?> tableView;
+    private PasswordField pwdFieldVerify;
 
     @FXML
-    void btnADDAdminOnAction(ActionEvent event) {
+    private AnchorPane subAnchorPane;
 
+    @FXML
+    void superAdVerifyOnAction(ActionEvent event) {
+        String pwd = pwdFieldVerify.getText();
+
+        var model = new UserModel();
+
+        try{
+            boolean isSuperAdm = model.isSuperAdm(pwd);
+
+            if(isSuperAdm){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AdminManage.fxml"));
+                AnchorPane addAdminPane = loader.load();
+
+                subAnchorPane.getChildren().setAll(addAdminPane);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -136,3 +142,4 @@ public class AdminFormController {
         stage.centerOnScreen();
     }
 }
+

@@ -1,5 +1,6 @@
-package lk.ijse.dto;
+package lk.ijse.dto.tm;
 
+import javafx.scene.control.Button;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,13 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class UserDTO {
-
+public class AdminTm {
     private String userName;
-
-    private String password;
-
     private String email;
-
-    private String role;
+    private Button deleteButton;
 }

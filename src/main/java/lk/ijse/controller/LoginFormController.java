@@ -15,12 +15,10 @@ import lk.ijse.model.ScheduleModel;
 import lk.ijse.model.UserModel;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class LoginFormController {
 
@@ -33,10 +31,8 @@ public class LoginFormController {
     @FXML
     private TextField txtUserName;
 
-    DriverScheduleController driverScheduleController = new DriverScheduleController();
-
     @FXML
-    void btnSignInOnAction(ActionEvent event) throws IOException {
+    void btnSignInOnAction(ActionEvent event){
         String userName = txtUserName.getText();
         String password = fieldPassword.getText();
         try {
@@ -52,45 +48,101 @@ public class LoginFormController {
         }
     }
 
-    private void isAdmin(String userName, String password) throws IOException {
-        if(userName.equals("admin") && password.equals("1234")){
-            Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+    /*private void isAdmin(String userName, String password) throws IOException {
+        var adminModel = new AdminModel();
+        try {
+            List<AdminDTO> dtoListAd = adminModel.getAllNames();
 
-            Scene scene = new Scene(rootNode);
-            Stage stage = (Stage) this.rootNode.getScene().getWindow();
-            stage.setTitle("Dashboard Form");
-            stage.setScene(scene);
-            stage.centerOnScreen();
-        }else {
-            var model = new ScheduleModel();
-            try {
+            for(AdminDTO dto : dtoListAd) {
+                if (userName.equals(dto.getUserName()) && password.equals(dto.getPassword())) {
+                    Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+
+                    Scene scene = new Scene(rootNode);
+                    Stage stage = (Stage) this.rootNode.getScene().getWindow();
+                    stage.setTitle("Dashboard Form");
+                    stage.setScene(scene);
+                    stage.centerOnScreen();
+                }
+            }else {
+                    var model = new ScheduleModel();
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverSchedule.fxml"));
+
+                        Parent rootNode = loader.load();
+
+                        DriverScheduleController driverScheduleController = loader.getController();
+
+                        String date = String.valueOf(LocalDate.now());
+                        LocalTime currentTime = LocalTime.now();
+                        String time = currentTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+                        String logId = generateNextLogId();
+
+                        boolean isSaved = UserModel.saveLogin(logId, userName, date, time);
+
+                        List<ScheduleDTO> dtoList = model.getSchedule(userName);
+                        System.out.println(dtoList);
+                        driverScheduleController.setScheduleData(dtoList, userName);
+
+                        if (isSaved) {
+                            Scene scene = new Scene(rootNode);
+                            Stage stage = (Stage) this.rootNode.getScene().getWindow();
+                            stage.setTitle("Driver Schedule Form");
+                            stage.setScene(scene);
+                            stage.centerOnScreen();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }*/
+
+    private void isAdmin(String userName, String password){
+        var userModel = new UserModel();
+
+        try {
+
+            var schedModel = new ScheduleModel();
+
+            boolean isAdmin = userModel.checkAdmin(userName,password);
+
+            String date = String.valueOf(LocalDate.now());
+            LocalTime currentTime = LocalTime.now();
+            String time = currentTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+            String logId = generateNextLogId();
+
+            UserModel.saveLogin(logId, userName, date, time);
+
+            if(isAdmin){
+                Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = (Stage) this.rootNode.getScene().getWindow();
+                stage.setTitle("Dashboard Form");
+                stage.setScene(scene);
+                stage.centerOnScreen();
+            }else{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverSchedule.fxml"));
 
                 Parent rootNode = loader.load();
 
                 DriverScheduleController driverScheduleController = loader.getController();
 
-                String date = String.valueOf(LocalDate.now());
-                LocalTime currentTime = LocalTime.now();
-                String time = currentTime.format(DateTimeFormatter.ofPattern("HH:mm"));
-                String logId = generateNextLogId();
-
-                boolean isSaved = UserModel.saveLogin(logId, userName, date, time);
-
-                List<ScheduleDTO> dtoList = model.getSchedule(userName);
+                List<ScheduleDTO> dtoList = schedModel.getSchedule(userName);
                 System.out.println(dtoList);
-                driverScheduleController.setScheduleData(dtoList,userName);
+                driverScheduleController.setScheduleData(dtoList, userName);
 
-                if(isSaved) {
-                    Scene scene = new Scene(rootNode);
-                    Stage stage = (Stage) this.rootNode.getScene().getWindow();
-                    stage.setTitle("Driver Schedule Form");
-                    stage.setScene(scene);
-                    stage.centerOnScreen();
-                }
-            }catch (Exception e){
-                e.printStackTrace();
+                Scene scene = new Scene(rootNode);
+                Stage stage = (Stage) this.rootNode.getScene().getWindow();
+                stage.setTitle("Driver Schedule Form");
+                stage.setScene(scene);
+                stage.centerOnScreen();
             }
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

@@ -9,10 +9,11 @@ USE apexAutoRental;
 CREATE TABLE user(
         userName VARCHAR(20) PRIMARY KEY,
         password VARCHAR(20) NOT NULL,
+        email VARCHAR(20) NOT NULL,
         role VARCHAR(20) NOT NULL
 );
 
-INSERT INTO user VALUES("admin", "1234", "ADM");
+INSERT INTO user VALUES("Sadmin", "1234", "uchithma@gmail.com", "ADM");
 
 DESC user;
 SELECT * FROM user;
@@ -132,27 +133,6 @@ CREATE TABLE driverSchedule(
 
 DESC driverSchedule;
 SELECT * FROM driverSchedule;
-
-CREATE TABLE carMaintain(
-        mainId VARCHAR(5) PRIMARY KEY,
-        type VARCHAR(10) NOT NULL
-);
-
-DESC carMaintain;
-SELECT * FROM carMaintain;
-
-CREATE TABLE maintainDetail(
-        mainDetailId VARCHAR(5) PRIMARY KEY,
-        date VARCHAR(10) NOT NULL,
-        carNo varchar(5),
-        constraint foreign key (carNo) references car(carNo),
-        mainId varchar(5),
-        constraint foreign key (mainId) references carMaintain(mainId),
-        status VARCHAR(10)
-);
-
-DESC maintainDetail;
-SELECT * FROM maintainDetail;
 
 SHOW TABLES;
 
