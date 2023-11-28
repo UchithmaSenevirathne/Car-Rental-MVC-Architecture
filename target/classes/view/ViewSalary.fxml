@@ -3,17 +3,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootNode" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewSalaryController">
    <children>
-      <Label layoutX="15.0" layoutY="14.0" text="VIEW SALARY DETAILS" textFill="#5758bb">
+      <Label layoutX="15.0" layoutY="14.0" text="SALARY DETAILS" textFill="#5758bb">
          <font>
-            <Font name="Corbel Bold" size="15.0" />
+            <Font name="Corbel Bold" size="17.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView" layoutX="15.0" layoutY="59.0" prefHeight="327.0" prefWidth="571.0" stylesheets="@../Style/tableViewStyle.css">
+      <TableView fx:id="tableView" layoutX="15.0" layoutY="97.0" prefHeight="290.0" prefWidth="571.0" stylesheets="@../Style/tableViewStyle.css">
         <columns>
           <TableColumn fx:id="colSalId" prefWidth="100.0" text="SALARY ID" />
           <TableColumn fx:id="colDrId" prefWidth="112.0" text="DRIVER ID" />
@@ -21,5 +23,8 @@
             <TableColumn fx:id="colMonth" prefWidth="198.0" text="MONTH" />
         </columns>
       </TableView>
+      <Pane layoutX="15.0" layoutY="46.0" prefHeight="2.0" prefWidth="571.0" style="-fx-background-color: E9E9E9;" />
+      <TextField fx:id="txtSearch" layoutX="435.0" layoutY="57.0" onAction="#searchSalDetails" prefHeight="25.0" prefWidth="151.0" style="-fx-background-radius: 5;" />
+      <Label layoutX="389.0" layoutY="61.0" text="Search :" textFill="#5758bb" />
    </children>
 </AnchorPane>

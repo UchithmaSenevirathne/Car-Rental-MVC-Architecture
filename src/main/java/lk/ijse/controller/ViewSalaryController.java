@@ -2,10 +2,14 @@ package lk.ijse.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.CarDto;
@@ -37,6 +41,9 @@ public class ViewSalaryController {
     private TableView<SalaryTm> tableView;
 
     public final ObservableList<SalaryTm> obListSal = FXCollections.observableArrayList();
+
+    @FXML
+    private TextField txtSearch;
 
     public void initialize(){
         setCellValueFactory();
@@ -73,4 +80,39 @@ public class ViewSalaryController {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    void searchSalDetails(ActionEvent event) {
+        FilteredList<SalaryTm> filteredData = new FilteredList<>(obListSal, b -> true);
+
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(SalaryTm -> {
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+                String searchKeyword = newValue.toLowerCase();
+
+                String amountString = String.valueOf(SalaryTm.getAmount());
+
+                if(SalaryTm.getDrSalId().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(SalaryTm.getDrId().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                }else if(amountString.toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                }else if(SalaryTm.getMonth().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else
+                    return false;
+            });
+        });
+
+        SortedList<SalaryTm> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+
+        tableView.setItems(sortedData);
+    }
+
 }
