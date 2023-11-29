@@ -31,6 +31,11 @@ public class BookingModel {
             int id = Integer.parseInt(split[1]);
             id++;
 
+            if(id==10){
+                return "B0" + id;
+            }else if(id == 100){
+                return "B" + id;
+            }
             return "B00" + id;
         }
         return "B001";

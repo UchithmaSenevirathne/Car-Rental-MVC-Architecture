@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Validation.Validate;
 import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
@@ -92,6 +93,31 @@ public class CustomerFormController {
     }
 
     private boolean validateCustomer(String id, String name, String address, String email, String contact) {
+        if(!Validate.validation(id,txtcusId,"[C][0-9]{3,}")){
+            return false;
+        }
+
+        if(!Validate.validation(name,txtcusName,"[A-Z][a-z]+ [A-Z][a-z]+")){
+            return false;
+        }
+
+        if(!Validate.validation(address,txtcusAddress,"([a-zA-Z_\\\\s]+)")){
+            return false;
+        }
+
+        if(!Validate.validation(email,txtcusEmail,"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")){
+            return false;
+        }
+
+        if(!Validate.validation(contact,txtcusContact,"[0-9]{10}")){
+            return false;
+        }
+
+        return true;
+    }
+
+
+   /*private boolean validateCustomer(String id, String name, String address, String email, String contact) {
         if(!Pattern.matches("[C][0-9]{3,}", id)){
             txtcusId.setStyle("-fx-border-color: #b30404");
             return false;
@@ -122,7 +148,7 @@ public class CustomerFormController {
         txtcusEmail.setStyle("-fx-border-color: default");
         txtcusContact.setStyle("-fx-border-color: default");
         return true;
-    }
+    }*/
 
     private void clearFields() {
         txtcusId.setText("");

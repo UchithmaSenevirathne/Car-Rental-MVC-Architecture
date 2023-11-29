@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #5758BB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerManageFormController">
    <children>
-      <Pane layoutX="174.0" layoutY="20.0" prefHeight="612.0" prefWidth="858.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
+      <Pane layoutX="174.0" layoutY="20.0" prefHeight="612.0" prefWidth="858.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 5;">
          <children>
             <Label layoutX="37.0" layoutY="42.0" text="CUSTOMERS" textFill="#3d3e9a">
                <font>

@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Validation.Validate;
 import lk.ijse.dto.ScheduleDTO;
 import lk.ijse.model.ScheduleModel;
 import lk.ijse.model.UserModel;
@@ -36,6 +37,7 @@ public class LoginFormController {
         String userName = txtUserName.getText();
         String password = fieldPassword.getText();
         try {
+
             boolean isIn = UserModel.searchUser(userName, password);
             if (!isIn) {
                 new Alert(Alert.AlertType.WARNING, "Invalid UserName or Password").show();
@@ -43,61 +45,11 @@ public class LoginFormController {
             } else {
                 isAdmin(userName, password);
             }
+
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
-
-    /*private void isAdmin(String userName, String password) throws IOException {
-        var adminModel = new AdminModel();
-        try {
-            List<AdminDTO> dtoListAd = adminModel.getAllNames();
-
-            for(AdminDTO dto : dtoListAd) {
-                if (userName.equals(dto.getUserName()) && password.equals(dto.getPassword())) {
-                    Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
-
-                    Scene scene = new Scene(rootNode);
-                    Stage stage = (Stage) this.rootNode.getScene().getWindow();
-                    stage.setTitle("Dashboard Form");
-                    stage.setScene(scene);
-                    stage.centerOnScreen();
-                }
-            }else {
-                    var model = new ScheduleModel();
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverSchedule.fxml"));
-
-                        Parent rootNode = loader.load();
-
-                        DriverScheduleController driverScheduleController = loader.getController();
-
-                        String date = String.valueOf(LocalDate.now());
-                        LocalTime currentTime = LocalTime.now();
-                        String time = currentTime.format(DateTimeFormatter.ofPattern("HH:mm"));
-                        String logId = generateNextLogId();
-
-                        boolean isSaved = UserModel.saveLogin(logId, userName, date, time);
-
-                        List<ScheduleDTO> dtoList = model.getSchedule(userName);
-                        System.out.println(dtoList);
-                        driverScheduleController.setScheduleData(dtoList, userName);
-
-                        if (isSaved) {
-                            Scene scene = new Scene(rootNode);
-                            Stage stage = (Stage) this.rootNode.getScene().getWindow();
-                            stage.setTitle("Driver Schedule Form");
-                            stage.setScene(scene);
-                            stage.centerOnScreen();
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }*/
 
     private void isAdmin(String userName, String password){
         var userModel = new UserModel();

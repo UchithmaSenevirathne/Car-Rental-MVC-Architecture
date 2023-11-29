@@ -11,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.CustomerDto;
@@ -85,6 +87,17 @@ public class CustomerManageFormController {
             for(CustomerDto dto : dtoList){
                 Button updateButton = new Button("Update");
                 Button deleteButton = new Button("Delete");
+
+                /*Image imageUpdate = new Image("src/main/resources/image/update.png");
+                ImageView imageViewUpdate = new ImageView(imageUpdate);
+                updateButton.setGraphic(imageViewUpdate);
+
+                Image imageDelete = new Image("src/main/resources/image/delete.png");
+                ImageView imageViewDelete = new ImageView(imageDelete);
+                deleteButton.setGraphic(imageViewDelete);*/
+
+                updateButton.setStyle("-fx-background-color: white; -fx-text-fill: green; -fx-font-weight: bold;");
+                deleteButton.setStyle("-fx-background-color: white; -fx-text-fill: #d71010; -fx-font-weight: bold;");
 
                 updateButton.setOnAction(event -> openCustomerPopup(dto));
                 deleteButton.setOnAction(event -> deleteCustomer(dto.getId()));
