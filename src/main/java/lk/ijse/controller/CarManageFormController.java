@@ -94,6 +94,9 @@ public class CarManageFormController {
                 Button updateButton = new Button("Update");
                 Button deleteButton = new Button("Delete");
 
+                updateButton.setStyle("-fx-background-color: white; -fx-text-fill: green; -fx-font-weight: bold;");
+                deleteButton.setStyle("-fx-background-color: white; -fx-text-fill: #d71010; -fx-font-weight: bold;");
+
                 updateButton.setOnAction(event -> openCarPopup(dto));
                 deleteButton.setOnAction(event -> deleteCar(dto.getCarNo()));
                 obListCar.add(

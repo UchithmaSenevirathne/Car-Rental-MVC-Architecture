@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lk.ijse.dto.*;
 import lk.ijse.dto.tm.BookTm;
@@ -96,6 +97,9 @@ public class BookingFormController {
 
     @FXML
     private TableView<BookTm> tableView;
+
+    @FXML
+    private Pane subAnchorPane;
 
     @FXML
     private TextField txtSearchCar;
@@ -295,6 +299,14 @@ public class BookingFormController {
         DriverDto dto = driverModel.searchDriver(drId);
 
         txtDrName.setText(dto.getUserName());
+    }
+
+    @FXML
+    void btnShowAllBookingOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ViewBooking.fxml"));
+        AnchorPane viewBooking = loader.load();
+
+        subAnchorPane.getChildren().setAll(viewBooking);
     }
 
     @FXML

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="subAnchorPane" prefHeight="611.0" prefWidth="970.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.VerifyCodeController">
+   <children>
+      <Pane layoutX="254.0" layoutY="144.0" prefHeight="323.0" prefWidth="463.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.6183205842971802" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Label layoutX="165.0" layoutY="31.0" text="Verify its u">
+               <font>
+                  <Font name="Corbel Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="91.0" layoutY="88.0" text="Keep your accounts safe by checking and updating">
+               <font>
+                  <Font name="Corbel Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="160.0" layoutY="105.0" text="your passwords regularly.">
+               <font>
+                  <Font name="Corbel Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtOTPfirst" layoutX="116.0" layoutY="162.0" prefHeight="44.0" prefWidth="44.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
+            <TextField fx:id="txtOTPsecond" layoutX="176.0" layoutY="162.0" prefHeight="44.0" prefWidth="44.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
+            <TextField fx:id="txtOTPthird" layoutX="236.0" layoutY="162.0" prefHeight="44.0" prefWidth="44.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
+            <TextField fx:id="txtOTPforth" layoutX="297.0" layoutY="162.0" prefHeight="44.0" prefWidth="44.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
+            <Button layoutX="116.0" layoutY="248.0" mnemonicParsing="false" onAction="#btnConfirmOnAction" prefHeight="25.0" prefWidth="224.0" style="-fx-background-color: F98E2C;" text="CONFIRM" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

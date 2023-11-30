@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -16,9 +17,9 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #5758BB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BookingFormController">
    <children>
-      <Pane layoutX="177.0" layoutY="20.0" prefHeight="610.0" prefWidth="854.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
+      <Pane fx:id="subAnchorPane" layoutX="176.0" layoutY="20.0" prefHeight="612.0" prefWidth="858.0" style="-fx-background-color: f5f1f8; -fx-background-radius: 10;">
          <children>
-            <Pane layoutX="30.0" layoutY="33.0" prefHeight="346.0" prefWidth="281.0" style="-fx-background-color: white;">
+            <Pane layoutX="30.0" layoutY="20.0" prefHeight="346.0" prefWidth="281.0" style="-fx-background-color: white;">
                <children>
                   <Pane prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #5758BB;">
                      <children>
@@ -45,7 +46,7 @@
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="comboCusId" layoutX="168.0" layoutY="72.0" onAction="#cmbCusOnAction" prefHeight="25.0" prefWidth="105.0" />
+                  <ComboBox fx:id="comboCusId" layoutX="168.0" layoutY="72.0" onAction="#cmbCusOnAction" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
                   <Label layoutX="22.0" layoutY="186.0" text="NAME">
                      <font>
                         <Font name="System Bold" size="10.0" />
@@ -62,15 +63,15 @@
                      </font>
                   </Label>
                   <DatePicker fx:id="datepickerDate" layoutX="22.0" layoutY="136.0" prefHeight="25.0" prefWidth="244.0" />
-                  <TextField fx:id="txtCusName" layoutX="22.0" layoutY="204.0" prefHeight="25.0" prefWidth="105.0" />
-                  <TextField fx:id="txtCusContact" layoutX="168.0" layoutY="204.0" prefHeight="25.0" prefWidth="105.0" />
-                  <TextField fx:id="txtCusAddress" layoutX="21.0" layoutY="273.0" prefHeight="25.0" prefWidth="244.0" />
+                  <TextField fx:id="txtCusName" layoutX="22.0" layoutY="204.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
+                  <TextField fx:id="txtCusContact" layoutX="168.0" layoutY="204.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
+                  <TextField fx:id="txtCusAddress" layoutX="21.0" layoutY="273.0" prefHeight="25.0" prefWidth="244.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
                </children>
                <effect>
                   <DropShadow height="9.28" radius="4.14" width="9.28" />
                </effect>
             </Pane>
-            <Pane layoutX="327.0" layoutY="33.0" prefHeight="346.0" prefWidth="281.0" style="-fx-background-color: white;">
+            <Pane layoutX="327.0" layoutY="20.0" prefHeight="346.0" prefWidth="281.0" style="-fx-background-color: white;">
                <children>
                   <Pane prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #5758BB;">
                      <children>
@@ -86,7 +87,7 @@
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="comboCarNo" layoutX="23.0" layoutY="74.0" onAction="#cmbCarOnAction" prefHeight="25.0" prefWidth="98.0" />
+                  <ComboBox fx:id="comboCarNo" layoutX="23.0" layoutY="74.0" onAction="#cmbCarOnAction" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
                   <Label layoutX="24.0" layoutY="133.0" text="CAR NAME">
                      <font>
                         <Font name="System Bold" size="10.0" />
@@ -102,7 +103,7 @@
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="comboDrId" layoutX="23.0" layoutY="220.0" onAction="#cmbDrOnAction" prefHeight="25.0" prefWidth="98.0" />
+                  <ComboBox fx:id="comboDrId" layoutX="23.0" layoutY="220.0" onAction="#cmbDrOnAction" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
                   <Label layoutX="165.0" layoutY="205.0" text="DRIVER NAME">
                      <font>
                         <Font name="System Bold" size="10.0" />
@@ -112,16 +113,19 @@
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <TextField fx:id="txtDays" layoutX="165.0" layoutY="149.0" prefHeight="25.0" prefWidth="98.0" />
-                  <TextField fx:id="txtCarName" layoutX="23.0" layoutY="149.0" prefHeight="25.0" prefWidth="98.0" />
-                  <TextField fx:id="txtDrName" layoutX="165.0" layoutY="220.0" prefHeight="25.0" prefWidth="98.0" />
+                  <TextField fx:id="txtDays" layoutX="165.0" layoutY="149.0" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
+                  <TextField fx:id="txtCarName" layoutX="23.0" layoutY="149.0" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
+                  <TextField fx:id="txtDrName" layoutX="165.0" layoutY="220.0" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
                </children>
                <effect>
                   <DropShadow height="9.28" radius="4.14" width="9.28" />
                </effect>
             </Pane>
-            <Pane layoutX="624.0" layoutY="33.0" prefHeight="346.0" prefWidth="203.0" style="-fx-background-color: white;">
+            <Pane layoutX="626.0" layoutY="93.0" prefHeight="272.0" prefWidth="203.0" style="-fx-background-color: white;">
                <children>
                   <Pane prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #5758BB;">
                      <children>
@@ -137,18 +141,21 @@
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Button layoutX="31.0" layoutY="308.0" mnemonicParsing="false" onAction="#btnConfirmRentOnAction" prefHeight="24.0" prefWidth="141.0" style="-fx-background-color: green;" text="CONFIRM RENT" textFill="WHITE">
+                  <Button layoutX="31.0" layoutY="234.0" mnemonicParsing="false" onAction="#btnConfirmRentOnAction" prefHeight="24.0" prefWidth="141.0" style="-fx-background-color: green;" text="CONFIRM RENT" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <TextField fx:id="txtAdvancePayment" layoutX="31.0" layoutY="77.0" prefHeight="25.0" prefWidth="141.0" />
+                  <TextField fx:id="txtAdvancePayment" layoutX="31.0" layoutY="77.0" prefHeight="25.0" prefWidth="141.0" style="-fx-background-color: white; -fx-border-color: E9E9E9; -fx-background-radius: 5; -fx-border-radius: 5;" />
                </children>
                <effect>
                   <DropShadow height="9.28" radius="4.14" width="9.28" />
                </effect>
             </Pane>
-            <TableView fx:id="tableView" layoutX="28.0" layoutY="396.0" prefHeight="200.0" prefWidth="801.0" stylesheets="@../Style/tableViewStyle.css">
+            <TableView fx:id="tableView" layoutX="28.0" layoutY="378.0" prefHeight="214.0" prefWidth="801.0" stylesheets="@../Style/tableViewStyle.css">
               <columns>
                 <TableColumn fx:id="colBId" prefWidth="75.0" text="RENT ID" />
                 <TableColumn fx:id="colCarNo" prefWidth="75.0" text="CAR NO" />
@@ -159,6 +166,19 @@
                   <TableColumn fx:id="colDays" prefWidth="79.0" text="DAYS" />
               </columns>
             </TableView>
+            <Button layoutX="626.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnShowAllBookingOnAction" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: f5f1f8; -fx-border-color: #5758BB; -fx-background-radius: 5; -fx-border-radius: 5;" text="            SHOW ALL BOOKINGS" textFill="#5758bb">
+               <font>
+                  <Font name="Corbel Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="649.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/showbooking.png" />
+               </image>
+            </ImageView>
          </children></Pane>
       <Label layoutX="21.0" layoutY="55.0" text="APEX" textFill="WHITE">
          <font>

@@ -24,7 +24,7 @@
       <TextField fx:id="txtUserName" layoutX="608.0" layoutY="283.0" prefHeight="25.0" prefWidth="226.0" promptText="UserName" style="-fx-background-color: white; -fx-background-radius: 10;" />
       <Button layoutX="608.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: #5758BB; -fx-background-radius: 10;" text="SIGN IN" textFill="WHITE" />
       <PasswordField fx:id="fieldPassword" layoutX="608.0" layoutY="328.0" prefHeight="25.0" prefWidth="226.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" />
-      <Label layoutX="753.0" layoutY="352.0" opacity="0.56" text="Forgot Password ?">
+      <Label layoutX="753.0" layoutY="352.0" onMouseClicked="#forgotPasswordOnAction" opacity="0.56" text="Forgot Password ?">
          <font>
             <Font name="System Italic" size="10.0" />
          </font>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="subAnchorPane" prefHeight="612.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewBookingController">
+   <children>
+      <TableView fx:id="tablePending" layoutX="21.0" layoutY="40.0" prefHeight="243.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
+        <columns>
+          <TableColumn fx:id="colBIdPending" prefWidth="66.0" text="RENT ID" />
+          <TableColumn fx:id="colCusIdPending" prefWidth="81.0" text="CUS ID" />
+            <TableColumn fx:id="colDrIdPending" prefWidth="89.0" text="DR ID" />
+            <TableColumn fx:id="colCarNoPending" prefWidth="82.0" text="CAR NO" />
+            <TableColumn fx:id="colPickUpDatePending" prefWidth="115.0" text="PICKUP DATE" />
+            <TableColumn fx:id="colDaysPending" prefWidth="79.0" text="DAYS" />
+            <TableColumn fx:id="colAdvancePending" prefWidth="119.0" text="ADVANCE" />
+            <TableColumn fx:id="colUpdatePending" prefWidth="96.0" text="UPDATE" />
+            <TableColumn fx:id="colDeletePending" prefWidth="89.0" text="DELETE" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tableCompl" layoutX="21.0" layoutY="356.0" prefHeight="243.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
+         <columns>
+            <TableColumn fx:id="colBIdCom" prefWidth="126.0" text="RENT ID" />
+            <TableColumn fx:id="colCusIdCom" prefWidth="164.0" text="CUS ID" />
+            <TableColumn fx:id="colPickUpDateCom" prefWidth="213.0" text="PICKUP DATE" />
+            <TableColumn fx:id="colDaysCom" prefWidth="114.0" text="DAYS" />
+            <TableColumn fx:id="colTotalPayCom" prefWidth="199.0" text="TOTAL PAYMENT" />
+         </columns>
+      </TableView>
+      <Label layoutX="21.0" layoutY="16.0" text="PENDING BOOKINGS" textFill="#5758bb">
+         <font>
+            <Font name="Corbel Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="332.0" text="COMPLETED BOOKINGS" textFill="#5758bb">
+         <font>
+            <Font name="Corbel Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSearchPending" layoutX="576.0" layoutY="11.0" onAction="#searchPendingOnAction" prefHeight="25.0" prefWidth="262.0" promptText="SEARCH" style="-fx-background-color: WHITE;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtSearchCompleted" layoutX="576.0" layoutY="326.0" onAction="#searchCompletedOnAction" prefHeight="25.0" prefWidth="262.0" promptText="SEARCH" style="-fx-background-color: WHITE;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <Pane layoutX="21.0" layoutY="299.0" prefHeight="4.0" prefWidth="817.0" style="-fx-background-color: E9E9E9;" />
+   </children>
+</AnchorPane>

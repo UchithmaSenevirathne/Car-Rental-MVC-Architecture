@@ -103,6 +103,8 @@ public class AdminManageController {
             for(UserDTO dto : dtoList){
                 Button deleteButton = new Button("Delete");
 
+                deleteButton.setStyle("-fx-background-color: white; -fx-text-fill: #d71010; -fx-font-weight: bold;");
+
                 deleteButton.setOnAction(event -> deleteAdmin(dto.getUserName())); //*********** getId()
                 obList.add(
                         new AdminTm(

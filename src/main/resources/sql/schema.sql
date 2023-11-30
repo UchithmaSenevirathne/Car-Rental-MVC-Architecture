@@ -140,4 +140,6 @@ select bd.bId,c.name,cr.brand,c.address,c.contact,b.pickUpDate,b.days from car c
 
 select c.cusId,c.name,c.address,c.email,c.contact,b.bId,cr.brand,cr.priceOneDay,b.days,pc.extraKm,cr.priceExtraKm,pc.driverCost,pc.subTotal,p.totalPayment from customer c left join booking b on c.cusId = b.cusId left join bookingDetail bd on b.bId = bd.bId left join payment p on b.bId = p.bId left join driver d on bd.drId = d.drId left join car cr on bd.carNo = cr.carNo left join oneCarPayment pc on cr.carNo = pc.carNo where b.bId = 'B001';
 
-"L3","Sadmin","2023-11-29","20.13"
+select b.bId,b.cusId,b.pickUpDate,b.days,b.payment,bd.drId,bd.carNo from bookingDetail bd left join booking b on b.bId = bd.bId where status = 'Pending';
+
+select b.bId,b.cusId,b.pickUpDate,b.days,p.totalPayment from booking b join payment p on b.bId = p.bId where b.status = 'PAID';

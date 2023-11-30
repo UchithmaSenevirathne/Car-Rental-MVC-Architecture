@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="449.0" prefWidth="310.0" style="-fx-background-color: E9E9E9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UpdateBookingFormController">
+   <children>
+      <TextField fx:id="txtDrId" layoutX="38.0" layoutY="147.0" prefHeight="25.0" prefWidth="101.0" promptText="DRIVER ID" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font size="11.0" />
+         </font></TextField>
+      <Button fx:id="btnUpdate" layoutX="38.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: #5758BB;" text="UPDATE" textFill="WHITE" />
+      <Button layoutX="175.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: white; -fx-border-color: #5758BB; -fx-border-radius: 3;" text="Cancel" />
+      <TextField fx:id="txtBId" layoutX="38.0" layoutY="96.0" prefHeight="25.0" prefWidth="101.0" promptText="RENT ID" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtCusId" layoutX="175.0" layoutY="96.0" prefHeight="25.0" prefWidth="101.0" promptText="CUSTOMER ID" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtCarNo" layoutX="175.0" layoutY="147.0" prefHeight="25.0" prefWidth="101.0" promptText="CAR NO" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtxDays" layoutX="38.0" layoutY="246.0" prefHeight="25.0" prefWidth="101.0" promptText="DAYS" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <DatePicker fx:id="pickUpDate" layoutX="38.0" layoutY="200.0" prefHeight="25.0" prefWidth="240.0" />
+      <TextField fx:id="txtAdvance" layoutX="38.0" layoutY="293.0" prefHeight="25.0" prefWidth="240.0" promptText="ADVANCE PAYMENT" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
