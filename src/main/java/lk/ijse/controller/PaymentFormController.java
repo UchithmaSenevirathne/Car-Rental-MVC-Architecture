@@ -7,9 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -45,6 +43,8 @@ public class PaymentFormController {
 
     private final CarModel carModel = new CarModel();
 
+    private final BookingDetailModel bookingDetailModel = new BookingDetailModel();
+
     @FXML
     private AnchorPane rootNode;
 
@@ -70,7 +70,7 @@ public class PaymentFormController {
     private TableColumn<?, ?> colRentId;
 
     @FXML
-    private TextField txtRentId;
+    private ComboBox<String> txtRentId;
 
     @FXML
     private TableView<BookTm> tableView;
@@ -119,7 +119,9 @@ public class PaymentFormController {
     private double totalPay = 0;
 
     public void initialize() {
+
         setCellValueFactory();
+        loadAllBookingIds();
     }
 
     private void setCellValueFactory() {
@@ -151,6 +153,21 @@ public class PaymentFormController {
         txtDrName.setText(dto1.getName());
     }
 
+    private void loadAllBookingIds(){
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<BookingDetailDTO> bookDTOList = bookingDetailModel.getAllBookings();
+
+            for (BookingDetailDTO bookDTO : bookDTOList) {
+                obList.add(bookDTO.getBId());
+            }
+            txtRentId.setItems(obList);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @FXML
     void btnAddPaymentOnAction(ActionEvent event) throws SQLException {
         //clearTxt();
@@ -175,7 +192,7 @@ public class PaymentFormController {
 
         double total = ((priceOneDay * days) + (extraKm * priceExtraKm) + driverCost);
 
-        String bId = txtRentId.getText();
+        String bId = txtRentId.getValue();
         String carNo = txtCarId.getText();
 
         var dtoOneCarPay =  new OneCarPayDTO(bId,carNo,extraKm,driverCost,total);
@@ -215,7 +232,7 @@ public class PaymentFormController {
 
     @FXML
     void btnCheckOutOnAction(ActionEvent event){
-        String bId = txtRentId.getText();
+        String bId = txtRentId.getValue();
         double totalPayment = Double.parseDouble(txtTotal.getText());
         String pickUpDate = txtDate.getText();
 
@@ -240,7 +257,7 @@ public class PaymentFormController {
     }
 
     private void clearFields() {
-        txtRentId.setText("");
+        txtRentId.setValue("");
         txtDate.setText("");
         txtCusId.setText("");
         txtName.setText("");
@@ -258,14 +275,14 @@ public class PaymentFormController {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
-        String bId = txtRentId.getText();
+        String bId = txtRentId.getValue();
 
         try {
 
             List<PaymentDetailDTO> dto = PaymentModel.searchPaymentDetail(bId);
 
             for(PaymentDetailDTO dto1 : dto) {
-                txtRentId.setText(dto1.getBId());
+                txtRentId.setValue(dto1.getBId());
                 txtDate.setText(String.valueOf(dto1.getPickUpDate()));
                 txtCusId.setText(dto1.getCusId());
 
@@ -306,7 +323,7 @@ public class PaymentFormController {
 
     @FXML
     void btnGenerateBillOnAction(ActionEvent event) {
-        String bId = txtRentId.getText();
+        String bId = txtRentId.getValue();
         try {
             JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/report/PayBill.jrxml");
 

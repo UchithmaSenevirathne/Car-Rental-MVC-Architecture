@@ -1,6 +1,7 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
+import lk.ijse.dto.BookDTO;
 import lk.ijse.dto.BookingDetailDTO;
 import lk.ijse.dto.PaymentDetailDTO;
 
@@ -8,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class BookingDetailModel {
     public static BookingDetailDTO searchbookingDetail(String bId) throws SQLException {
@@ -53,5 +56,26 @@ public class BookingDetailModel {
         pstm.setString(3, bookingDetail.getDriverId());
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public List<BookingDetailDTO> getAllBookings() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM bookingdetail";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        List<BookingDetailDTO> dtoList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while (resultSet.next()){
+            String book_Id = resultSet.getString(1);
+            String car_No = resultSet.getString(2);
+            String dr_Id = resultSet.getString(3);
+
+            var dto = new BookingDetailDTO(book_Id,car_No,dr_Id);
+            dtoList.add(dto);
+        }
+        return dtoList;
     }
 }

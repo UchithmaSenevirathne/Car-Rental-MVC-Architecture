@@ -1,13 +1,17 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
+import lk.ijse.dto.BookDTO;
 import lk.ijse.dto.BookingDetailDTO;
+import lk.ijse.dto.CarDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class BookingModel {
     public static String generateNextBookingId() throws SQLException {
