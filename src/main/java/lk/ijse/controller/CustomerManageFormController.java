@@ -197,26 +197,31 @@ public class CustomerManageFormController {
 
     @FXML
     void btnADDCusOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CustomerForm.fxml"));
+        var model = new CustomerModel();
 
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Add Customer Form");
-        stage.centerOnScreen();
-        stage.show();
-    }
+        try {
+            String cusId = model.generateNextCusId();
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CustomerForm.fxml"));
 
-        Scene scene = new Scene(rootNode);
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+            Parent rootNode = loader.load();
 
-        stage.setScene(scene); //stage.setScene(new Scene(rootNode));
-        stage.setTitle("Dashboard Form");
-        stage.centerOnScreen();
+            CustomerFormController customerFormController = loader.getController();
+
+            customerFormController.setData(
+                    cusId
+            );
+
+            Scene scene = new Scene(rootNode);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Add Customer Form");
+            stage.centerOnScreen();
+            stage.show();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

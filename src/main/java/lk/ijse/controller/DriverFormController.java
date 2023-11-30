@@ -134,7 +134,7 @@ public class DriverFormController {
     }
 
 
-    public void setDriverData(String id, String name, String address, String email, String contact, String licenseNo, String userName) {
+    public void setDriverData(String id, String name, String address, String email, String contact, String licenseNo, String userName, String password) {
         txtDrId.setText(id);
         txtDrName.setText(name);
         txtDrAddress.setText(address);
@@ -142,5 +142,10 @@ public class DriverFormController {
         txtDrContact.setText(contact);
         txtDrLicenseNo.setText(licenseNo);
         txtUserName.setText(userName);
+        txtPassword.setText(password);
+    }
+
+    public void setData(String drId) {
+        txtDrId.setText(drId);
     }
 }

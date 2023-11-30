@@ -112,16 +112,6 @@ public class CarModel {
         return pstm.executeUpdate() > 0;
     }
 
-
-    /*public boolean updateCar(List<CarTm> carList) throws SQLException {
-        for (CarTm carTm : carList) {
-            if(!updateAvailable(carTm)) {
-                return false;
-            }
-        }
-        return true;
-    }*/
-
     public boolean updateAvailable(String carID) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -148,5 +138,36 @@ public class CarModel {
         System.out.println("car update "+ isUpdate);
 
         return isUpdate;
+    }
+
+    public String generateNextCarNo() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT carNo FROM car ORDER BY carNo DESC LIMIT 1";
+        ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+
+        String currentCarNo = null;
+
+        if (resultSet.next()) {
+            currentCarNo = resultSet.getString(1);
+            return splitCarNo(currentCarNo);
+        }
+        return splitCarNo(null);
+    }
+
+    private String splitCarNo(String currentCarNo) {
+        if (currentCarNo != null) {
+            String[] split = currentCarNo.split("CR");
+            int id = Integer.parseInt(split[1]);
+            id++;
+
+            if(id==10){
+                return "CR0" + id;
+            }else if(id == 100){
+                return "CR" + id;
+            }
+            return "CR00" + id;
+        }
+        return "CR001";
     }
 }

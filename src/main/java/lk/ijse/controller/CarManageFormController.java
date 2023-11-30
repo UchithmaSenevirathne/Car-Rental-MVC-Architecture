@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import lk.ijse.dto.CarDto;
 import lk.ijse.dto.tm.CarTm;
 import lk.ijse.model.CarModel;
+import lk.ijse.model.CustomerModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -60,6 +61,8 @@ public class CarManageFormController {
     private TextField txtSearchCar;
 
     public final ObservableList<CarTm> obListCar = FXCollections.observableArrayList();
+
+    ObservableList<String> obList = FXCollections.observableArrayList();
 
 
     public void initialize(){
@@ -129,6 +132,8 @@ public class CarManageFormController {
     }
 
     private void openCarPopup(CarDto carDto) {
+        obList.clear();
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CarForm.fxml"));
 
@@ -140,7 +145,17 @@ public class CarManageFormController {
 
             carFormController.setCarData(
                     carDto.getCarNo(),
-                    carDto.getBrand()
+                    carDto.getBrand(),
+                    carDto.getCurrentMileage(),
+                    carDto.getPriceOneDay(),
+                    carDto.getKmOneDay(),
+                    carDto.getPriceExtraKm()
+            );
+
+            loadAvailability();
+
+            carFormController.setComboData(
+                   obList
             );
 
             Scene scene = new Scene(rootNode);
@@ -155,16 +170,47 @@ public class CarManageFormController {
         }
     }
 
+    private void loadAvailability() {
+        obList.add(0, "YES");
+        obList.add(1, "NO");
+        obList.add(2, "MAINTAIN");
+    }
+
     @FXML
     void btnADDCarOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/CarForm.fxml"));
+        obList.clear();
 
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Add Car Form");
-        stage.centerOnScreen();
-        stage.show();
+        var model = new CarModel();
+
+        try {
+            String carNo = model.generateNextCarNo();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CarForm.fxml"));
+
+            Parent rootNode = loader.load();
+
+            CarFormController carFormController = loader.getController();
+
+            carFormController.setData(
+                    carNo
+            );
+
+            loadAvailability();
+
+            carFormController.setComboData(
+                    obList
+            );
+
+            Scene scene = new Scene(rootNode);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Add Car Form");
+            stage.centerOnScreen();
+            stage.show();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

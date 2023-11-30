@@ -143,7 +143,11 @@ public class DriverManageFormController {
     }
 
     private void openDriverPopup(DriverDto driverDto){
+        var model = new UserModel();
+
         try {
+            String pwd = model.getPassword(driverDto.getUserName());
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverForm.fxml"));
 
             Parent rootNode = loader.load();
@@ -159,7 +163,8 @@ public class DriverManageFormController {
                     driverDto.getEmail(),
                     driverDto.getContact(),
                     driverDto.getLicenseNo(),
-                    driverDto.getUserName()
+                    driverDto.getUserName(),
+                    pwd
             );
             Scene scene = new Scene(rootNode);
             Stage stage = new Stage();
@@ -168,20 +173,37 @@ public class DriverManageFormController {
             stage.centerOnScreen();
             stage.show();
 
-        }catch (IOException e){
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
     @FXML
     void btnADDDrOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DriverForm.fxml"));
+        var model = new DriverModel();
 
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Add Driver Form");
-        stage.centerOnScreen();
-        stage.show();
+        try {
+            String drId = model.generateNextDrId();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverForm.fxml"));
+
+            Parent rootNode = loader.load();
+
+            DriverFormController driverFormController = loader.getController();
+
+            driverFormController.setData(
+                    drId
+            );
+
+            Scene scene = new Scene(rootNode);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Add Driver Form");
+            stage.centerOnScreen();
+            stage.show();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

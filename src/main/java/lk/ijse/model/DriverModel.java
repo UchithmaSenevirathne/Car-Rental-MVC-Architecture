@@ -176,4 +176,36 @@ public class DriverModel {
 
         return pstm.executeUpdate() > 0;
     }
+
+    public String generateNextDrId() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT drId FROM driver ORDER BY drId DESC LIMIT 1";
+        ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+
+        String currentDrId = null;
+
+        if (resultSet.next()) {
+            currentDrId = resultSet.getString(1);
+            return splitDrId(currentDrId);
+        }
+        return splitDrId(null);
+    }
+
+    private String splitDrId(String currentDrId) {
+        if (currentDrId != null) {
+            String[] split = currentDrId.split("D");
+            int id = Integer.parseInt(split[1]);
+            id++;
+
+            if(id==10){
+                return "D0" + id;
+            }else if(id == 100){
+                return "D" + id;
+            }
+            return "D00" + id;
+        }
+        return "D001";
+    }
+
 }

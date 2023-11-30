@@ -11,11 +11,26 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="387.0" prefWidth="321.0" style="-fx-background-color: E9E9E9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
    <children>
-      <TextField fx:id="txtcusId" layoutX="36.0" layoutY="131.0" prefHeight="25.0" prefWidth="103.0" promptText="ID" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtcusName" layoutX="37.0" layoutY="175.0" prefHeight="25.0" prefWidth="247.0" promptText="Name" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtcusAddress" layoutX="37.0" layoutY="263.0" prefHeight="25.0" prefWidth="103.0" promptText="Address" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtcusEmail" layoutX="37.0" layoutY="219.0" prefHeight="25.0" prefWidth="247.0" promptText="E-mail" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtcusContact" layoutX="181.0" layoutY="263.0" prefHeight="25.0" prefWidth="103.0" promptText="Contact" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtcusId" layoutX="36.0" layoutY="131.0" prefHeight="25.0" prefWidth="103.0" promptText="ID" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtcusName" layoutX="37.0" layoutY="175.0" prefHeight="25.0" prefWidth="247.0" promptText="NAME" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtcusAddress" layoutX="37.0" layoutY="263.0" prefHeight="25.0" prefWidth="103.0" promptText="ADDRESS" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtcusEmail" layoutX="37.0" layoutY="219.0" prefHeight="25.0" prefWidth="247.0" promptText="E-MAIL" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtcusContact" layoutX="181.0" layoutY="263.0" prefHeight="25.0" prefWidth="103.0" promptText="CONTACT" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
       <Button fx:id="btnCusFormBtn" layoutX="36.0" layoutY="331.0" mnemonicParsing="false" onAction="#btnSaveCusOnAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #3d3e9a;" text="SAVE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />

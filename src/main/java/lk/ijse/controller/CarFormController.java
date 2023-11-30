@@ -1,13 +1,12 @@
 package lk.ijse.controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Validation.Validate;
 import lk.ijse.dto.CarDto;
 import lk.ijse.model.CarModel;
 
@@ -27,9 +26,6 @@ public class CarFormController {
     public Button btnCarForm;
 
     @FXML
-    private Label lblCarForm;
-
-    @FXML
     private TextField txtCurrentMileage;
 
     @FXML
@@ -40,6 +36,9 @@ public class CarFormController {
 
     @FXML
     private TextField txtPriceOneDay;
+
+    @FXML
+    private ComboBox<String> availability;
 
     Stage stage;
 
@@ -53,13 +52,13 @@ public class CarFormController {
     void btnCarOnAction(ActionEvent event) {
         String carNo = txtCarNo.getText();
         String brand = txtCarBrand.getText();
-        String availability = "YES";
+        String availa = availability.getValue();
         double currentMileage = Double.parseDouble(txtCurrentMileage.getText());
         double kmOneDay = Double.parseDouble(txtKmOneDay.getText());
         double priceOneDay = Double.parseDouble(txtPriceOneDay.getText());
         double priceExtraKm = Double.parseDouble(txtPriceExtraKm.getText());
 
-        var dto = new CarDto(carNo, brand, availability, currentMileage, kmOneDay, priceOneDay, priceExtraKm);
+        var dto = new CarDto(carNo, brand, availa, currentMileage, kmOneDay, priceOneDay, priceExtraKm);
 
         var model = new CarModel();
 
@@ -86,12 +85,9 @@ public class CarFormController {
     }
 
     private boolean validateCar(String carNo) {
-        if(!Pattern.matches("[D][0-9]{3,}", carNo)){
-            //new Alert(Alert.AlertType.ERROR, "Invalid Car Number").show();
-            txtCarNo.setStyle("-fx-border-color: #b30404");
+        if(!Validate.validation(carNo,txtCarNo,"[C][R][0-9]{3,}")){
             return false;
         }
-        txtCarNo.setStyle("-fx-border-color: default");
         return true;
     }
 
@@ -100,8 +96,20 @@ public class CarFormController {
         txtCarBrand.setText("");
     }
 
-    public void setCarData(String carNo, String brand) {
+    public void setCarData(String carNo, String brand, double currentMileage, double priceOneDay, double kmOneDay, double priceExtraKm) {
         txtCarNo.setText(carNo);
         txtCarBrand.setText(brand);
+        txtCurrentMileage.setText(String.valueOf(currentMileage));
+        txtPriceOneDay.setText(String.valueOf(priceOneDay));
+        txtKmOneDay.setText(String.valueOf(kmOneDay));
+        txtPriceExtraKm.setText(String.valueOf(priceExtraKm));
+    }
+
+    public void setData(String carNo) {
+        txtCarNo.setText(carNo);
+    }
+
+    public void setComboData(ObservableList<String> obList) {
+        availability.setItems(obList);
     }
 }

@@ -43,10 +43,6 @@ public class CustomerFormController {
 
     Stage stage;
 
-    private final ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
-
-    //private CustomerManageFormController customerManageFormController;
-
     @FXML
     void btnCancelCusOnAction(ActionEvent event) {
         stage = (Stage) rootNode.getScene().getWindow();
@@ -65,11 +61,6 @@ public class CustomerFormController {
 
         var model = new CustomerModel();
 
-//        if (btnID.getText().equals("UPDATE")){
-//            boolean isUpdate=model.updateCustomer(dto)
-//              return;
-//        }
-
         try {
             if(validateCustomer(id, name, address, email, contact)) {
                 if (btnCusFormBtn.getText().equals("UPDATE")) {
@@ -78,7 +69,7 @@ public class CustomerFormController {
                         new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
                         clearFields();
                     }
-                } else if (btnCusFormBtn.getText().equals("Save")) {
+                } else if (btnCusFormBtn.getText().equals("SAVE")) {
                     boolean isSaved = model.saveCustomer(dto);
                     if (isSaved) {
                         new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
@@ -164,5 +155,9 @@ public class CustomerFormController {
         txtcusAddress.setText(address);
         txtcusEmail.setText(email);
         txtcusContact.setText(contact);
+    }
+
+    public void setData(String id) {
+        txtcusId.setText(id);
     }
 }
