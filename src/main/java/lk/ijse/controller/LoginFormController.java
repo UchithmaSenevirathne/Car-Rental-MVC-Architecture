@@ -113,7 +113,7 @@ public class LoginFormController {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/forgetPassword.fxml"));
 
         Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();

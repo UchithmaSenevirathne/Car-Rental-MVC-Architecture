@@ -5,21 +5,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="subAnchorPane" prefHeight="612.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewBookingController">
    <children>
       <TableView fx:id="tablePending" layoutX="21.0" layoutY="40.0" prefHeight="243.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
         <columns>
-          <TableColumn fx:id="colBIdPending" text="RENT ID" />
-          <TableColumn fx:id="colCusIdPending" prefWidth="83.0" text="CUS ID" />
-            <TableColumn fx:id="colDrIdPending" prefWidth="82.0" text="DR ID" />
-            <TableColumn fx:id="colCarNoPending" prefWidth="85.0" text="CAR NO" />
-            <TableColumn fx:id="colPickUpDatePending" prefWidth="154.0" text="PICKUP DATE" />
-            <TableColumn fx:id="colDaysPending" prefWidth="72.0" text="DAYS" />
-            <TableColumn fx:id="colAdvancePending" prefWidth="117.0" text="ADVANCE" />
-            <TableColumn fx:id="colUpdatePending" prefWidth="72.0" text="UPDATE" />
-            <TableColumn fx:id="colDeletePending" prefWidth="71.0" text="DELETE" />
+          <TableColumn fx:id="colBIdPending" prefWidth="66.0" text="RENT ID" />
+          <TableColumn fx:id="colCusIdPending" prefWidth="81.0" text="CUS ID" />
+            <TableColumn fx:id="colDrIdPending" prefWidth="89.0" text="DR ID" />
+            <TableColumn fx:id="colCarNoPending" prefWidth="82.0" text="CAR NO" />
+            <TableColumn fx:id="colPickUpDatePending" prefWidth="115.0" text="PICKUP DATE" />
+            <TableColumn fx:id="colDaysPending" prefWidth="79.0" text="DAYS" />
+            <TableColumn fx:id="colAdvancePending" prefWidth="119.0" text="ADVANCE" />
+            <TableColumn fx:id="colUpdatePending" prefWidth="96.0" text="UPDATE" />
+            <TableColumn fx:id="colDeletePending" prefWidth="89.0" text="DELETE" />
         </columns>
       </TableView>
       <TableView fx:id="tableCompl" layoutX="21.0" layoutY="356.0" prefHeight="243.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
@@ -51,5 +52,6 @@
             <Font size="11.0" />
          </font>
       </TextField>
+      <Pane layoutX="21.0" layoutY="299.0" prefHeight="4.0" prefWidth="817.0" style="-fx-background-color: E9E9E9;" />
    </children>
 </AnchorPane>

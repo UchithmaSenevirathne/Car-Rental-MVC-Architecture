@@ -195,4 +195,61 @@ public class UserModel {
         }
         return false;
     }
+
+    public boolean checkUserName(String userName) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM user where userName = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, userName);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while (resultSet.next()){
+            String user_Name = resultSet.getString(1);
+            String pwd = resultSet.getString(2);
+            String email = resultSet.getString(3);
+            String roll = resultSet.getString(4);
+
+            var dto = new UserDTO(user_Name, pwd, email, roll);
+
+            System.out.println("dto :  "+dto);
+
+            if(dto.equals(null)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public String getEmail(String userName) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT email FROM user WHERE userName = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, userName);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        String email = null;
+
+        while (resultSet.next()) {
+            email = resultSet.getString(1);
+        }
+        return email;
+    }
+
+    public boolean changePwd(String confirmPwd, String userName) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE user SET password = ? WHERE userName = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, confirmPwd);
+        pstm.setString(2, userName);
+
+        return pstm.executeUpdate()>0;
+    }
 }
