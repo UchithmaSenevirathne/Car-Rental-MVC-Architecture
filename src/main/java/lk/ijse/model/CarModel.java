@@ -2,6 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.CarDto;
+import lk.ijse.dto.CarOutDto;
 import lk.ijse.dto.tm.CarTm;
 
 import java.sql.Connection;
@@ -169,5 +170,26 @@ public class CarModel {
             return "CR00" + id;
         }
         return "CR001";
+    }
+
+    public List<CarOutDto> getCarOut() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT c.carNo,c.brand,b.pickUpDate FROM car c join bookingdetail bd on c.carNo = bd.carNo join booking b on b.bId = bd.bId where b.status = 'Pending'";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        List<CarOutDto> dtoList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while (resultSet.next()){
+            String car_number = resultSet.getString(1);
+            String brand = resultSet.getString(2);
+            String pickUp_date = resultSet.getString(3);
+
+            var dto = new CarOutDto(car_number,brand, pickUp_date);
+            dtoList.add(dto);
+        }
+        return dtoList;
     }
 }

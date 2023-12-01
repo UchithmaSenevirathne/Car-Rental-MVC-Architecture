@@ -12,21 +12,27 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.CarDto;
+import lk.ijse.dto.CarOutDto;
+import lk.ijse.dto.tm.CarOutTM;
+import lk.ijse.dto.tm.CarTm;
+import lk.ijse.model.BookingModel;
+import lk.ijse.model.CarModel;
+import lk.ijse.model.CustomerModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DashboardFormController implements Initializable{
-
-    @FXML
-    private PieChart piechart;
-
-    @FXML
-    private BarChart<?, ?> barChart;
 
     @FXML
     private AnchorPane rootNode;
@@ -40,45 +46,73 @@ public class DashboardFormController implements Initializable{
     @FXML
     private Label lbltravellers;
 
+    @FXML
+    private TableColumn<?, ?> colCarNo;
+
+    @FXML
+    private TableColumn<?, ?> colDate;
+
+    @FXML
+    private TableColumn<?, ?> colBrand;
+
+    @FXML
+    private TableView<CarOutTM> tableView;
+
+    public final ObservableList<CarOutTM> obListCar = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(
-                        new PieChart.Data("Defender", 50),
-                        new PieChart.Data("Jeep", 25),
-                        new PieChart.Data("Benz", 10),
-                        new PieChart.Data("Double Cab", 2)
-                );
+        setCellValueFactory();
+        loadAllCars();
+        setValuesLables();
+    }
 
-        pieChartData.forEach(data ->
-                data.nameProperty().bind(
-                        Bindings.concat(
-                                data.getName(), " amount: ", data.pieValueProperty()
+    private void setValuesLables() {
+        var modelBook = new BookingModel();
+        var modelCus = new CustomerModel();
+
+        try{
+            int countBooking = modelBook.getCountBooking();
+
+            int countCustomers = modelCus.getCountCus();
+
+            lblBookings.setText(String.valueOf(countBooking));
+            lbltravellers.setText(String.valueOf(countCustomers));
+
+            lblBookings.setStyle("-fx-text-fill: #1abc9c; -fx-font-weight: bold; -fx-font-size: 19px");
+            lbltravellers.setStyle("-fx-text-fill: #fd9644; -fx-font-weight: bold; -fx-font-size: 19px");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void loadAllCars() {
+        obListCar.clear();
+
+        var model = new CarModel();
+
+        try {
+            List<CarOutDto> dtoList = model.getCarOut();
+
+            for (CarOutDto dto : dtoList){
+                obListCar.add(
+                        new CarOutTM(
+                                dto.getCarNo(),
+                                dto.getBrand(),
+                                dto.getPickUpDate()
                         )
-                )
-        );
+                );
+            }
+            tableView.setItems(obListCar);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
 
-        piechart.getData().addAll(pieChartData);
-
-        XYChart.Series series1 = new XYChart.Series();
-
-        series1.setName("2022");
-        series1.getData().add(new XYChart.Data("1 Star", 354));
-        series1.getData().add(new XYChart.Data("2 Star", 764));
-        series1.getData().add(new XYChart.Data("3 Star", 1004));
-        series1.getData().add(new XYChart.Data("4 Star", 3050));
-        series1.getData().add(new XYChart.Data("5 Star", 2034));
-
-        XYChart.Series series2 = new XYChart.Series();
-
-        series2.setName("2023");
-        series2.getData().add(new XYChart.Data("1 Star", 134));
-        series2.getData().add(new XYChart.Data("2 Star", 454));
-        series2.getData().add(new XYChart.Data("3 Star", 564));
-        series2.getData().add(new XYChart.Data("4 Star", 3750));
-        series2.getData().add(new XYChart.Data("5 Star", 4034));
-
-        barChart.getData().addAll(series1,series2);
+    private void setCellValueFactory() {
+        colCarNo.setCellValueFactory(new PropertyValueFactory<>("carNo"));
+        colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("pickUpDate"));
     }
 
     @FXML

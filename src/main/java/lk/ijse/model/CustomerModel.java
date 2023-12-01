@@ -134,4 +134,20 @@ public class CustomerModel {
         }
         return "C001";
     }
+
+    public int getCountCus() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "select count(cusId) from customer";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int count = 0;
+
+        while (resultSet.next()){
+            count = resultSet.getInt(1);
+        }
+        return count;
+    }
 }

@@ -9,9 +9,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="subAnchorPane" prefHeight="611.0" prefWidth="970.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.VerifyCodeController">
+<AnchorPane fx:id="subAnchorPane" prefHeight="582.0" prefWidth="937.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.VerifyCodeController">
    <children>
-      <Pane layoutX="254.0" layoutY="144.0" prefHeight="323.0" prefWidth="463.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
+      <Pane layoutX="237.0" layoutY="130.0" prefHeight="323.0" prefWidth="463.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
          <effect>
             <DropShadow>
                <color>

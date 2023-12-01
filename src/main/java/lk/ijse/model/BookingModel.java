@@ -160,4 +160,20 @@ public class BookingModel {
         }
         return dtoList;
     }
+
+    public int getCountBooking() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "select count(bId) from booking";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int count = 0;
+
+        while (resultSet.next()){
+            count = resultSet.getInt(1);
+        }
+        return count;
+    }
 }
