@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.dto.CompleteDTO;
 import lk.ijse.dto.PendingDTO;
 import lk.ijse.dto.tm.CarTm;
@@ -115,7 +116,7 @@ public class ViewBookingController {
         colTotalPayCom.setCellValueFactory(new PropertyValueFactory<>("totalPayment"));
     }
 
-    private void loadAllPendingBookings() {
+    public void loadAllPendingBookings() {
         obListPend.clear();
 
         var model = new BookingModel();
@@ -169,9 +170,22 @@ public class ViewBookingController {
 
             if(b){
                 loadAllPendingBookings();
-                new Alert(Alert.AlertType.CONFIRMATION, "booking deleted!").show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                Parent rootNode = loader.load();
+
+                ConfirmationController confirmationController = loader.getController();
+
+                confirmationController.lblConfirm.setText("Booking deleted successfully");
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.centerOnScreen();
+                stage.show();
             }
-        }catch (SQLException e){
+        }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
@@ -309,5 +323,18 @@ public class ViewBookingController {
         sortedData.comparatorProperty().bind(tableCompl.comparatorProperty());
 
         tableCompl.setItems(sortedData);
+    }
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/BookingForm.fxml"));
+        AnchorPane booking = loader.load();
+
+        subAnchorPane.getChildren().setAll(booking);
+    }
+
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+        loadAllPendingBookings();
     }
 }

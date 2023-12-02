@@ -2,11 +2,15 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.Validation.Validate;
 import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.DriverDto;
@@ -77,14 +81,42 @@ public class DriverFormController {
                 if (btnDrFormBtn.getText().equals("UPDATE")) {
                     boolean isUpdate = model.updateDriver(driverDto, userDto);
                     if (isUpdate) {
-                        new Alert(Alert.AlertType.CONFIRMATION, "driver updated!!").show();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                        Parent rootNode = loader.load();
+
+                        ConfirmationController confirmationController = loader.getController();
+
+                        confirmationController.lblConfirm.setText("Driver updated successfully");
+
+                        Scene scene = new Scene(rootNode);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        stage.centerOnScreen();
+                        stage.show();
                         clearFields();
+
+                        btnCancelDrOnAction(event);
                     }
                 } else if (btnDrFormBtn.getText().equals("SAVE")) {
                     boolean isSaved = model.saveDriver(driverDto, userDto);
 
                     if (isSaved) {
-                        new Alert(Alert.AlertType.CONFIRMATION, "driver saved!").show();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                        Parent rootNode = loader.load();
+
+                        ConfirmationController confirmationController = loader.getController();
+
+                        confirmationController.lblConfirm.setText("Driver saved successfully");
+
+                        Scene scene = new Scene(rootNode);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        stage.centerOnScreen();
+                        stage.show();
                         clearFields();
                     }
                 }

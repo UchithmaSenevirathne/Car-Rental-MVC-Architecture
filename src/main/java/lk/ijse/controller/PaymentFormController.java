@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.*;
 import lk.ijse.dto.tm.BookTm;
@@ -249,7 +250,20 @@ public class PaymentFormController {
             boolean isSaved = PaymentModel.savePayment(bId, totalPayment, pickUpDate,bookingDetailDto);
 
             if(isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION, "Payment Completed Successful!").show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                Parent rootNode = loader.load();
+
+                ConfirmationController confirmationController = loader.getController();
+
+                confirmationController.lblConfirm.setText("Payment completed successfully");
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.centerOnScreen();
+                stage.show();
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.dto.CarDto;
 import lk.ijse.dto.tm.CarTm;
 import lk.ijse.model.CarModel;
@@ -83,7 +84,7 @@ public class CarManageFormController {
         colDelete.setCellValueFactory(new PropertyValueFactory<>("DeleteButton"));
     }
 
-    private void loadAllCars(){
+    public void loadAllCars(){
         obListCar.clear();
 
         var model = new CarModel();
@@ -137,11 +138,29 @@ public class CarManageFormController {
 
             if(b){
                 loadAllCars();
-                new Alert(Alert.AlertType.CONFIRMATION, "car deleted!").show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                Parent rootNode = loader.load();
+
+                ConfirmationController confirmationController = loader.getController();
+
+                confirmationController.lblConfirm.setText("Car deleted successfully");
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.centerOnScreen();
+                stage.show();
             }
-        }catch (SQLException e){
+        }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+        loadAllCars();
     }
 
     private void openCarPopup(CarDto carDto) {

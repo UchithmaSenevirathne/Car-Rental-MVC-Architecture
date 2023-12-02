@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -36,6 +37,8 @@ public class VerifySuperAdminController {
                 AnchorPane addAdminPane = loader.load();
 
                 subAnchorPane.getChildren().setAll(addAdminPane);
+            }else{
+                new Alert(Alert.AlertType.ERROR, "It seems you are not super admin").show();
             }
         }catch (Exception e){
             e.printStackTrace();

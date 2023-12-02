@@ -4,11 +4,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.Validation.Validate;
 import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.tm.CustomerTm;
@@ -66,13 +70,41 @@ public class CustomerFormController {
                 if (btnCusFormBtn.getText().equals("UPDATE")) {
                     boolean isUpdated = model.updateCustomer(dto);
                     if (isUpdated) {
-                        new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                        Parent rootNode = loader.load();
+
+                        ConfirmationController confirmationController = loader.getController();
+
+                        confirmationController.lblConfirm.setText("Customer updated successfully");
+
+                        Scene scene = new Scene(rootNode);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        stage.centerOnScreen();
+                        stage.show();
                         clearFields();
+
+                        btnCancelCusOnAction(event);
                     }
                 } else if (btnCusFormBtn.getText().equals("SAVE")) {
                     boolean isSaved = model.saveCustomer(dto);
                     if (isSaved) {
-                        new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                        Parent rootNode = loader.load();
+
+                        ConfirmationController confirmationController = loader.getController();
+
+                        confirmationController.lblConfirm.setText("Customer saved successfully");
+
+                        Scene scene = new Scene(rootNode);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        stage.centerOnScreen();
+                        stage.show();
                         clearFields();
                     }
                 }
@@ -80,7 +112,6 @@ public class CustomerFormController {
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-        //customerManageFormController.loadAllCustomers();
     }
 
     private boolean validateCustomer(String id, String name, String address, String email, String contact) {
@@ -106,40 +137,6 @@ public class CustomerFormController {
 
         return true;
     }
-
-
-   /*private boolean validateCustomer(String id, String name, String address, String email, String contact) {
-        if(!Pattern.matches("[C][0-9]{3,}", id)){
-            txtcusId.setStyle("-fx-border-color: #b30404");
-            return false;
-        }
-        if(!Pattern.matches("[A-Z][a-z]+ [A-Z][a-z]+", name)){
-            //new Alert(Alert.AlertType.ERROR, "Invalid Customer Name").show();
-            txtcusName.setStyle("-fx-border-color: #b30404");
-            return false;
-        }
-        if(!Pattern.matches("([a-zA-Z_\\\\s]+)", address)){
-            //new Alert(Alert.AlertType.ERROR, "Invalid Customer Address").show();
-            txtcusAddress.setStyle("-fx-border-color: #b30404");
-            return false;
-        }
-        if(!Pattern.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", email)){
-            //new Alert(Alert.AlertType.ERROR, "Invalid Customer Email").show();
-            txtcusEmail.setStyle("-fx-border-color: #b30404");
-            return false;
-        }
-        if(!Pattern.matches("[0-9]{10}", contact)){
-            //new Alert(Alert.AlertType.ERROR, "Invalid Customer Contact").show();
-            txtcusContact.setStyle("-fx-border-color: #b30404");
-            return false;
-        }
-        txtcusId.setStyle("-fx-border-color: default");
-        txtcusName.setStyle("-fx-border-color: default");
-        txtcusAddress.setStyle("-fx-border-color: default");
-        txtcusEmail.setStyle("-fx-border-color: default");
-        txtcusContact.setStyle("-fx-border-color: default");
-        return true;
-    }*/
 
     private void clearFields() {
         txtcusId.setText("");

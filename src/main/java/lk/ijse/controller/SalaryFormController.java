@@ -37,9 +37,6 @@ public class SalaryFormController {
     private TableColumn<?, ?> colContact;
 
     @FXML
-    private TableColumn<?, ?> colDelete;
-
-    @FXML
     private TableColumn<?, ?> colDrId;
 
     @FXML
@@ -50,9 +47,6 @@ public class SalaryFormController {
 
     @FXML
     private TableColumn<?, ?> colName;
-
-    @FXML
-    private TableColumn<?, ?> colUpdate;
 
     @FXML
     private TableColumn<?, ?> colUserName;

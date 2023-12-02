@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.dto.*;
 import lk.ijse.dto.tm.BookTm;
 import lk.ijse.model.*;
@@ -261,7 +262,20 @@ public class BookingFormController {
             boolean isSuccess = makeBookingModel.makeBooking(bookDto);
             System.out.println(isSuccess);
             if(isSuccess) {
-                new Alert(Alert.AlertType.CONFIRMATION, "booking completed!").show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                Parent rootNode = loader.load();
+
+                ConfirmationController confirmationController = loader.getController();
+
+                confirmationController.lblConfirm.setText("Booking completed successfully");
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.centerOnScreen();
+                stage.show();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -398,13 +412,4 @@ public class BookingFormController {
         stage.centerOnScreen();
     }
 
-   /* @FXML
-    void txtSearchCarOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void txtSearchCusOnAction(ActionEvent event) {
-
-    }*/
 }

@@ -3,9 +3,13 @@ package lk.ijse.controller;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.Validation.Validate;
 import lk.ijse.dto.CarDto;
 import lk.ijse.model.CarModel;
@@ -67,14 +71,42 @@ public class CarFormController {
                 if (btnCarForm.getText().equals("UPDATE")) {
                     boolean isUpdated = model.updateCar(dto);
                     if (isUpdated) {
-                        new Alert(Alert.AlertType.CONFIRMATION, "car updated!!").show();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                        Parent rootNode = loader.load();
+
+                        ConfirmationController confirmationController = loader.getController();
+
+                        confirmationController.lblConfirm.setText("Car updated successfully");
+
+                        Scene scene = new Scene(rootNode);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        stage.centerOnScreen();
+                        stage.show();
                         clearFields();
+
+                        btnCancelCarOnAction(event);
                     }
                 } else if (btnCarForm.getText().equals("SAVE")) {
                     boolean isSaved = model.saveCar(dto);
 
                     if (isSaved) {
-                        new Alert(Alert.AlertType.CONFIRMATION, "car saved!").show();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                        Parent rootNode = loader.load();
+
+                        ConfirmationController confirmationController = loader.getController();
+
+                        confirmationController.lblConfirm.setText("Car saved successfully");
+
+                        Scene scene = new Scene(rootNode);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        stage.centerOnScreen();
+                        stage.show();
                         clearFields();
                     }
                 }

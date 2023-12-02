@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.dto.UserDTO;
 import lk.ijse.dto.tm.AdminTm;
 import lk.ijse.model.UserModel;
@@ -136,7 +137,20 @@ public class AdminManageController {
 
             if(b){
                 loadAllAdmins();
-                new Alert(Alert.AlertType.CONFIRMATION, "admin deleted!").show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                Parent rootNode = loader.load();
+
+                ConfirmationController confirmationController = loader.getController();
+
+                confirmationController.lblConfirm.setText("Admin deleted successfully");
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.centerOnScreen();
+                stage.show();
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

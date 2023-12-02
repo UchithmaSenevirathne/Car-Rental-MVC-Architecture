@@ -2,7 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -44,6 +47,17 @@
             <Font name="Corbel" size="11.0" />
          </font></TextField>
       <ComboBox fx:id="availability" layoutX="42.0" layoutY="181.0" prefHeight="25.0" prefWidth="114.0" promptText="AVAILABILITY" style="-fx-background-color: F9FAFC;" />
-      <Pane layoutX="14.0" layoutY="113.0" prefHeight="3.0" prefWidth="294.0" style="-fx-background-color: F9FAFC;" />
+      <Pane layoutX="12.0" layoutY="109.0" prefHeight="3.0" prefWidth="308.0" style="-fx-background-color: F9FAFC;" />
+      <ImageView fitHeight="91.0" fitWidth="140.0" layoutX="177.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/cusForm.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="25.0" layoutY="92.0" text="MANAGE YOUR VEHICLES">
+         <font>
+            <Font name="Corbel Bold" size="12.0" />
+         </font>
+      </Label>
+      <Pane layoutX="13.0" layoutY="85.0" prefHeight="3.0" prefWidth="170.0" style="-fx-background-color: F9FAFC;" />
    </children>
 </AnchorPane>

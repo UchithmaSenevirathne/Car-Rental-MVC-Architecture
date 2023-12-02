@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="subAnchorPane" prefHeight="612.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewBookingController">
    <children>
-      <TableView fx:id="tablePending" layoutX="21.0" layoutY="40.0" prefHeight="243.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
+      <TableView fx:id="tablePending" layoutX="21.0" layoutY="40.0" prefHeight="221.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
         <columns>
           <TableColumn fx:id="colBIdPending" prefWidth="66.0" text="RENT ID" />
           <TableColumn fx:id="colCusIdPending" prefWidth="81.0" text="CUS ID" />
@@ -23,7 +26,7 @@
             <TableColumn fx:id="colDeletePending" prefWidth="89.0" text="DELETE" />
         </columns>
       </TableView>
-      <TableView fx:id="tableCompl" layoutX="21.0" layoutY="356.0" prefHeight="243.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
+      <TableView fx:id="tableCompl" layoutX="21.0" layoutY="356.0" prefHeight="214.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
          <columns>
             <TableColumn fx:id="colBIdCom" prefWidth="126.0" text="RENT ID" />
             <TableColumn fx:id="colCusIdCom" prefWidth="164.0" text="CUS ID" />
@@ -52,6 +55,29 @@
             <Font size="11.0" />
          </font>
       </TextField>
-      <Pane layoutX="21.0" layoutY="299.0" prefHeight="4.0" prefWidth="817.0" style="-fx-background-color: E9E9E9;" />
+      <Button layoutX="758.0" layoutY="573.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #5758bb;" text="      Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="765.0" layoutY="575.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/back.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="21.0" layoutY="261.0" prefHeight="33.0" prefWidth="817.0" style="-fx-background-color: white;">
+         <children>
+            <Button layoutX="677.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: white;" text="Refresh Table" textFill="#3d3e9a">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="787.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/update.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

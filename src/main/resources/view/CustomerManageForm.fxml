@@ -20,7 +20,7 @@
                   <Font name="Corbel Bold" size="13.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="420.0" prefWidth="803.0" stylesheets="@../Style/tableViewStyle.css">
+            <TableView fx:id="tableView" layoutX="24.0" layoutY="163.0" prefHeight="397.0" prefWidth="803.0" stylesheets="@../Style/tableViewStyle.css">
               <columns>
                 <TableColumn fx:id="colCusId" prefWidth="65.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="115.0" text="Name" />
@@ -42,11 +42,20 @@
                   <Image url="@../image/add.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="16.0" layoutX="770.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/previous.png" />
-               </image>
-            </ImageView>
+            <Pane layoutX="24.0" layoutY="560.0" prefHeight="33.0" prefWidth="803.0" style="-fx-background-color: white;">
+               <children>
+                  <Button layoutX="665.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: white;" text="Refresh Table" textFill="#3d3e9a">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="773.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/update.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Label layoutX="10.0" layoutY="55.0" text="APEX" textFill="WHITE">

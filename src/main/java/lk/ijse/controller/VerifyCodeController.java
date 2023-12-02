@@ -1,12 +1,14 @@
 package lk.ijse.controller;
 
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
-public class VerifyCodeController {
+public class VerifyCodeController{
     @FXML
     private AnchorPane subAnchorPane;
 
@@ -55,5 +57,21 @@ public class VerifyCodeController {
     public void setOTP(int otp, String userName) {
         OTP = String.valueOf(otp);
         uName = userName;
+    }
+
+    @FXML
+    private void initialize(){
+        addFocusListener(txtOTPfirst, txtOTPsecond);
+        addFocusListener(txtOTPsecond, txtOTPthird);
+        addFocusListener(txtOTPthird, txtOTPforth);
+    }
+
+    private void addFocusListener(TextField currentField, TextField nextField) {
+        currentField.setOnKeyTyped(event -> {
+            System.out.println(currentField.getText().length());
+            if (currentField.getText().length() == 1) {
+                nextField.requestFocus();
+            }
+        });
     }
 }

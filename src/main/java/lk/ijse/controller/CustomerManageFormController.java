@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.dto.CustomerDto;
 import lk.ijse.dto.tm.CustomerTm;
 import lk.ijse.model.CustomerModel;
@@ -122,14 +123,6 @@ public class CustomerManageFormController {
         }
     }
 
-    /*public void refreshCustomerTable() {
-        // Implement the logic to refresh the customer table here
-        // You can call the getAllCustomer method and update the table data
-        List<CustomerDto> customers = new CustomerModel.getAllCustomers(); // Replace with your actual method
-        customerTable.getItems().clear();
-        customerTable.getItems().addAll(customers);
-    }*/
-
     private void openCustomerPopup(CustomerDto customerDto){
         //CustomerFormController cusForm = new CustomerFormController(this);
         try {
@@ -168,9 +161,22 @@ public class CustomerManageFormController {
 
             if(b){
                 loadAllCustomers();
-                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                Parent rootNode = loader.load();
+
+                ConfirmationController confirmationController = loader.getController();
+
+                confirmationController.lblConfirm.setText("Customer deleted successfully");
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.centerOnScreen();
+                stage.show();
             }
-        }catch (SQLException e){
+        }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
@@ -258,6 +264,11 @@ public class CustomerManageFormController {
         sortedData.comparatorProperty().bind(tableView.comparatorProperty());
 
         tableView.setItems(sortedData);
+    }
+
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+        loadAllCustomers();
     }
 
     @FXML

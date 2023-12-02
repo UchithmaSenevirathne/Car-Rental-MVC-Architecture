@@ -12,11 +12,26 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="401.0" prefWidth="334.0" style="-fx-background-color: E9E9E9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DriverFormController">
    <children>
-      <TextField fx:id="txtDrId" layoutX="45.0" layoutY="131.0" prefHeight="25.0" prefWidth="114.0" promptText="ID" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtDrName" layoutX="45.0" layoutY="228.0" prefHeight="25.0" prefWidth="114.0" promptText="Name" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtDrAddress" layoutX="179.0" layoutY="228.0" prefHeight="25.0" prefWidth="114.0" promptText="Address" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtDrEmail" layoutX="45.0" layoutY="271.0" prefHeight="25.0" prefWidth="249.0" promptText="E-mail" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtDrContact" layoutX="45.0" layoutY="315.0" prefHeight="25.0" prefWidth="114.0" promptText="Contact" style="-fx-background-color: F9FAFC;" />
+      <TextField fx:id="txtDrId" layoutX="45.0" layoutY="131.0" prefHeight="25.0" prefWidth="114.0" promptText="ID" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtDrName" layoutX="45.0" layoutY="228.0" prefHeight="25.0" prefWidth="114.0" promptText="NAME" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtDrAddress" layoutX="179.0" layoutY="228.0" prefHeight="25.0" prefWidth="114.0" promptText="ADDRESS" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtDrEmail" layoutX="45.0" layoutY="271.0" prefHeight="25.0" prefWidth="249.0" promptText="E-MAIL" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtDrContact" layoutX="45.0" layoutY="315.0" prefHeight="25.0" prefWidth="114.0" promptText="CONTACT" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
       <Button fx:id="btnDrFormBtn" layoutX="45.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #3d3e9a;" text="SAVE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -27,12 +42,21 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="txtDrLicenseNo" layoutX="179.0" layoutY="315.0" prefHeight="25.0" prefWidth="114.0" promptText="License No" style="-fx-background-color: F9FAFC;" />
-      <TextField fx:id="txtUserName" layoutX="45.0" layoutY="182.0" prefHeight="25.0" prefWidth="114.0" promptText="UserName" style="-fx-background-color: F9FAFC;">
+      <TextField fx:id="txtDrLicenseNo" layoutX="179.0" layoutY="315.0" prefHeight="25.0" prefWidth="114.0" promptText="LICENSE NO" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtUserName" layoutX="45.0" layoutY="182.0" prefHeight="25.0" prefWidth="114.0" promptText="USERNAME" style="-fx-background-color: F9FAFC;">
          <opaqueInsets>
             <Insets />
-         </opaqueInsets></TextField>
-      <TextField fx:id="txtPassword" layoutX="179.0" layoutY="181.0" prefHeight="25.0" prefWidth="114.0" promptText="Password" style="-fx-background-color: F9FAFC;" />
+         </opaqueInsets>
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
+      <TextField fx:id="txtPassword" layoutX="179.0" layoutY="181.0" prefHeight="25.0" prefWidth="114.0" promptText="PASSWORD" style="-fx-background-color: F9FAFC;">
+         <font>
+            <Font name="Corbel" size="11.0" />
+         </font></TextField>
       <Pane layoutX="14.0" layoutY="113.0" prefHeight="3.0" prefWidth="308.0" style="-fx-background-color: F9FAFC;" />
       <ImageView fitHeight="91.0" fitWidth="140.0" layoutX="179.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>

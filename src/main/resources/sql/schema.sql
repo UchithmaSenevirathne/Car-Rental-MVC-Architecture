@@ -13,7 +13,7 @@ CREATE TABLE user(
         role VARCHAR(20) NOT NULL
 );
 
-INSERT INTO user VALUES("Sadmin", "1234", "uchithma@gmail.com", "ADM");
+INSERT INTO user VALUES("Sadmin", "#000ADpw", "uchithma@gmail.com", "ADM");
 
 DESC user;
 SELECT * FROM user;

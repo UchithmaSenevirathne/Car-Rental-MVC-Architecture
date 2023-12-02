@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.dto.DriverDto;
 import lk.ijse.dto.UserDTO;
 import lk.ijse.dto.tm.CustomerTm;
@@ -88,7 +89,7 @@ public class DriverManageFormController {
         colDelete.setCellValueFactory(new PropertyValueFactory<>("DeleteButton"));
     }
 
-    private void loadAllDrivers(){
+    public void loadAllDrivers(){
 
         obList.clear();
 
@@ -145,9 +146,22 @@ public class DriverManageFormController {
 
             if(b){
                 loadAllDrivers();
-                new Alert(Alert.AlertType.CONFIRMATION, "driver deleted!").show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Alert/Confirmation.fxml"));
+
+                Parent rootNode = loader.load();
+
+                ConfirmationController confirmationController = loader.getController();
+
+                confirmationController.lblConfirm.setText("Driver deleted successfully");
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.centerOnScreen();
+                stage.show();
             }
-        }catch (SQLException e){
+        }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
@@ -283,6 +297,11 @@ public class DriverManageFormController {
         sortedData.comparatorProperty().bind(tableView.comparatorProperty());
 
         tableView.setItems(sortedData);
+    }
+
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+        loadAllDrivers();
     }
 
     @FXML
