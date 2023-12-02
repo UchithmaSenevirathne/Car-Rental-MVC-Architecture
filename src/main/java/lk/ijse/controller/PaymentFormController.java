@@ -443,4 +443,15 @@ public class PaymentFormController {
         stage.setScene(scene);
         stage.centerOnScreen();
     }
+
+    @FXML
+    void btnAdminOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/VerifySuperAdmin.fxml"));
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setTitle("Admin Form");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
 }

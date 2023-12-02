@@ -100,12 +100,12 @@
             <Font name="Corbel Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="-8.0" layoutY="393.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="182.0" style="-fx-background-color: #5758BB;" text="         REPORT" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnReportOnAction" prefHeight="22.0" prefWidth="182.0" style="-fx-background-color: #5758BB;" text="         REPORT" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <Pane layoutX="5.0" layoutY="372.0" opacity="0.19" prefHeight="3.0" prefWidth="164.0" style="-fx-background-color: f5f1f8;" />
+      <Pane layoutX="5.0" layoutY="404.0" opacity="0.19" prefHeight="3.0" prefWidth="164.0" style="-fx-background-color: f5f1f8;" />
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/dashboard.png" />
@@ -141,7 +141,7 @@
             <Image url="@../image/salary(1).png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/report.png" />
          </image>
@@ -154,6 +154,16 @@
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/logout.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="-8.0" layoutY="366.0" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="                         ADMIN MANAGE" textFill="WHITE">
+         <font>
+            <Font name="Corbel" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="36.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/admin.png" />
          </image>
       </ImageView>
    </children>

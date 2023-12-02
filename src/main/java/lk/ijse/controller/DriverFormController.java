@@ -80,7 +80,7 @@ public class DriverFormController {
                         new Alert(Alert.AlertType.CONFIRMATION, "driver updated!!").show();
                         clearFields();
                     }
-                } else if (btnDrFormBtn.getText().equals("Save")) {
+                } else if (btnDrFormBtn.getText().equals("SAVE")) {
                     boolean isSaved = model.saveDriver(driverDto, userDto);
 
                     if (isSaved) {
@@ -110,7 +110,7 @@ public class DriverFormController {
         if(!Validate.validation(contact, txtDrContact,"[0-9]{10}")){
             return false;
         }
-        if(!Validate.validation(licenseNo, txtDrLicenseNo,"[A-Z](?:\\d[- ]*){12}")){        //L123456789012
+        if(!Validate.validation(licenseNo, txtDrLicenseNo,"[A-Z](?:\\d[- ]*){5}")){        //L12345
             return false;
         }
         if(!Validate.validation(userName, txtUserName,"[A-Za-zA-Z]+")){

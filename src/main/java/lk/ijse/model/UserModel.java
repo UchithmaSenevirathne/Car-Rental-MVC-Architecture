@@ -75,7 +75,7 @@ public class UserModel {
     public List<UserDTO> getAllAdmins() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM user";
+        String sql = "SELECT * FROM user where role = 'ADM'";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         List<UserDTO> dtoList = new ArrayList<>();
@@ -137,8 +137,9 @@ public class UserModel {
             if(dto.equals(null)){
                 return false;
             }
+            return true;
         }
-        return true;
+        return false;
     }
 
     public boolean deleteAdmin(String userName) throws SQLException {
