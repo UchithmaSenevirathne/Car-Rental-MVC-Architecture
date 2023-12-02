@@ -21,14 +21,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.CarDto;
 import lk.ijse.dto.CarOutDto;
+import lk.ijse.dto.DriverInTimeDto;
 import lk.ijse.dto.tm.CarOutTM;
 import lk.ijse.dto.tm.CarTm;
+import lk.ijse.dto.tm.DriverInTimeTM;
 import lk.ijse.model.BookingModel;
 import lk.ijse.model.CarModel;
 import lk.ijse.model.CustomerModel;
+import lk.ijse.model.DriverModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -58,13 +62,55 @@ public class DashboardFormController implements Initializable{
     @FXML
     private TableView<CarOutTM> tableView;
 
+    @FXML
+    private TableColumn<?, ?> colDrName;
+
+    @FXML
+    private TableColumn<?, ?> colLoginTime;
+
+    @FXML
+    private TableView<DriverInTimeTM> tableViewLogin;
+
     public final ObservableList<CarOutTM> obListCar = FXCollections.observableArrayList();
+
+    public final ObservableList<DriverInTimeTM> obListDrLog = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setCellValueFactory();
+        setCellValueFactoryCar();
+        setCellValueFactoryLog();
         loadAllCars();
+        loadAllDrIn();
         setValuesLables();
+    }
+
+    private void loadAllDrIn() {
+        obListDrLog.clear();
+
+        var model = new DriverModel();
+
+        try {
+            String date = String.valueOf(LocalDate.now());
+
+            List<DriverInTimeDto> dtoList = model.gerDrInTime(date);
+
+            for (DriverInTimeDto dto : dtoList){
+                obListDrLog.add(
+                        new DriverInTimeTM(
+                                dto.getName(),
+                                dto.getTime()
+                        )
+                );
+            }
+            tableViewLogin.setItems(obListDrLog);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setCellValueFactoryLog() {
+        colDrName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colLoginTime.setCellValueFactory(new PropertyValueFactory<>("time"));
     }
 
     private void setValuesLables() {
@@ -109,7 +155,7 @@ public class DashboardFormController implements Initializable{
         }
     }
 
-    private void setCellValueFactory() {
+    private void setCellValueFactoryCar() {
         colCarNo.setCellValueFactory(new PropertyValueFactory<>("carNo"));
         colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("pickUpDate"));

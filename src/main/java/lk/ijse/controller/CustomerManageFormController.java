@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 public class CustomerManageFormController {
 
@@ -88,19 +89,20 @@ public class CustomerManageFormController {
                 Button updateButton = new Button("Update");
                 Button deleteButton = new Button("Delete");
 
-                /*Image imageUpdate = new Image("src/main/resources/image/update.png");
-                ImageView imageViewUpdate = new ImageView(imageUpdate);
-                updateButton.setGraphic(imageViewUpdate);
-
-                Image imageDelete = new Image("src/main/resources/image/delete.png");
-                ImageView imageViewDelete = new ImageView(imageDelete);
-                deleteButton.setGraphic(imageViewDelete);*/
-
                 updateButton.setStyle("-fx-background-color: white; -fx-text-fill: green; -fx-font-weight: bold;");
                 deleteButton.setStyle("-fx-background-color: white; -fx-text-fill: #d71010; -fx-font-weight: bold;");
 
                 updateButton.setOnAction(event -> openCustomerPopup(dto));
-                deleteButton.setOnAction(event -> deleteCustomer(dto.getId()));
+                deleteButton.setOnAction(event -> {
+                    ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                    ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                    Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+
+                    if(type.orElse(no) == yes) {
+                        deleteCustomer(dto.getId());
+                    }
+                });
                 obList.add(
                         new CustomerTm(
                                 dto.getId(),

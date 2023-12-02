@@ -9,22 +9,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="1080.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <ImageView fitHeight="650.0" fitWidth="1012.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="702.0" fitWidth="1107.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/Login.png" />
          </image>
       </ImageView>
-      <Label layoutX="694.0" layoutY="191.0" text="Sign In">
+      <Label layoutX="753.0" layoutY="193.0" text="Sign In">
          <font>
             <Font name="Corbel Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserName" layoutX="608.0" layoutY="283.0" prefHeight="25.0" prefWidth="226.0" promptText="UserName" style="-fx-background-color: white; -fx-background-radius: 10;" />
-      <Button layoutX="608.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: #5758BB; -fx-background-radius: 10;" text="SIGN IN" textFill="WHITE" />
-      <PasswordField fx:id="fieldPassword" layoutX="608.0" layoutY="328.0" prefHeight="25.0" prefWidth="226.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" />
-      <Label layoutX="753.0" layoutY="352.0" onMouseClicked="#forgotPasswordOnAction" opacity="0.56" text="Forgot Password ?">
+      <TextField fx:id="txtUserName" layoutX="667.0" layoutY="284.0" prefHeight="25.0" prefWidth="226.0" promptText="UserName" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Button layoutX="667.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: #5758BB; -fx-background-radius: 10;" text="SIGN IN" textFill="WHITE" />
+      <PasswordField fx:id="fieldPassword" layoutX="667.0" layoutY="326.0" prefHeight="25.0" prefWidth="226.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Label layoutX="811.0" layoutY="352.0" onMouseClicked="#forgotPasswordOnAction" opacity="0.56" text="Forgot Password ?">
          <font>
             <Font name="System Italic" size="10.0" />
          </font>
@@ -39,12 +39,12 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="104.0" fitWidth="81.0" layoutX="77.0" layoutY="352.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="144.0" fitWidth="101.0" layoutX="77.0" layoutY="352.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/whiteLeavesLogin.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="431.0" fitWidth="624.0" layoutX="119.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="471.0" fitWidth="497.0" layoutX="119.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/loginCar.png" />
          </image>

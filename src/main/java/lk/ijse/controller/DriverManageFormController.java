@@ -24,6 +24,7 @@ import lk.ijse.model.UserModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class DriverManageFormController {
     @FXML
@@ -104,7 +105,16 @@ public class DriverManageFormController {
                 deleteButton.setStyle("-fx-background-color: white; -fx-text-fill: #d71010; -fx-font-weight: bold;");
 
                 updateButton.setOnAction(event -> openDriverPopup(dto));
-                deleteButton.setOnAction(event -> deleteDriver(dto.getUserName())); //*********** getId()
+                deleteButton.setOnAction(event -> {
+                    ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                    ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                    Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+
+                    if(type.orElse(no) == yes) {
+                        deleteDriver(dto.getUserName());
+                    }
+                }); //*********** getId()
                 obList.add(
                         new DriverTm(
                                 dto.getId(),

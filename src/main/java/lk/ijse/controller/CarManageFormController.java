@@ -21,6 +21,7 @@ import lk.ijse.model.CustomerModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class CarManageFormController {
 
@@ -98,7 +99,16 @@ public class CarManageFormController {
                 deleteButton.setStyle("-fx-background-color: white; -fx-text-fill: #d71010; -fx-font-weight: bold;");
 
                 updateButton.setOnAction(event -> openCarPopup(dto));
-                deleteButton.setOnAction(event -> deleteCar(dto.getCarNo()));
+                deleteButton.setOnAction(event -> {
+                    ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                    ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                    Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+
+                    if(type.orElse(no) == yes) {
+                        deleteCar(dto.getCarNo());
+                    }
+                });
                 obListCar.add(
                         new CarTm(
                                 dto.getCarNo(),

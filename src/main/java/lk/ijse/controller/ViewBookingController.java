@@ -24,6 +24,7 @@ import lk.ijse.model.CarModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class ViewBookingController {
     @FXML
@@ -130,7 +131,16 @@ public class ViewBookingController {
                 deleteButton.setStyle("-fx-background-color: white; -fx-text-fill: #d71010; -fx-font-weight: bold;");
 
                 updateButton.setOnAction(event -> openUpdatePopup(dto));
-                deleteButton.setOnAction(event -> deleteBooking(dto.getBId()));
+                deleteButton.setOnAction(event -> {
+                    ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                    ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                    Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+
+                    if(type.orElse(no) == yes) {
+                        deleteBooking(dto.getBId());
+                    }
+                });
                 obListPend.add(
                         new PendingTm(
                                 dto.getBId(),

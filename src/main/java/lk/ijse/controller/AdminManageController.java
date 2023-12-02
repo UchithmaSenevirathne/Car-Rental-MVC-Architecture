@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -21,6 +18,7 @@ import lk.ijse.model.UserModel;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class AdminManageController {
     @FXML
@@ -105,7 +103,16 @@ public class AdminManageController {
 
                 deleteButton.setStyle("-fx-background-color: white; -fx-text-fill: #d71010; -fx-font-weight: bold;");
 
-                deleteButton.setOnAction(event -> deleteAdmin(dto.getUserName())); //*********** getId()
+                deleteButton.setOnAction(event -> {
+                    ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                    ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                    Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+
+                    if(type.orElse(no) == yes) {
+                        deleteAdmin(dto.getUserName());
+                    }
+                }); //*********** getId()
                 obList.add(
                         new AdminTm(
                                 dto.getUserName(),

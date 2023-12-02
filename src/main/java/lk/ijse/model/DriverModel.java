@@ -3,6 +3,7 @@ package lk.ijse.model;
 import javafx.fxml.FXMLLoader;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.DriverDto;
+import lk.ijse.dto.DriverInTimeDto;
 import lk.ijse.dto.UserDTO;
 import lk.ijse.dto.tm.CarTm;
 import lk.ijse.dto.tm.DriverTm;
@@ -208,4 +209,25 @@ public class DriverModel {
         return "D001";
     }
 
+    public List<DriverInTimeDto> gerDrInTime(String date) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT d.name,l.time FROM user u join login l on u.userName = l.userName join driver d on u.userName = d.userName where l.date = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, date);
+
+        List<DriverInTimeDto> dtoList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while (resultSet.next()){
+            String dr_name = resultSet.getString(1);
+            String in_time = resultSet.getString(2);
+
+            var dto = new DriverInTimeDto(dr_name, in_time);
+            dtoList.add(dto);
+        }
+        return dtoList;
+    }
 }

@@ -12,10 +12,10 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #5758BB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
    <children>
-      <Pane layoutX="175.0" layoutY="20.0" prefHeight="610.0" prefWidth="856.0" style="-fx-background-color: E9E9E9; -fx-background-radius: 10;">
+      <Pane layoutX="175.0" layoutY="14.0" prefHeight="619.0" prefWidth="860.0" style="-fx-background-color: E9E9E9; -fx-background-radius: 10;">
          <children>
-            <Pane layoutX="29.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #1abc9c; -fx-background-radius: 5;" />
-            <Pane layoutX="34.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
+            <Pane layoutX="44.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #1abc9c; -fx-background-radius: 5;" />
+            <Pane layoutX="48.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
                <children>
                   <Label layoutX="59.0" layoutY="13.0" text="Bookings">
                      <font>
@@ -34,8 +34,8 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="312.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #8c7ae6; -fx-background-radius: 5;" />
-            <Pane layoutX="316.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
+            <Pane layoutX="566.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #8c7ae6; -fx-background-radius: 5;" />
+            <Pane layoutX="570.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
                <children>
                   <Label layoutX="55.0" layoutY="13.0" text="Earnings">
                      <font>
@@ -54,8 +54,8 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="594.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #fd9644; -fx-background-radius: 5;" />
-            <Pane layoutX="598.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
+            <Pane layoutX="304.0" layoutY="76.0" prefHeight="65.0" prefWidth="28.0" style="-fx-background-color: #fd9644; -fx-background-radius: 5;" />
+            <Pane layoutX="308.0" layoutY="76.0" prefHeight="65.0" prefWidth="223.0" style="-fx-background-color: F9FAFC; -fx-background-radius: 5;">
                <children>
                   <Label layoutX="60.0" layoutY="11.0" text="Travellers">
                      <font>
@@ -74,19 +74,19 @@
                   </ImageView>
                </children>
             </Pane>
-            <Label layoutX="29.0" layoutY="29.0" text="DASHBOARD" textFill="#3d3e9a">
+            <Label layoutX="44.0" layoutY="29.0" text="DASHBOARD" textFill="#3d3e9a">
                <font>
                   <Font name="Corbel Bold" size="16.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="29.0" layoutY="207.0" prefHeight="383.0" prefWidth="433.0" stylesheets="@../Style/tableViewStyle.css">
+            <TableView fx:id="tableView" layoutX="29.0" layoutY="207.0" prefHeight="345.0" prefWidth="433.0" stylesheets="@../Style/tableViewStyle.css">
               <columns>
                 <TableColumn fx:id="colCarNo" prefWidth="106.0" text="CAR NO" />
                 <TableColumn fx:id="colBrand" prefWidth="160.0" text="BRAND" />
                   <TableColumn fx:id="colDate" prefWidth="165.0" text="PICKUP DATE" />
               </columns>
             </TableView>
-            <Pane layoutX="29.0" layoutY="179.0" prefHeight="28.0" prefWidth="433.0" style="-fx-background-color: F9FAFC;">
+            <Pane layoutX="29.0" layoutY="185.0" prefHeight="22.0" prefWidth="433.0" style="-fx-background-color: F9FAFC;">
                <children>
                   <Label layoutX="4.0" layoutY="7.0" text="CARS OUT">
                      <font>
@@ -95,9 +95,24 @@
                   </Label>
                </children>
             </Pane>
-            <ImageView fitHeight="518.0" fitWidth="353.0" layoutX="476.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+            <TableView fx:id="tableViewLogin" layoutX="487.0" layoutY="420.0" prefHeight="132.0" prefWidth="336.0" stylesheets="@../Style/tableViewStyle.css">
+              <columns>
+                <TableColumn fx:id="colDrName" prefWidth="194.0" text="DRIVER NAME" />
+                <TableColumn fx:id="colLoginTime" prefWidth="141.0" text="IN TIME" />
+              </columns>
+            </TableView>
+            <Pane layoutX="487.0" layoutY="398.0" prefHeight="22.0" prefWidth="336.0" style="-fx-background-color: F9FAFC;">
+               <children>
+                  <Label layoutX="4.0" layoutY="7.0" text="DRIVER IN TIME">
+                     <font>
+                        <Font name="Corbel Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="241.0" fitWidth="336.0" layoutX="469.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/dashIllust.png" />
+                  <Image url="@../image/dashIllus.png" />
                </image>
             </ImageView>
          </children></Pane>
@@ -192,12 +207,12 @@
             <Image url="@../image/report.png" />
          </image>
       </ImageView>
-      <Button layoutX="-8.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="     Logout" textFill="WHITE">
+      <Button layoutX="-8.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="22.0" prefWidth="183.0" style="-fx-background-color: #5758BB;" text="     Logout" textFill="WHITE">
          <font>
             <Font name="Corbel" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="611.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="38.0" layoutY="614.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/logout.png" />
          </image>

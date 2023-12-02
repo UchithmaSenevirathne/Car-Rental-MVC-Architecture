@@ -11,8 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import lk.ijse.Validation.Validate;
 import lk.ijse.dto.ScheduleDTO;
 import lk.ijse.model.ScheduleModel;
 import lk.ijse.model.UserModel;
