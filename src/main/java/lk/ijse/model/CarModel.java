@@ -116,15 +116,11 @@ public class CarModel {
     public boolean updateAvailable(String carID) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE car SET availability = 'NO' WHERE carNo = ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        PreparedStatement pstm = connection.prepareStatement("UPDATE car SET availability = 'NO' WHERE carNo = ?");
+
         pstm.setString(1, carID);
 
-        boolean isUpdate = pstm.executeUpdate() > 0;
-
-        System.out.println("car update "+ isUpdate);
-
-        return isUpdate;
+        return pstm.executeUpdate() > 0;
     }
 
     public boolean updateAvailableYes(String bId) throws SQLException {

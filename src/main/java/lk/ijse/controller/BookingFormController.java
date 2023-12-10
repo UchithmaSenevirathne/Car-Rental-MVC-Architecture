@@ -102,14 +102,7 @@ public class BookingFormController {
     @FXML
     private Pane subAnchorPane;
 
-    @FXML
-    private TextField txtSearchCar;
-
-    @FXML
-    private TextField txtSearchCus;
-
     private final MakeBookingModel makeBookingModel = new MakeBookingModel();
-    private final CarManageFormController carManageFormController = new CarManageFormController();
 
     public void initialize() {
         setCellValueFactory();
@@ -226,8 +219,6 @@ public class BookingFormController {
     @FXML
     void btnConfirmRentOnAction(ActionEvent event) {
         String bId = lblBookingId.getText();
-        //LocalDate localDate = datepickerDate.getValue();
-        //Date pickUpDate = java.sql.Date.valueOf(localDate);
         String pickUpDate = String.valueOf(datepickerDate.getValue());
         int days = Integer.parseInt(txtDays.getText());
         String status = "Pending";

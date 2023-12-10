@@ -26,7 +26,7 @@
             <TableColumn fx:id="colDeletePending" prefWidth="89.0" text="DELETE" />
         </columns>
       </TableView>
-      <TableView fx:id="tableCompl" layoutX="21.0" layoutY="356.0" prefHeight="214.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
+      <TableView fx:id="tableCompl" layoutX="21.0" layoutY="356.0" prefHeight="239.0" prefWidth="817.0" stylesheets="@../Style/tableViewStyle.css">
          <columns>
             <TableColumn fx:id="colBIdCom" prefWidth="126.0" text="RENT ID" />
             <TableColumn fx:id="colCusIdCom" prefWidth="164.0" text="CUS ID" />
@@ -55,16 +55,6 @@
             <Font size="11.0" />
          </font>
       </TextField>
-      <Button layoutX="758.0" layoutY="573.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #5758bb;" text="      Back" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="765.0" layoutY="575.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/back.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="21.0" layoutY="261.0" prefHeight="33.0" prefWidth="817.0" style="-fx-background-color: white;">
          <children>
             <Button layoutX="677.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: white;" text="Refresh Table" textFill="#3d3e9a">
