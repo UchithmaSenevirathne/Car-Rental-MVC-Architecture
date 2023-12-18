@@ -1,6 +1,7 @@
 # CarRentalService-Apex-Auto-Rental
 
-### Test Final Project Using OOP and JDBC
+### Final Project Using OOP and JDBC
+### Organized with layered Architecture
 
 ### Using
 	###java
