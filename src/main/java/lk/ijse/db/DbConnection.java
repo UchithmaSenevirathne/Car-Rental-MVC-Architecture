@@ -12,7 +12,7 @@ public class DbConnection {
         connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/apexAutoRental",
                 "root",
-                "ijse@12345678"
+                "1234"
         );
     }
 
